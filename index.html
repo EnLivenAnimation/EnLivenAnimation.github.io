@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <title>Hello World</title>
 </head>
+<script src="pixi/pixi.min.js"></script>
 
 <body>
-    <h1>EnLivenAnimation Website</h1>
+    <script type="text/javascript">
+        let type = "WebGL"
+        if (!PIXI.utils.isWebGLSupported()) {
+            type = "canvas"
+        }
 
-    <script src="main.js"></script>
+        PIXI.utils.sayHello(type)
+    </script>
 </body>
 
 </html>
