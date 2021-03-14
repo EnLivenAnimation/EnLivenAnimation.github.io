@@ -40,12 +40,11 @@ function setup() {
 
   for (let i = 5; i >= 0; i--){
       createBunny(stuff[i][0], stuff[i][1], stuff[i][2], stuff[i][3], stuff2[i]);
-      let cat = createBunny(stuff[i][0], stuff[i][1], stuff[i][2], stuff[i][3], stuff2[i+1])
     }
 }
 const texture23 = PIXI.Texture.from('images/09.png');
 const texture223 = PIXI.Texture.from('images/bone.jpg');
-//let cat = new PIXI.Sprite(texture23);
+let cat = new PIXI.Sprite(texture23);
 let cat1 = new PIXI.Sprite(texture223);
 function display(x, y, w, h, tex){
     rectangle = new Rectangle(x,y,w,h);
@@ -60,13 +59,12 @@ function display(x, y, w, h, tex){
     part.y = y;
   }
 let a = true;
-function createBunny(x, y, w, h, tex){
+function createBunny(x, y, w, h, tex) {
     rectangle = new Rectangle(x,y,w,h);
   
     tex.frame = rectangle;
   
     let bunny = new Sprite(tex);
-    let cat = new Sprite(tex);
   
     app.stage.addChild(bunny);
   
@@ -74,7 +72,8 @@ function createBunny(x, y, w, h, tex){
     bunny.y = y;
     bunny.addChild(cat);
 
-    cat.interactive = true; 
+
+    cat.interactive = true;
     cat.buttonMode = true;
     cat.anchor.set(0.5)
     bunny.interactive = true;
@@ -94,7 +93,7 @@ function createBunny(x, y, w, h, tex){
         .on('pointerdown', onDragStart1)
         .on('pointerup', onDragEnd1)
         .on('pointerupoutside', onDragEnd1)
-        .on('pointermove', onDragMove1);
+        .on('pointermove', onDragMove2);
 
     // For mouse-only events
     // .on('mousedown', onDragStart)
@@ -139,7 +138,7 @@ function onDragEnd1() {
     this.data = null;
     a = true;
 }
-function onDragMove() {
+function onDragMove2() {
     if (this.dragging) {
         const newPosition2 = this.data.getLocalPosition(this.parent);
         this.x = newPosition2.x;
@@ -149,12 +148,11 @@ function onDragMove() {
 }
 
 function onDragMove() {
-    if (a)
-    {
+    if (a){
     if (this.dragging) {
         const newPosition = this.data.getLocalPosition(this.parent);
         this.x = newPosition.x;
         this.y = newPosition.y;
     }
-    }
+}
 }
