@@ -17,24 +17,24 @@ document.body.appendChild(app.view);
 
 
 loader
-  .add("images/justin-sheet.png")
-  .add("images/bone.jpg")
+  .add("res/img/justin-sheet.png")
+  .add("res/img/circle.png")
   .load(setup);
 
 let texture, texture2, sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h, a;
 
 function setup() {
     var stuff = [212,320,83,266];
-    let tmp = PIXI.Texture.from("images/justin-sheet.png");
-    let texture2 = PIXI.Texture.from("images/bone.jpg");
-    let texture3 = PIXI.Texture.from("images/bone.jpg");
-    let texture4 = PIXI.Texture.from("images/bone.jpg");
-    let texture5 = PIXI.Texture.from("images/bone.jpg");
-    let texture6 = PIXI.Texture.from("images/bone.jpg");
-    let texture7 = PIXI.Texture.from("images/bone.jpg");
-    let texture8 = PIXI.Texture.from("images/bone.jpg");
-    let texture9 = PIXI.Texture.from("images/bone.jpg");
-    let texture10 = PIXI.Texture.from("images/bone.jpg");
+    let tmp = PIXI.Texture.from("res/img/justin-sheet.png");
+    let texture2 = PIXI.Texture.from("res/img/circle.png");
+    let texture3 = PIXI.Texture.from("res/img/circle.png");
+    let texture4 = PIXI.Texture.from("res/img/circle.png");
+    let texture5 = PIXI.Texture.from("res/img/circle.png");
+    let texture6 = PIXI.Texture.from("res/img/circle.png");
+    let texture7 = PIXI.Texture.from("res/img/circle.png");
+    let texture8 = PIXI.Texture.from("res/img/circle.png");
+    let texture9 = PIXI.Texture.from("res/img/circle.png");
+    let texture10 = PIXI.Texture.from("res/img/circle.png");
 
     x = stuff[0];
     y = stuff[1];
@@ -90,8 +90,6 @@ function setup() {
   
     sprite.interactive = true;
     sprite.buttonMode = true;
-    // sprite.on('mousedown',disableButtons);
-    // sprite.on('touchstart', disableButtons);
     sprite.anchor.set(0.5);
     sprite.scale.set(1);
     app.stage.addChild(button);
@@ -104,16 +102,6 @@ function setup() {
     app.stage.addChild(button8);
     app.stage.addChild(button9);
     
-    // button.alpha = 0;
-    // button2.alpha = 0;
-    // button3.alpha = 0;
-    // button4.alpha = 0;
-    // button5.alpha = 0;
-    // button6.alpha = 0;
-    // button7.alpha = 0;
-    // button8.alpha = 0;
-    // button9.alpha = 0;
-
 
     button.scale.set(0.01);
     button.interactive = true;
@@ -160,17 +148,59 @@ function setup() {
     button9.buttonMode = true;
     button9.anchor.set(0.5);
 
-//     function enableButtons(eventData){
-//         button.alpha = 1;
-//         button2.alpha = 1;
-//         button3.alpha = 1;
-//         button4.alpha = 1;
-//         button5.alpha = 1;
-//         button6.alpha = 1;
-//         button7.alpha = 1;
-//         button8.alpha = 1;
-//         button9.alpha = 1;      
-// }
+    sprite
+      .on('pointerdown', onDragStart)
+      .on('pointerup', onDragEnd)
+      .on('pointerupoutside', onDragEnd)
+      .on('pointermove', onDragMove)
+
+    button
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B1);
+    button2
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B2);
+    button3
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B3);
+    button4
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B4);
+    button5
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B5);
+    button6
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B6);
+    button7
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B7);
+    button8
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B8);
+    button9
+      .on('pointerdown', onDragStart1)
+      .on('pointerup', onDragEnd1)
+      .on('pointerupoutside', onDragEnd1)
+      .on('pointermove', B9);
+
+}
 
 {
 function B1(){
@@ -364,7 +394,7 @@ function B8(){
         }
     }
 }
-
+}
 function B9(){
     if (this.dragging) {
         let newPosition3 = this.data.getLocalPosition(this.parent);
@@ -468,5 +498,4 @@ function onDragEnd1() {
     this.data = null;
     a = true;
 }
-}
-}
+
