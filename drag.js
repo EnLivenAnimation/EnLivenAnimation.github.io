@@ -22,15 +22,20 @@ function onDragMove() {
     }
 }
 
+timeline = [];
+
 function onDragEnd1() {
     this.alpha = 1;
     this.dragging = false;
     // set the interaction data to null
     this.data = null;
 
-    console.log(this.x);
-    console.log(this.y);
-    console.log(this.width);
-    console.log(this.height);
-    console.log(this.rotation);
+    timeline.push([this.x, this.y, this.width, this.height, this.rotation]);
+    // console.log(this.x);
+    // console.log(this.y);
+    // console.log(this.width);
+    // console.log(this.height);
+    // console.log(this.rotation);
+    console.table(timeline);
+    // console.log("as");
 }
