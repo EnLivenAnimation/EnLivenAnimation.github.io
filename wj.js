@@ -17,24 +17,24 @@ document.body.appendChild(app.view);
 
 
 loader
-  .add("res/img/justin-sheet.png")
-  .add("res/img/circle.png")
-  .load(setup);
+.add("images/justin-sheet.png")
+.add("images/bone.jpg")
+.load(setup);
 
 let texture, texture2, sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h, a;
 
 function setup() {
     var stuff = [212,320,83,266];
-    let tmp = PIXI.Texture.from("res/img/justin-sheet.png");
-    let texture2 = PIXI.Texture.from("res/img/circle.png");
-    let texture3 = PIXI.Texture.from("res/img/circle.png");
-    let texture4 = PIXI.Texture.from("res/img/circle.png");
-    let texture5 = PIXI.Texture.from("res/img/circle.png");
-    let texture6 = PIXI.Texture.from("res/img/circle.png");
-    let texture7 = PIXI.Texture.from("res/img/circle.png");
-    let texture8 = PIXI.Texture.from("res/img/circle.png");
-    let texture9 = PIXI.Texture.from("res/img/circle.png");
-    let texture10 = PIXI.Texture.from("res/img/circle.png");
+    let tmp = PIXI.Texture.from("images/justin-sheet.png");
+    let texture2 = PIXI.Texture.from("images/bone.jpg");
+    let texture3 = PIXI.Texture.from("images/bone.jpg");
+    let texture4 = PIXI.Texture.from("images/bone.jpg");
+    let texture5 = PIXI.Texture.from("images/bone.jpg");
+    let texture6 = PIXI.Texture.from("images/bone.jpg");
+    let texture7 = PIXI.Texture.from("images/bone.jpg");
+    let texture8 = PIXI.Texture.from("images/bone.jpg");
+    let texture9 = PIXI.Texture.from("images/bone.jpg");
+    let texture10 = PIXI.Texture.from("images/bone.jpg");
 
     x = stuff[0];
     y = stuff[1];
@@ -45,11 +45,20 @@ function setup() {
 
     let crop = new Rectangle(x,y,w,h);
     tmp.frame = crop;
+    const texture23 = PIXI.Texture.from('images/09.png');
+    var background = new PIXI.Sprite(texture23);
+    background.width = app.screen.width;
+    background.height = app.screen.height;
+    background.alpha = 0;
+    background.interactive = true;
+    background.on('click',disableButtons);
     sprite = new Sprite(tmp);
+    sprite1 = new Sprite(tmp);
+    app.stage.addChild(background);
     app.stage.addChild(sprite);
     sprite.x = x;
     sprite.y = y;
-
+    
     button = new Sprite(texture2);
     button2 = new Sprite(texture3);
     button3 = new Sprite(texture4);
@@ -87,7 +96,6 @@ function setup() {
     button9.position.set(x, y);
     button9.x += 0;
     button9.y += -h/2-30;
-  
     sprite.interactive = true;
     sprite.buttonMode = true;
     sprite.anchor.set(0.5);
@@ -102,6 +110,7 @@ function setup() {
     app.stage.addChild(button8);
     app.stage.addChild(button9);
     
+   
 
     button.scale.set(0.01);
     button.interactive = true;
@@ -147,13 +156,24 @@ function setup() {
     button9.interactive = true;
     button9.buttonMode = true;
     button9.anchor.set(0.5);
+    button.alpha = 0;
+    button2.alpha = 0;
+    button3.alpha = 0;
+    button4.alpha = 0;
+    button5.alpha = 0;
+    button6.alpha = 0;
+    button7.alpha = 0;
+    button8.alpha = 0;
+    button9.alpha = 0;
 
+    //sprite.on('mouseup',disableButtons);
     sprite
       .on('pointerdown', onDragStart)
       .on('pointerup', onDragEnd)
       .on('pointerupoutside', onDragEnd)
       .on('pointermove', onDragMove)
-
+      .on('click',enableButtons);
+    
     button
       .on('pointerdown', onDragStart1)
       .on('pointerup', onDragEnd1)
@@ -201,7 +221,46 @@ function setup() {
       .on('pointermove', B9);
 
 }
-
+function enableButtons(eventData){
+    button.alpha = 1;
+    button2.alpha = 1;
+    button3.alpha = 1;
+    button4.alpha = 1;
+    button5.alpha = 1;
+    button6.alpha = 1;
+    button7.alpha = 1;
+    button8.alpha = 1;
+    button9.alpha = 1;   
+    button.interactive = true;
+    button2.interactive = true;
+    button3.interactive = true; 
+    button4.interactive = true;
+    button5.interactive = true;
+    button6.interactive = true;
+    button7.interactive = true;
+    button8.interactive = true;
+    button9.interactive = true;   
+    }
+function disableButtons(eventData){
+    button.alpha = 0;
+    button2.alpha = 0;
+    button3.alpha = 0;
+    button4.alpha = 0;
+    button5.alpha = 0;
+    button6.alpha = 0;
+    button7.alpha = 0;
+    button8.alpha = 0;
+    button9.alpha = 0;
+    button.interactive = false;
+    button2.interactive = false;
+    button3.interactive = false; 
+    button4.interactive = false;
+    button5.interactive = false;
+    button6.interactive = false;
+    button7.interactive = false;
+    button8.interactive = false;
+    button9.interactive = false; 
+}
 {
 function B1(){
     if (this.dragging) {
@@ -227,7 +286,13 @@ function B1(){
         }
     }
 }
-
+const viewport = app.stage.addChild(new Viewport.Viewport({ screenWidth: app.view.offsetWidth, screenHeight: app.view.offsetHeight }))
+viewport
+    .moveCenter(5000, 5000)
+    .drag()
+    .pinch()
+    .decelerate()
+    .wheel()
 function B2(){
     if (this.dragging) {
         let newPosition2 = this.data.getLocalPosition(this.parent);
