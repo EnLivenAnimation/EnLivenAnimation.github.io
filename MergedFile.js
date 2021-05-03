@@ -1,4 +1,3 @@
-//Aliases
 let Application = PIXI.Application,
     Container = PIXI.Container,
     loader = PIXI.loader,
@@ -33,16 +32,20 @@ loader
 
 function setup(){
     let textureJ = PIXI.Texture.from("images/09.png");
-    const texture23 = PIXI.Texture.from('images/09.png');
+    const BackgroundTexture = PIXI.Texture.from('images/09.png');
+    var background = new PIXI.Sprite(BackgroundTexture);
+    background.width = app.screen.width;
+    background.height = app.screen.height;
+    background.alpha = 0;
+    background.interactive = true;
+    background.on('click',disableButtons);
+    app.stage.addChild(background);
     playButton = displayNonSprites(textureJ, 100, 300, 0.6);
-
     playButton
       .on('pointerdown', PStart)
       .on('pointerup', Playing)
-      .on('pointerupoutside', Playing)
-      
+      .on('pointerupoutside', Playing)    
     let texture2 = PIXI.Texture.from("images/bone.jpg");
-
     addButton = displayNonSprites(texture2, 100, 400, 0.08);
     addButton
         .on('pointerdown', PStart)
@@ -55,32 +58,15 @@ function setup(){
         .on('pointerdown', PStart)
         .on('pointerup', removeKF)
         .on('pointerupoutside', removeKF)
-
     pickButton = displayNonSprites(texture2, 100, 100, 0.08);
     pickButton.tint = 0xdddddd;
     pickButton
         .on('pointerdown', PStart)
         .on('pointerup', pickKF)
         .on('pointerupoutside', pickKF)
-    PurpleButton = displaySprite(texture2, 400, 400, 0.08, 0xcc00cc);
-    YellowButton = new Sprite(texture23);
     BlueButton = displaySprite(texture2, 500, 250, 0.1, 0x0000ee);
-    // var background = new PIXI.Sprite(texture23);
-    // background.width = app.screen.width;
-    // background.height = app.screen.height;
-    // background.alpha = 0;
-    // background.interactive = true;
-    // background.on('click',disableButtons);
-    // app.stage.addChild(background);
-
-    app.stage.addChild(YellowButton);
-    YellowButton.x = x;
-    YellowButton.y = y;
-    
-    YellowButton.interactive = true;
-    YellowButton.buttonMode = true;
-    YellowButton.anchor.set(0.5);
-    YellowButton.scale.set(0.13);
+    PurpleButton = displaySprite(texture2, 400, 400, 0.08, 0xcc00cc);
+  
 }
 {
 function pickKF(){
@@ -117,12 +103,15 @@ function addKF(){
     }
     this.alpha = 1;
 }
+
 }
 
-function displaySprite(texture, x, y, scale, tint,SpriteW,SpriteH){
+function displaySprite(texture, x, y, scale, tint){
     DisplayedSprite = new Sprite(texture);
     DisplayedSprite.x = x;
     DisplayedSprite.y = y;
+    DisplayedSprite.originalWidth = DisplayedSprite.width;
+    DisplayedSprite.originalHeight = DisplayedSprite.height;
     DisplayedSprite.scale.set(scale);
     DisplayedSprite.d = [0, 0, 0, 0, 0];
     DisplayedSprite.interactive = true;
@@ -134,7 +123,8 @@ function displaySprite(texture, x, y, scale, tint,SpriteW,SpriteH){
       .on('pointerdown', onDragStart1)
       .on('pointerup', onDragEnd1)
       .on('pointerupoutside', onDragEnd1)
-      .on('pointermove', onDragMove);
+      .on('pointermove', onDragMove)
+      .on('click', enableButtons);
 
     app.stage.addChild(DisplayedSprite);
     allSprites.push(DisplayedSprite);
@@ -142,51 +132,61 @@ function displaySprite(texture, x, y, scale, tint,SpriteW,SpriteH){
     y = y;
     w = DisplayedSprite.width;
     h = DisplayedSprite.height;
+
+
     let Buttontexture = PIXI.Texture.from("images/bone.jpg");
-    button =  new Sprite(Buttontexture);
-    button2 = new Sprite(Buttontexture);
-    button3 = new Sprite(Buttontexture);
-    button4 = new Sprite(Buttontexture);
-    button5 = new Sprite(Buttontexture);
-    button6 = new Sprite(Buttontexture);
-    button7 = new Sprite(Buttontexture);
-    button8 = new Sprite(Buttontexture);
-    button9 = new Sprite(Buttontexture);
-    let ButtonArray = {
-        button,button2,button3,button4,button5,button6,button7,button8,button9
-    };
-    for (i in ButtonArray){
-        ButtonArray[i].scale.set(0.01);
-        ButtonArray[i].interactive = true;
-        ButtonArray[i].buttonMode = true;
-        ButtonArray[i].anchor.set(0.5);
-        ButtonArray[i].position.set(x,y);
-    }
-    button.x += -w/2;
-    button.y += -h/2;
-    button2.x += 0;
-    button2.y += -h/2;
-    button3.x += w/2;
-    button3.y += -h/2;
-    button4.x += w/2;
-    button4.y += 0;
-    button5.x += w/2;
-    button5.y += h/2;
-    button6.x += 0;
-    button6.y += h/2;
-    button7.x += -w/2;
-    button7.y += h/2;
-    button8.x += -w/2;
-    button8.y += 0;
-    button9.x += 0;
-    button9.y += -h/2-30;
+    button1 =  new Sprite(Buttontexture);
+    button2 =  new Sprite(Buttontexture);
+    button3 =  new Sprite(Buttontexture);
+    button4 =  new Sprite(Buttontexture);
+    button5 =  new Sprite(Buttontexture);
+    button6 =  new Sprite(Buttontexture);
+    button7 =  new Sprite(Buttontexture);
+    button8 =  new Sprite(Buttontexture);
+    buttonR =  new Sprite(Buttontexture);
+
+    DisplayedSprite.buttonArray = [button1, button2, button3, button4, button5, button6, button7, button8, buttonR];
+
+    let m = DisplayedSprite.originalWidth/2;
+    let n = DisplayedSprite.originalHeight/2;
+    xs = [-m, 0, m, m, m, 0, -m, -m, 0];
+    ys = [-n, -n, -n, 0, n, n, n, 0, -1.2*n];
     
-    for (i in ButtonArray){
-        app.stage.addChild(ButtonArray[i]);
+    for (i in DisplayedSprite.buttonArray){
+        currButton = DisplayedSprite.buttonArray[i];
+        currButton.scale.set(0.1);
+        DisplayedSprite.addChild(currButton);
+        currButton.anchor.set(0.5);
+        currButton.interactive = true;
+        currButton.buttonMode = true;
+        currButton.scale.set(10/DisplayedSprite.width);
+        // currButton.width = 10/DisplayedSprite.width;
+        // currButton.height = 10/DisplayedSprite.height;
+        currButton.x = xs[i];
+        currButton.y = ys[i];
     }
+
     return DisplayedSprite;
 }
 
+function enableButtons(eventData){
+    for (i in this.buttonArray){
+        currButton = this.buttonArray[i];
+        currButton.alpha = 1;
+        currButton.interactive = true;
+    }
+}
+
+function disableButtons(eventData){
+    for (i in allSprites){
+        sprit = allSprites[i];
+        for (j in sprit.buttonArray){
+            currButton = sprit.buttonArray[j];
+            currButton.alpha = 0;
+            currButton.interactive = false;
+        }
+    }
+}
 // function createButtons(){
 //     button = new Sprite(texture2);
 //     button.scale.set(100);
@@ -208,10 +208,13 @@ function displayNonSprites(texture, x, y, scale){
     sprit.buttonMode = true;
     sprit.anchor.set(0.5);
     // sprit.timeline = [];
-
     app.stage.addChild(sprit);
     return sprit;
 }
+
+
+
+
 let parentMoving = false;
 {
     function onDragStart1(event) {
@@ -237,6 +240,7 @@ let parentMoving = false;
         this.alpha = 1;
         this.dragging = false;
         this.data = null;
+        parentMoving = true;
         // console.table(this.timeline);
     }
     function onDragMove() {
@@ -323,4 +327,3 @@ function Playing() {
         playKF();
     }
 }
-
