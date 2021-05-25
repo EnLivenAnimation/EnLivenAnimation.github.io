@@ -104,9 +104,9 @@ function loadKeyframe(keyframe) {
 function updateActiveButton(keyframe) {
     const elements = document.getElementById("timeline-keyframes").children;
     for (let i = 0; i < elements.length; i ++) {
-        elements[i].setAttribute("style", "background-color: darkgrey;");
+        elements[i].setAttribute("class", "inactive-keyframe");
     }
-    document.getElementById(`timeline-frame-${keyframe}`).setAttribute("style", "background-color: red;");
+    document.getElementById(`timeline-frame-${keyframe}`).setAttribute("class", "active-keyframe");
 }
 
 function deleteKeyframe() {

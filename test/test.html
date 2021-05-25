@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="test.css">
+    <script src="test.js" async></script>
 </head>
 <body>
-    <label id="slider-label" for="slider">TWEENS</label>
-    <input id="slider" type="range" name="slider" min="0" max="30" value="20">
-    <script src="test.js"></script>
+    <div class="dropdown">
+      <button onclick="myFunction(1)" class="dropbtn">File</button>
+      <div id="myDropdown1" class="dropdown-content">
+        <a href="#NewFile">NewFile</a>
+        <a href="#SaveAs">Save As</a>
+        <a href="#Export">Export</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction(2)" class="dropbtn">Edit</button>
+      <div id="myDropdown2" class="dropdown-content">
+        <a href="#Undo">Undo</a>
+        <a href="#Redo">Redo</a>
+        <a href="#Cut">Cut</a>
+        <a href="#Copy">Copy</a>
+        <a href="#Paste">Paste</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button onclick="myFunction(3)" class="dropbtn">View</button>
+      <div id="myDropdown3" class="dropdown-content">
+        <a href="#fullscreen">Full Screen</a>
+        <a href="#run">Run</a>
+        <a href="#Pause">Pause</a>
+      </div>
+    </div>
 </body>
 </html>

@@ -10,6 +10,7 @@
 
   <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
   <script src="scripts/pixi/pixi.min.js"></script>
+  <script src="scripts/navbar.js"></script>
   <script src="scripts/display.js" async></script>
   <script src="scripts/buttons.js" async></script>
   <script src="scripts/timeline.js" async></script>
@@ -18,10 +19,37 @@
 <body>
   <div id="grid">
     <div id="navbar">
-      <a id="home" href="#home"><i class="fas fa-leaf"></i></a>
+      <a id="home" href="#home" class="navbar-button"><i class="fas fa-leaf"></i></a>
+      <div class="dropdown">
+        <button onclick="myFunction('file-dropdown')" class="navbar-button">File</button>
+        <div id="file-dropdown" class="dropdown-content">
+          <a href="#new-file">New File</a>
+          <a href="#save">Save</a>
+          <a href="#import">Import</a>
+          <a href="#export">Export</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="myFunction('edit-dropdown')" class="navbar-button">Edit</button>
+        <div id="edit-dropdown" class="dropdown-content">
+          <a href="#undo">Undo</a>
+          <a href="#redo">Redo</a>
+          <a href="#cut">Cut</a>
+          <a href="#copy">Copy</a>
+          <a href="#paste">Paste</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="myFunction('view-dropdown')" class="navbar-button">View</button>
+        <div id="view-dropdown" class="dropdown-content">
+          <a href="#fullscreen">Full Screen</a>
+          <a href="#play">Play</a>
+          <a href="#pause">Pause</a>
+        </div>
+      </div>
     </div>
 
-    <div id="middle">
+    <div id="center">
       <div id="relations" class="panel">
       </div>
       <div id="canvas">
@@ -33,12 +61,12 @@
     <div id="timeline" class=panel>
       <div id="timeline-buttons">
         <button id="play" type="button" onclick="play();"><i class="fas fa-play"></i></button>
+        <button id="add" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button> 
         <span></span>
         <div id="slider-container">
           <label id="slider-label" for="slider">TWEENS</label>
           <input id="slider" type="range" name="slider" min="0" max="30" value="20">
         </div>
-        <button id="add" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button> 
       </div>
       <div id="timeline-keyframes"></div>
     </div>
