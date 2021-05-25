@@ -1,19 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>EnLiven Animation</title>
-    <script src="pixi/pixi.min.js"></script>  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/style.css">
+  <title>EnLiven</title>
+  <link rel="shortcut icon" type="image/jpg" href="res/icons/favicon.ico"/>
+
+  <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
+  <script src="scripts/pixi/pixi.min.js"></script>
+  <script src="scripts/display.js" async></script>
+  <script src="scripts/buttons.js" async></script>
+  <script src="scripts/timeline.js" async></script>
+  <script src="scripts/main.js" async></script>
 </head>
 <body>
-    <h1>EnLiven Animation</h1>
+  <div id="grid">
+    <div id="navbar">
+      <a id="home" href="#home"><i class="fas fa-leaf"></i></a>
+    </div>
 
-    <script src="input.js"></script>
-    <script src="drag.js"></script>
-    <script src="toggle.js"></script>
-    <script src="display.js"></script>
-    <script src="main.js"></script>
-    <!-- <script src="tmp.js"></script> -->
-    <!-- <script src="timeline.js"></script> -->
+    <div id="middle">
+      <div id="relations" class="panel">
+      </div>
+      <div id="canvas">
+      </div>
+      <div id="properties" class="panel">
+      </div>
+    </div>
+    
+    <div id="timeline" class=panel>
+      <div id="timeline-buttons">
+        <button id="play" type="button" onclick="play();"><i class="fas fa-play"></i></button>
+        <span></span>
+        <div id="slider-container">
+          <label id="slider-label" for="slider">TWEENS</label>
+          <input id="slider" type="range" name="slider" min="0" max="30" value="20">
+        </div>
+        <button id="add" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button> 
+      </div>
+      <div id="timeline-keyframes"></div>
+    </div>
+  </div>
 </body>
 </html>

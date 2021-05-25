@@ -1,0 +1,125 @@
+:root {
+  --main-bg-color: lightgrey;
+  --alt-bg-color: darkgrey;
+  --main-fg-color: white;
+  --light-accent-color: lightgreen;
+  --dark-accent-color: darkgreen;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--main-fg-color);
+}
+  
+#grid {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 10fr 1fr;
+  gap: 10px;
+}
+  
+#middle {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+  
+#navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 40fr;
+  background-color: var(--light-accent-color);
+}
+
+#navbar a {
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 14px 16px;
+}
+  
+#navbar a:hover {
+  background-color: var(--dark-accent-color);
+}
+
+#home {
+  background-color: var(--dark-accent-color);
+}
+
+#relations {
+  border-radius: 10px;
+  background-color: var(--main-bg-color);
+}
+
+#canvas {
+  background-color: var(--main-fg-color);
+}
+
+#properties {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--main-bg-color);
+}
+
+#properties div {
+  background-color: var(--alt-bg-color);
+}
+
+#timeline {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  gap: 10px;
+  border-radius: 10px;
+  margin: 0px 10px 10px 10px;
+  background-color: var(--main-bg-color);
+}
+
+#timeline-buttons {
+  display: grid;
+  grid-template-columns: auto 10fr auto auto;
+  gap: 10px;
+  margin: 10px 10px 0px 10px;
+}
+
+#timeline-buttons button {
+  border: solid var(--alt-bg-color);
+  border-radius: 7px;
+  transition-duration: 0.2s;
+  background-color: var(--alt-bg-color);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#timeline-buttons button:hover {
+  background-color: var(--main-bg-color);
+}
+
+#slider-container {
+  border: solid var(--alt-bg-color);
+  border-radius: 7px;
+  transition-duration: 0.2s;
+  background-color: var(--alt-bg-color);
+}
+
+#timeline-keyframes {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.timeline-frame {
+  border: solid var(--alt-bg-color);
+  background-color: var(--alt-bg-color);;
+  height: 100%;
+  width: 20px;
+  margin-left: 10px;
+}
+
+.timeline-frame:hover {
+  background-color: var(--main-bg-color);;
+}
