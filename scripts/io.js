@@ -21,7 +21,7 @@ function exportTL(){
     this.alpha = 1;
     
 }
-let fileText = "sad68sad";
+let fileText = "sad6.8sad35sad";
 function readFile() {
     let input = document.querySelector('input');
 
@@ -42,12 +42,29 @@ function readFile() {
         reader.readAsText(file);
         b = parse(fileText);
         console.log(b);
+        console.log(allSprites);
+        implementTL(b);
     });
 }
 readFile();
 
+function implementTL(arr){
+    var index = 0;
+    let keyframes = arr.length / 5 / allSprites.length;
+    console.log(keyframes);
+    for (i in allSprites){
+        sprite = allSprites[i];
+        sprite.timeline = [];
+        for (j = 0; j < keyframes; j++){
+            sprite.timeline.push([arr[index], arr[index+1], arr[index+2], arr[index+3], arr[index+4]]);
+            index+= 5;
+        }
+        console.log(sprite.timeline);
+    }
+}
+
 function parse(s) {
-    const regex = /\d+/g;
+    const regex = /-?((\d+)((\.\d*)?))/g;
     let tmp = s.match(regex);
     for (i in tmp){
         tmp[i] = parseFloat(tmp[i]);

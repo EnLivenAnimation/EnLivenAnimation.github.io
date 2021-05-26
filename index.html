@@ -10,10 +10,13 @@
 
   <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
   <script src="scripts/pixi/pixi.min.js"></script>
-  <script src="scripts/navbar.js"></script>
+  <script src="scripts/navbar.js" async></script>
   <script src="scripts/display.js" async></script>
   <script src="scripts/buttons.js" async></script>
   <script src="scripts/timeline.js" async></script>
+  <script src="scripts/properties.js" async></script>
+  <script src="scripts/input.js" async></script>\
+  <script src="scripts/treeview.js" async></script>
   <script src="scripts/main.js" async></script>
 </head>
 <body>
@@ -51,10 +54,34 @@
 
     <div id="center">
       <div id="relations" class="panel">
+        <div id="relations-top-split">
+          <a href="#"></a>
+          <a href="#minus">-</a>
+          <a href="#plus">+</a>
+        </div>
+        <div class = "timeline-solid-horizontal"></div>
+        <ul id="myUL">
+          
+        </ul>
       </div>
       <div id="canvas">
       </div>
       <div id="properties" class="panel">
+        <div>
+          <p id="p1">X - 0</p>
+        </div>
+        <div>
+          <p id="p2">Y - 0</p> 
+        </div>
+        <div>
+          <p id="p3">W - 0</p>
+        </div>
+        <div>
+          <p id="p4">H - 0</p>
+        </div>
+        <div>
+          <p id="p5">R - 0</p>
+        </div> 
       </div>
     </div>
     

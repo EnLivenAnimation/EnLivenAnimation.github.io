@@ -22,13 +22,13 @@ let state, KFButton, allSprites = [], texture2;
 let texture,sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h;
 
 loader
-  .add("res/presets/img/circle.png")
-  .add("res/presets/img/background.jpg")
-  .add("res/presets/img/square.jpg")
+  .add("res/img/circle.png")
+  .add("res/img/background.jpg")
+  .add("res/img/square.jpg")
   .load(setup)
 
 function setup() {
-    const bg = PIXI.Texture.from("res/presets/img/background.jpg");
+    const bg = PIXI.Texture.from("res/img/background.jpg");
     var background = new PIXI.Sprite(bg);
     background.width = app.screen.width;
     background.height = app.screen.height;
@@ -37,7 +37,7 @@ function setup() {
     background.on('click', disableButtons); 
     app.stage.addChild(background);
     
-    let boneTexture = PIXI.Texture.from("res/presets/img/circle.png");
+    let boneTexture = PIXI.Texture.from("res/img/circle.png");
     PurpleButton = displaySprite(boneTexture, 400, 400, 80, 120, 0xcc00cc);
     BlueButton = displaySprite(boneTexture, 600, 150, 200, 150, 0x0000ee);
     YellowButton = displaySprite(boneTexture, 500, 150, 100, 100, 0xdddd00, BlueButton);
@@ -45,3 +45,8 @@ function setup() {
 
     disableButtons();
 }
+
+const atlas = loadFile("./res/atlas/atlas.txt");
+const elements = readElements(atlas);
+const coordinates = readCoordinates(atlas);
+const parents = readParents(atlas);

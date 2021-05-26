@@ -214,6 +214,8 @@ function enableButtons(eventData) {
         currButton.alpha = 1;
         currButton.interactive = true;
     }
+
+    propertyPanel(this.x, this.y, this.width, this.height, this.rotation);
 }
 
 function disableButtons(eventData) {
@@ -230,53 +232,53 @@ function disableButtons(eventData) {
 
 let canParentMove = false;
 { // ON DRAG START STUFF
-    function onDragStartButton(event) {
-        this.data = event.data;
-        this.alpha = 0.5;
-        this.dragging = true;
-        interactiveButtons = true;
+function onDragStartButton(event) {
+    this.data = event.data;
+    this.alpha = 0.5;
+    this.dragging = true;
+    interactiveButtons = true;
+}
+function onDragStartSprite(event) {
+    this.data = event.data;
+    this.alpha = 0.5;
+    this.dragging = true;
+    canParentMove = false;
+    
+    currSprite = this;
+    while (currSprite.directParent != null) {
+        currSprite.directParent.interactive = false;
+        currSprite = currSprite.directParent;
     }
-    function onDragStartSprite(event) {
-        this.data = event.data;
-        this.alpha = 0.5;
-        this.dragging = true;
+}
+function onDragEndButton() {
+    this.alpha = 1;
+    this.dragging = false;
+    this.data = null;
+    interactiveButtons = false;
+    lastModifiedSprite.interactive = true;
+    lastModifiedSprite.alpha = 1;
+    lastModifiedSprite.dragging = false;
+    resizeButtons(this.parent);
+}
+function onDragEndSprite() {
+    this.alpha = 1;
+    this.dragging = false;
+    this.data = null;
+    resizeButtons(this);
+    canParentMove = true;
+    
+    currSprite = this;
+    while (currSprite.directParent != null) {
+        currSprite.directParent.interactive = true;
+        currSprite = currSprite.directParent;
+    }
+}
+function onDragMoveSprite() {
+    if (this.dragging) {
+        const newPosition2 = this.data.getLocalPosition(this.parent);
+        this.x = newPosition2.x;
+        this.y = newPosition2.y;
         canParentMove = false;
-        
-        currSprite = this;
-        while (currSprite.directParent != null) {
-            currSprite.directParent.interactive = false;
-            currSprite = currSprite.directParent;
-        }
     }
-    function onDragEndButton() {
-        this.alpha = 1;
-        this.dragging = false;
-        this.data = null;
-        interactiveButtons = false;
-        lastModifiedSprite.interactive = true;
-        lastModifiedSprite.alpha = 1;
-        lastModifiedSprite.dragging = false;
-        resizeButtons(this.parent);
-    }
-    function onDragEndSprite() {
-        this.alpha = 1;
-        this.dragging = false;
-        this.data = null;
-        resizeButtons(this);
-        canParentMove = true;
-        
-        currSprite = this;
-        while (currSprite.directParent != null) {
-            currSprite.directParent.interactive = true;
-            currSprite = currSprite.directParent;
-        }
-    }
-    function onDragMoveSprite() {
-        if (this.dragging) {
-            const newPosition2 = this.data.getLocalPosition(this.parent);
-            this.x = newPosition2.x;
-            this.y = newPosition2.y;
-            canParentMove = false;
-        }
-    }
+}
 }

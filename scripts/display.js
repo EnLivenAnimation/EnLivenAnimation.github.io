@@ -40,7 +40,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
         DisplayedSprite.directParent = parent;
     }
 
-    let Buttontexture = PIXI.Texture.from("res/presets/img/square.jpg");
+    let Buttontexture = PIXI.Texture.from("res/img/square.jpg");
     button1 =  new Sprite(Buttontexture);
     button2 =  new Sprite(Buttontexture);
     button3 =  new Sprite(Buttontexture);

@@ -1,40 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="test.css">
-    <script src="test.js" async></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="test.css">
+  <title>Document</title>
+  <script src="pixi/pixi.min.js"></script>
+  <script src="drag.js"></script>
+  <script src="toggle.js"></script>
+  <script src="display.js"></script>
 </head>
+
 <body>
-    <div class="dropdown">
-      <button onclick="myFunction(1)" class="dropbtn">File</button>
-      <div id="myDropdown1" class="dropdown-content">
-        <a href="#NewFile">NewFile</a>
-        <a href="#SaveAs">Save As</a>
-        <a href="#Export">Export</a>
+  <div id="grid">
+    <div id="navbar">
+      <!-- <h1>Navbar</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda quam repudiandae nemo quis.</p> -->
+      <a id="home" href="#home">Home</a>
+      <a href="#file">File</a>
+      <a href="#edit">Edit</a>
+      <a href="#view">View</a>
+    </div>
+
+    <div id="middle">
+      <div id="relations" class="panel">
+        <div id="relations-top-split">
+          <a href="#"></a>
+          <a href="#minus">-</a>
+          <a href="#plus">+</a>
+        </div>
+        <div class = "timeline-solid-horizontal"></div>
+        <ul id="myUL">
+          
+        </ul>
+        <script src="treeview.js"></script>
+        
+        <!-- <h1>Relations</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore repellat earum exercitationem voluptas?</p> -->
+      </div>
+
+      <div id="canvas">
+        <!-- <canvas id="interface">
+        </canvas> -->
+
+        <!-- <h1>Canvas</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit eos quasi saepe eaque?</p> -->
+      </div>
+
+      <div id="properties" class="panel">
+        
+          <div>
+            <p id="p1">X - 0</p>
+          </div>
+          <div>
+            <p id="p2">Y - 0</p> 
+          </div>
+          <div>
+            <p id="p3">W - 0</p>
+          </div>
+          <div>
+            <p id="p4">H - 0</p>
+          </div>
+          <div>
+            <p id="p5">R - 0</p>
+          </div>  
       </div>
     </div>
-    <div class="dropdown">
-      <button onclick="myFunction(2)" class="dropbtn">Edit</button>
-      <div id="myDropdown2" class="dropdown-content">
-        <a href="#Undo">Undo</a>
-        <a href="#Redo">Redo</a>
-        <a href="#Cut">Cut</a>
-        <a href="#Copy">Copy</a>
-        <a href="#Paste">Paste</a>
+    
+    <div id="timeline" class=panel>
+      <div id="timeline-left">
+        <div id="timeline-left-top">
+            <a href="#sprite">Sprite</a>
+            <a href="#empty"></a>
+            <a href="#minus">-</a>
+            <a href="#plus">+</a>
+        </div>
+        <div id = "timeline-left-bottom" class = "panel">
+          <div class ="timeline-dashed-horizontal">
+            <a href="#sprite1">Sprite 1</a>
+          </div>
+          <div class ="timeline-dashed-horizontal">
+            <a href="#sprite2">Sprite 2</a>
+          </div>
+          <div class ="timeline-dashed-horizontal">
+            <a href="#sprite3">Sprite 3</a>
+          </div>
+          <div class ="timeline-dashed-horizontal">
+            <a href="#sprite4">Sprite 4</a>
+          </div>
+        </div>
+      </div>
+      <div id="timeline-right">
+        <div id="timeline-buttons">
+          <button id="play" type="button" onclick="Pplay();">Play</button>
+          <button id="add" type="button" onclick="addKF();">Add</button> 
+          <button id="edit" type="button">Edit</button> 
+          <button id="delete" type="button">Delete</button>
+        </div>
+        <div id="timeline-right-top">
+          <a href="#sprite">Sprite</a>
+          <a href="#empty"></a>
+          <a href="#minus">-</a>
+          <a href="#plus">+</a>
+        </div>
+        <div class = "timeline-solid-horizontal"></div>
+        <div id="timeline-right-bottom" class="panel">
+          <div class="timeline-body">
+            <a href="#frame1">1</a>
+          </div>
+          <div class="timeline-body">
+            <a href="#frame2">2</a>
+          </div>
+          <div class="timeline-body">
+            <a href="#frame3">3</a>
+          </div>
+          <div class="timeline-body">
+            <a href="#frame4">4</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="dropdown">
-      <button onclick="myFunction(3)" class="dropbtn">View</button>
-      <div id="myDropdown3" class="dropdown-content">
-        <a href="#fullscreen">Full Screen</a>
-        <a href="#run">Run</a>
-        <a href="#Pause">Pause</a>
-      </div>
-    </div>
+  </div>
+
+  <script src="play.js"></script>
+  <script src="input.js"></script>
 </body>
 </html>
