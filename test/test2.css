@@ -1,0 +1,84 @@
+:root {
+  --main-bg: lightgrey;
+  --alt-bg: darkgrey;
+  --main-fg: white;
+  --red-accent: #d64641;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--main-fg);
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: auto 10fr 2fr;
+  grid-gap: 0.5em;
+
+  height: 100vh;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#navbar,
+#relations,
+#canvas,
+#properties,
+#timeline {
+  background: lightgray;
+}
+
+#navbar, #timeline {
+  grid-column: 1 / 4;
+}
+
+#relations {
+  margin-left: 0.5em;
+}
+
+#properties {
+  margin-right: 0.5em;
+}
+
+/* #timeline {
+  margin-left: 0.5em;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  gap: 5px;
+  padding: 5px 10px 15px 10px;
+}
+
+#timeline-buttons {
+  display: grid;
+  grid-template-columns: auto auto auto 100fr auto;
+  gap: 15px;
+}
+
+#timeline-buttons button {
+  border-radius: 10px;
+  border: none;
+  background-color: var(--main-bg);
+}
+
+#timeline-keyframes button {
+  height: 100%;
+  width: 20px;
+  border: none;
+  margin-right: 5px;
+}
+
+.active-keyframe {
+  background-color: var(--red-accent);
+}
+
+.inactive-keyframe {
+  background-color: var(--alt-bg);
+} */

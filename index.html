@@ -8,23 +8,29 @@
   <title>EnLiven</title>
   <link rel="shortcut icon" type="image/jpg" href="res/icons/favicon.ico"/>
 
+  <!-- EXTERNAL SCRIPTS -->
   <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
   <script src="scripts/pixi/pixi.min.js"></script>
+  <!-- FRONTEND SCRIPTS -->
   <script src="scripts/navbar.js" async></script>
+  <script src="scripts/properties.js" async></script>
+  <script src="scripts/treeview.js" async></script>
+  <!-- ANIMATION SCRIPTS -->
   <script src="scripts/display.js" async></script>
   <script src="scripts/buttons.js" async></script>
   <script src="scripts/timeline.js" async></script>
-  <script src="scripts/properties.js" async></script>
-  <script src="scripts/input.js" async></script>\
-  <script src="scripts/treeview.js" async></script>
+  <script src="scripts/input.js" async></script>
+  <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
 <body>
   <div id="grid">
+
+    <!-- TOP NAVBAR -->
     <div id="navbar">
       <a id="home" href="#home" class="navbar-button"><i class="fas fa-leaf"></i></a>
       <div class="dropdown">
-        <button onclick="myFunction('file-dropdown')" class="navbar-button">File</button>
+        <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
           <a href="#new-file">New File</a>
           <a href="#save">Save</a>
@@ -33,7 +39,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <button onclick="myFunction('edit-dropdown')" class="navbar-button">Edit</button>
+        <button onclick="displayDropdown('edit-dropdown')" class="navbar-button">Edit</button>
         <div id="edit-dropdown" class="dropdown-content">
           <a href="#undo">Undo</a>
           <a href="#redo">Redo</a>
@@ -43,7 +49,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <button onclick="myFunction('view-dropdown')" class="navbar-button">View</button>
+        <button onclick="displayDropdown('view-dropdown')" class="navbar-button">View</button>
         <div id="view-dropdown" class="dropdown-content">
           <a href="#fullscreen">Full Screen</a>
           <a href="#play">Play</a>
@@ -51,50 +57,35 @@
         </div>
       </div>
     </div>
+    
+    <!-- Relationships Panel -->
+    <div id="relations" class="panel">
+      <ul id="relations-list">
+      </ul>
+    </div>
 
-    <div id="center">
-      <div id="relations" class="panel">
-        <div id="relations-top-split">
-          <a href="#"></a>
-          <a href="#minus">-</a>
-          <a href="#plus">+</a>
-        </div>
-        <div class = "timeline-solid-horizontal"></div>
-        <ul id="myUL">
-          
-        </ul>
-      </div>
-      <div id="canvas">
-      </div>
-      <div id="properties" class="panel">
-        <div>
-          <p id="p1">X - 0</p>
-        </div>
-        <div>
-          <p id="p2">Y - 0</p> 
-        </div>
-        <div>
-          <p id="p3">W - 0</p>
-        </div>
-        <div>
-          <p id="p4">H - 0</p>
-        </div>
-        <div>
-          <p id="p5">R - 0</p>
-        </div> 
-      </div>
+    <!-- Canvas Panel -->
+    <div id="canvas">
+    </div>
+
+    <!-- Properties Panel -->
+    <div id="properties" class="panel">
+      <p id="x">X</p>
+      <p id="y">Y</p> 
+      <p id="w">W</p>
+      <p id="h">H</p>
+      <p id="r">R</p>
     </div>
     
-    <div id="timeline" class=panel>
-      <div id="timeline-buttons">
-        <button id="play" type="button" onclick="play();"><i class="fas fa-play"></i></button>
-        <button id="add" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
-        <button id="delete" type="button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
-        <span></span>
-        <div id="slider-container">
-          <label id="slider-label" for="slider">TWEENS</label>
-          <input id="slider" type="range" name="slider" min="0" max="30" value="20">
-        </div>
+    <!-- TIMELINE PANEL -->
+    <div id="timeline" class="panel">
+      <button class="timeline-button" type="button" onclick="play();"><i class="fas fa-play"></i></button>
+      <button class="timeline-button" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
+      <button class="timeline-button" type="button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
+      <span></span>
+      <div id="slider-container">
+        <label id="slider-label" for="slider">TWEENS</label>
+        <input id="slider" type="range" name="slider" min="0" max="30" value="20">
       </div>
       <div id="timeline-keyframes"></div>
     </div>

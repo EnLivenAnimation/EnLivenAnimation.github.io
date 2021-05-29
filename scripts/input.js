@@ -94,8 +94,8 @@ function readParents(atlas){
       var line = document.createElement("div");
       element.appendChild(elements);
       line.setAttribute("class", "timeline-dashed-horizontal");
-      document.getElementById("myUL").appendChild(element);
-      document.getElementById("myUL").appendChild(line);
+      document.getElementById("relations-list").appendChild(element);
+      document.getElementById("relations-list").appendChild(line);
     }
   }
   dropDown();
