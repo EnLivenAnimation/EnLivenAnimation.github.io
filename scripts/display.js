@@ -68,6 +68,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
     currButton.buttonMode = true;
     currButton.x = xs[i];
     currButton.y = ys[i];
+    currButton.tint = 0x1a73e8;
 
     currButton
       .on('pointerdown', onDragStartButton)
