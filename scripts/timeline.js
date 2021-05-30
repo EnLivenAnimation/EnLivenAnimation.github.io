@@ -70,17 +70,11 @@ function addKeyframe() {
     const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation];
     sprite.timeline.splice(currentKeyframe+1, 0, g);
   }
-  currentKeyframe++;
-  addButton(currentKeyframe);
-}
+  currentKeyframe ++;
 
-function addButton(keyframe) {
-  const btn = document.createElement("BUTTON");
-  btn.setAttribute("id", `timeline-frame-${keyframe}`)
-  btn.setAttribute("class", "timeline-frame");
-  btn.setAttribute("onclick", `loadKeyframe(${keyframe})`);
-  document.getElementById("timeline-keyframes").appendChild(btn);
-  updateActiveButton(keyframe);
+  addButton();
+  setButtons();
+  updateActiveButton();
 }
 
 function loadKeyframe(keyframe) {
@@ -94,15 +88,8 @@ function loadKeyframe(keyframe) {
     sprite.rotation = sprite.timeline[currentKeyframe][4];
     resizeButtons(sprite);
   }
-  updateActiveButton(currentKeyframe);
-}
 
-function updateActiveButton(keyframe) {
-  const elements = document.getElementById("timeline-keyframes").children;
-  for (let i = 0; i < elements.length; i ++) {
-    elements[i].setAttribute("class", "inactive-keyframe");
-  }
-  document.getElementById(`timeline-frame-${keyframe}`).setAttribute("class", "active-keyframe");
+  updateActiveButton();
 }
 
 function deleteKeyframe() {
@@ -110,4 +97,57 @@ function deleteKeyframe() {
     sprite = allSprites[i];
     sprite.timeline.splice(currentKeyframe, 1);
   }
+
+  deleteButton();
+  setButtons();
+  updateActiveButton();
+}
+
+function editKeyframe() {
+  for (i in allSprites) {
+    sprite = allSprites[i];
+    sprite.timeline.splice(currentKeyframe, 1);
+  }
+
+  currentKeyframe --;
+
+  for (i in allSprites) {
+    sprite = allSprites[i];
+    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation];
+    sprite.timeline.splice(currentKeyframe+1, 0, g);
+  }
+
+  currentKeyframe ++;
+
+  setButtons();
+  updateActiveButton();
+}
+
+function addButton() {
+  const btn = document.createElement("button");
+  document.getElementById("timeline-keyframes").appendChild(btn);
+}
+
+function deleteButton() {
+  document.getElementById(`timeline-frame-${currentKeyframe}`).remove();
+}
+
+function setButtons() {
+  const elements = document.getElementById("timeline-keyframes").children;
+
+  for (let i = 0; i < elements.length; i ++) {
+    const element = elements[i];
+    element.setAttribute("id", `timeline-frame-${i}`)
+    element.setAttribute("class", "timeline-frame");
+    element.setAttribute("onclick", `loadKeyframe(${i})`);
+    element.innerHTML = i + 1;
+  }
+}
+
+function updateActiveButton() {
+  const elements = document.getElementById("timeline-keyframes").children;
+  for (let i = 0; i < elements.length; i ++) {
+    elements[i].setAttribute("class", "inactive-keyframe");
+  }
+  document.getElementById(`timeline-frame-${currentKeyframe}`).setAttribute("class", "active-keyframe");
 }

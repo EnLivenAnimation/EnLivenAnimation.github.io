@@ -99,12 +99,12 @@ function readParents(atlas){
     }
   }
   dropDown();
-  console.log(map);
-  console.log(map2);
-  console.log(parents);
-  console.log(childNum);
-  console.log(array1);
-  console.log(array2);
+  // console.log(map);
+  // console.log(map2);
+  // console.log(parents);
+  // console.log(childNum);
+  // console.log(array1);
+  // console.log(array2);
 }
 function myFunction() {
   var btn = document.createElement("BUTTON");

@@ -12,7 +12,7 @@ let app = new Application({
     antialias: true, 
     transparent: false, 
     resolution: 1,
-    backgroundColor: 0xe6e6e6
+    backgroundColor: 0xFFFFFF
   }
 );
 

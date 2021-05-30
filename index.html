@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style/style.css">
   <title>EnLiven</title>
   <link rel="shortcut icon" type="image/jpg" href="res/icons/favicon.ico"/>
 
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="style/index.css">
   <!-- EXTERNAL SCRIPTS -->
   <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
   <script src="scripts/pixi/pixi.min.js"></script>
@@ -15,7 +16,7 @@
   <script src="scripts/navbar.js" async></script>
   <script src="scripts/properties.js" async></script>
   <script src="scripts/treeview.js" async></script>
-  <!-- ANIMATION SCRIPTS -->
+  <!-- BACKEND SCRIPTS -->
   <script src="scripts/display.js" async></script>
   <script src="scripts/buttons.js" async></script>
   <script src="scripts/timeline.js" async></script>
@@ -23,12 +24,12 @@
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
+
 <body>
   <div id="grid">
-
     <!-- TOP NAVBAR -->
     <div id="navbar">
-      <a id="home" href="#home" class="navbar-button"><i class="fas fa-leaf"></i></a>
+      <a id="home" class="navbar-button" href="#home"><i class="fas fa-leaf"></i></a>
       <div class="dropdown">
         <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
@@ -58,17 +59,17 @@
       </div>
     </div>
     
-    <!-- Relationships Panel -->
+    <!-- RELATIONS PANEL -->
     <div id="relations" class="panel">
       <ul id="relations-list">
       </ul>
     </div>
 
-    <!-- Canvas Panel -->
+    <!-- CANVAS PANEL -->
     <div id="canvas">
     </div>
 
-    <!-- Properties Panel -->
+    <!-- PROPERTIES PANEL -->
     <div id="properties" class="panel">
       <p id="x">X</p>
       <p id="y">Y</p> 
@@ -82,6 +83,7 @@
       <button class="timeline-button" type="button" onclick="play();"><i class="fas fa-play"></i></button>
       <button class="timeline-button" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
       <button class="timeline-button" type="button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
+      <button class="timeline-button" type="button" onclick="editKeyframe();"><i class="fas fa-edit"></i></button>
       <span></span>
       <div id="slider-container">
         <label id="slider-label" for="slider">TWEENS</label>

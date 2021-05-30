@@ -1,15 +1,16 @@
 :root {
-  --main-bg: lightgrey;
-  --alt-bg: darkgrey;
-  --main-fg: white;
-  --red-accent: #d64641;
+  --pale-green: #eafce9;
+  --light-grey: #f9f9f9;
+  --dark-green: #5c996a;
+  --light-green: #d1e1d1;
+  --white: white;
 }
 
 * {
   margin: 0px;
   padding: 0px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--main-fg);
+  font-size: 1em;
 }
 
 #grid {
@@ -23,6 +24,8 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
+  background-color: var(--pale-green);
 }
 
 #navbar, #timeline {
@@ -30,29 +33,38 @@
 }
 
 .panel {
-  background: var(--main-bg);
+  background: var(--light-grey);
   border-radius: 10px;
   padding: 1em;
+  border-style: solid;
+  border-color: var(--light-green);
+  color: var(--dark-green);
 }
 
 /* NAV BAR */
 
 #navbar {
-  background-color: var(--alt-bg);
+  background-color: var(--dark-green);
 }
 
 .navbar-button {
-  background-color: var(--alt-bg);
-  color: var(--alt-fg);
-  font-size: 15px;
+  background-color: var(--dark-green);
+  color: var(--white);
+  font-size: 1.2em;
+  font-weight: bold;
   padding: 6px 8px;
   border: none;
   cursor: pointer;
 }
 
+#home {
+  color: white;
+  padding-left: 0.5em;
+}
+
 /* Dropdown button on hover & focus */
 .navbar-button:hover, .navbar-button:focus {
-  background-color: var(--main-bg);
+  background-color: var(--light-green);
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -65,21 +77,21 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--alt-bg);
+  background-color: var(--dark-green);
   min-width: 160px;
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: var(--main-fg);
+  color: var(--white);
   padding: 6px 8px;
   text-decoration: none;
   display: block;
 }
   
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content a:hover {background-color: var(--light-green)}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container whenthe user clicks on the dropdown button) */
 .show {display:block;}
@@ -104,7 +116,7 @@ ul {
 
 .caret::before {
   content: "\25B6";
-  color: var(--main-fg);
+  color: var(--dark-green);
   display: inline-block;
   margin-right: 6px;
 }
@@ -137,22 +149,23 @@ ul {
   margin-right: 0.5em;
 
   display: grid;
-  grid-template-columns: auto auto auto 100fr auto;
+  grid-template-columns: auto auto auto auto 100fr auto;
   grid-template-rows: 1fr 2fr;
   column-gap: 15px;
   row-gap: 5px;
 
-  padding: 5px 10px 15px 10px;
+  padding: 1em;
 }
 
 .timeline-button {
   border-radius: 10px;
   border: none;
-  background-color: var(--main-bg);
+  background-color: var(--light-grey);
+  color: var(--dark-green);
 }
 
 #timeline-keyframes {
-  grid-column: 1 / 6;
+  grid-column: 1 / 7;
 }
 
 #timeline-keyframes button {
@@ -163,9 +176,24 @@ ul {
 }
 
 .active-keyframe {
-  background-color: var(--red-accent);
+  background-color: var(--dark-green);
+  color: var(--white);
 }
 
 .inactive-keyframe {
-  background-color: var(--alt-bg);
+  background-color: var(--light-green);
+}
+
+#slider {
+  -webkit-appearance: none;
+  height: 5px;
+  background: var(--dark-green);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#slider-label {
+  font-size: 1em;
+  vertical-align: middle;
+  font-weight: 600;
 }
