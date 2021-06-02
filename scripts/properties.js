@@ -1,9 +1,9 @@
 function setPropertyPanelValues(x, y, w, h, r){
-  document.getElementById("xpos").value = Math.round(x);
-  document.getElementById("ypos").value = Math.round(-1*y+app.screen.height);
-  document.getElementById("width").value = Math.round(w);
-  document.getElementById("height").value = Math.round(h);
-  document.getElementById("rotation").value = Math.round(r * (180 / Math.PI));
+  document.getElementById("x").value = Math.round(x);
+  document.getElementById("y").value = Math.round(-1*y+app.screen.height);
+  document.getElementById("w").value = Math.round(w);
+  document.getElementById("h").value = Math.round(h);
+  document.getElementById("r").value = Math.round(r * (180 / Math.PI));
 }
 
 function deconvert(sprite,x,y,w,h,r){
@@ -27,11 +27,11 @@ function deconvert(sprite,x,y,w,h,r){
 const propertyPanel = document.querySelector('#properties');
 
 propertyPanel.addEventListener('change', (event) => {
-  let tmpX = document.getElementById("xpos").value;
-  let tmpY = document.getElementById("ypos").value;
-  let tmpW = document.getElementById("width").value;
-  let tmpH = document.getElementById("height").value;
-  let tmpR = document.getElementById("rotation").value;
+  let tmpX = document.getElementById("x").value;
+  let tmpY = document.getElementById("y").value;
+  let tmpW = document.getElementById("w").value;
+  let tmpH = document.getElementById("h").value;
+  let tmpR = document.getElementById("r").value;
 
   selectedSprite.visualX = tmpX;
   selectedSprite.visualY = tmpY;
