@@ -27,11 +27,11 @@ function deconvert(sprite,x,y,w,h,r){
 const propertyPanel = document.querySelector('#properties');
 
 propertyPanel.addEventListener('change', (event) => {
-  let tmpX = document.getElementById("x").value;
-  let tmpY = document.getElementById("y").value;
-  let tmpW = document.getElementById("w").value;
-  let tmpH = document.getElementById("h").value;
-  let tmpR = document.getElementById("r").value;
+  let tmpX = document.getElementById("xpos").value;
+  let tmpY = document.getElementById("ypos").value;
+  let tmpW = document.getElementById("width").value;
+  let tmpH = document.getElementById("height").value;
+  let tmpR = document.getElementById("rotation").value;
 
   selectedSprite.visualX = tmpX;
   selectedSprite.visualY = tmpY;
