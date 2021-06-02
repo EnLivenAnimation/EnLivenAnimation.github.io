@@ -199,7 +199,7 @@ function enableButtons(eventData) {
     currButton.interactive = true;
   }
 
-  propertyPanel(this.x, this.y, this.width, this.height, this.rotation);
+  setPropertyPanelValues(this.x, this.y, this.width, this.height, this.rotation);
 }
 
 function disableButtons(eventData) {
