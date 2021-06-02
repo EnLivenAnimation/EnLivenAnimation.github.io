@@ -20,8 +20,9 @@ function play() {
   paused = false;
 
   disableButtons();
-  timelineLength = allSprites[0].timeline.length;
   currentRender = 0;
+  updateRenderedButton();
+  timelineLength = allSprites[0].timeline.length;
   playKeyframe();
 }
 
@@ -43,8 +44,11 @@ function playKeyframe() {
         frame = 0;
         move();
       } else if (loop) {
-        currentRender = 0;
-        playKeyframe();
+        setTimeout(function(){ 
+          currentRender = 0;
+          updateRenderedButton();
+          playKeyframe();
+        }, 1000 * tweens / fps);
       }
     }, 1000 / fps);
   }
@@ -81,6 +85,7 @@ function move() {
     } else {
       if (currentRender < timelineLength - 1) {
         currentRender++;
+        updateRenderedButton();
       }
       this.playKeyframe();
     }
@@ -173,4 +178,12 @@ function updateActiveButton() {
     elements[i].setAttribute("class", "inactive-keyframe");
   }
   document.getElementById(`timeline-frame-${currentKeyframe}`).setAttribute("class", "active-keyframe");
+}
+
+function updateRenderedButton() {
+  const elements = document.getElementById("timeline-keyframes").children;
+  for (let i = 0; i < elements.length; i ++) {
+    elements[i].setAttribute("class", "inactive-keyframe");
+  }
+  document.getElementById(`timeline-frame-${currentRender}`).setAttribute("class", "active-keyframe");
 }
