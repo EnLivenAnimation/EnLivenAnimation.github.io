@@ -4,6 +4,8 @@ let fps = 60;
 let timelineLength = 0;
 let currentRender = 0;
 let currentKeyframe = -1;
+let loop = false;
+let paused = true;
 
 const slider = document.getElementById("slider");
 const sliderLabel = document.getElementById("slider-label");
@@ -15,30 +17,42 @@ slider.oninput = function() {
 }
 
 function play() {
+  loop = document.getElementById("loop").checked;
+  paused = false;
+
   disableButtons();
-  currentRender = 0;
   timelineLength = allSprites[0].timeline.length;
+  currentRender = 0;
   playKeyframe();
 }
 
 function playKeyframe() {
-  setTimeout(function () {
-    if (currentRender < timelineLength - 1) {
-      for (s in allSprites) {
-        sprite = allSprites[s];
-        sprite.position.set(sprite.timeline[currentRender][0], sprite.timeline[currentRender][1]);
-        sprite.width = sprite.timeline[currentRender][2];
-        sprite.height = sprite.timeline[currentRender][3];
-        sprite.rotation = sprite.timeline[currentRender][4];
-        
-        for (j in sprite.d) {
-          sprite.d[j] = (sprite.timeline[currentRender+1][j] - sprite.timeline[currentRender][j]) / tweens;
+  if (!paused) {
+    setTimeout(function () {
+      if (currentRender < timelineLength - 1) {
+        for (s in allSprites) {
+          sprite = allSprites[s];
+          sprite.position.set(sprite.timeline[currentRender][0], sprite.timeline[currentRender][1]);
+          sprite.width = sprite.timeline[currentRender][2];
+          sprite.height = sprite.timeline[currentRender][3];
+          sprite.rotation = sprite.timeline[currentRender][4];
+          
+          for (j in sprite.d) {
+            sprite.d[j] = (sprite.timeline[currentRender+1][j] - sprite.timeline[currentRender][j]) / tweens;
+          }
         }
+        frame = 0;
+        move();
+      } else if (loop) {
+        currentRender = 0;
+        playKeyframe();
       }
-      frame = 0;
-      move();
-    }
-  }, 1000 / fps);
+    }, 1000 / fps);
+  }
+}
+
+function pause() {
+  paused = true;
 }
 
 function move() {
