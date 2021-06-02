@@ -36,13 +36,6 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons); 
   app.stage.addChild(background);
-
-  let texture = PIXI.Texture.from("res/img/circle.png");
-  purple = displaySprite(texture, 400, 400, 80, 120, 0xcc00cc);
-  blue = displaySprite(texture, 600, 150, 200, 150, 0x0000ee);
-  yellow = displaySprite(texture, 500, 150, 100, 100, 0xdddd00, blue);
-  orange = displaySprite(texture, 400, 150, 150, 50, 0xffa500, yellow);
-  disableButtons();
 }
 
 const atlas = loadFile("./res/atlas/atlas.txt");
