@@ -141,6 +141,27 @@ ul {
   margin-right: 0.5em;
 }
 
+#xpos{
+  color:black;
+}
+#ypos{
+  color:black;
+}
+#width{
+  color:black;
+}
+#height{
+  color:black;
+}
+#rotation{
+  color:black;
+}
+
+input[type=number]{
+  border: 2px solid #5c996a;
+  border-radius: 5px;
+}
+
 /* TIMELINE PANEL */
 
 #timeline {
