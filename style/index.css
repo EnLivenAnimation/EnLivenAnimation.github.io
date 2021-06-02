@@ -158,10 +158,21 @@ ul {
 }
 
 .timeline-button {
-  border-radius: 10px;
   border: none;
   background-color: var(--light-grey);
   color: var(--dark-green);
+}
+
+.loop-enabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--dark-green);
+}
+
+.loop-disabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--light-green);
 }
 
 #timeline-keyframes {

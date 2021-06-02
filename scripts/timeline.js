@@ -17,7 +17,6 @@ slider.oninput = function() {
 }
 
 function play() {
-  loop = document.getElementById("loop").checked;
   paused = false;
 
   disableButtons();
@@ -53,6 +52,16 @@ function playKeyframe() {
 
 function pause() {
   paused = true;
+}
+
+function toggleLooping() {
+  if (loop) {
+    loop = false;
+    document.getElementById("loop").setAttribute("class", "loop-disabled");
+  } else {
+    loop = true;
+    document.getElementById("loop").setAttribute("class", "loop-enabled");
+  }
 }
 
 function move() {

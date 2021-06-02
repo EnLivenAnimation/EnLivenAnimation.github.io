@@ -86,10 +86,7 @@
       <button class="timeline-button" type="button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
       <button class="timeline-button" type="button" onclick="editKeyframe();"><i class="fas fa-edit"></i></button>
       <span></span>
-      <div id="checkbox-container">
-        <label id="loop-label" for="loop"><i class="fas fa-undo-alt"></i></label>
-        <input id="loop" type="checkbox" name="loop">
-      </div>
+      <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
       <div id="slider-container">
         <label id="slider-label" for="slider">TWEENS</label>
         <input id="slider" type="range" name="slider" min="0" max="30" value="20">
