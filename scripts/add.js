@@ -5,6 +5,13 @@ function DeleteSprite(){
         selectedSprite.alpha = 0;
         selectedSprite.interactive = false;
         selectedSprite.deleted = true;
+        allSprites.splice(selectedSprite.indexinAllSprites, 1);
+        for (i in allSprites){
+            sprite = allSprites[i];
+            if (sprite.indexinAllSprites >= selectedSprite.indexinAllSprites){
+                sprite.indexinAllSprites--;
+            }
+        }
     }
     selectedSprite = null;
     disableButtons();
