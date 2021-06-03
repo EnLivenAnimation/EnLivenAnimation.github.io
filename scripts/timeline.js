@@ -116,7 +116,6 @@ function loadKeyframe(keyframe) {
     sprite.width = sprite.timeline[currentKeyframe][2];
     sprite.height = sprite.timeline[currentKeyframe][3];
     sprite.rotation = sprite.timeline[currentKeyframe][4];
-    sprite.alpha = parseFloat(sprite.timeline[currentKeyframe][5]);
     resizeButtons(sprite);
   }
 
