@@ -84,11 +84,12 @@
 
     <!-- PROPERTIES PANEL -->
     <div id="properties" class="panel">
-      <p id="x">X <input type="number" id="xpos" name="xpos" min="1" max="1000"></p>
-      <p id="y">Y <input type="number" id="ypos" name="ypos" min="1" max="1000"></p> 
-      <p id="w">W <input type="number" id="width" name="width" min="1" max="1000"></p>
-      <p id="h">H <input type="number" id="height" name="height" min="1" max="1000"></p>
-      <p id="r">R <input type="number" id="rotation" name="rotation" min="-1000" max="1000"></p>
+      <p id="x">X <input type="number" id="xpos" name="xpos" min="-100" max="100000"></p>
+      <p id="y">Y <input type="number" id="ypos" name="ypos" min="-100" max="100000"></p> 
+      <p id="w">W <input type="number" id="width" name="width" min="0" max="100000"></p>
+      <p id="h">H <input type="number" id="height" name="height" min="0" max="100000"></p>
+      <p id="r">R <input type="number" id="rotation" name="rotation" min="-100000" max="100000"></p>
+      <p id="a">A <input type="number" id="alpha" name="alpha" min="0" max="1"></p>
     </div>
     
     <!-- TIMELINE PANEL -->
@@ -100,6 +101,10 @@
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
       <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
+      <div class="slidecontainer">
+        <input type="range" min="0" max="30" value="10" class="slider" id="tweensSlider">
+        <p>Tweens: <span id="tweensValue"></span></p>
+      </div>
       <div id="slider-container">
         <label id="slider-label" for="slider">TWEENS</label>
         <input id="slider" type="range" name="slider" min="0" max="30" value="20">
