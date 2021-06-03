@@ -38,8 +38,6 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons); 
   app.stage.addChild(background);
-
-  addCircle();
 }
 
 const atlas = loadFile("./res/atlas/atlas.txt");

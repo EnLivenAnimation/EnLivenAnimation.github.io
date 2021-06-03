@@ -173,7 +173,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 6fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 10fr;
-  row-gap: 0.5em;
+  gap: 0.5em;
 }
 
 #properties p {

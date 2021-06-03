@@ -52,7 +52,7 @@ body{
 
 #hero{
   background-color: #9BC8A5;
-  background-image: url("res/img/hero.jpeg");
+  background-image: url("../res/img/hero.jpeg");
   object-fit: contain;
 }
 .hero img{
