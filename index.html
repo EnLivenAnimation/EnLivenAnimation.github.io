@@ -70,6 +70,8 @@
       <button id="delete" type="button" onclick="
       DeleteSprite();
       ">Delete</button>
+
+      <input type="file" id="file-selector" multiple>
     </div>
     
     <!-- RELATIONS PANEL -->
@@ -93,11 +95,11 @@
     
     <!-- TIMELINE PANEL -->
     <div id="timeline" class="panel">
-      <button class="timeline-button" type="button" onclick="play();"><i class="fas fa-play"></i></button>
-      <button class="timeline-button" type="button" onclick="pause();"><i class="fas fa-pause"></i></button>
-      <button class="timeline-button" type="button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
-      <button class="timeline-button" type="button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
-      <button class="timeline-button" type="button" onclick="editKeyframe();">REPLACE</button>
+      <button class="timeline-button" onclick="play();"><i class="fas fa-play"></i></button>
+      <button class="timeline-button" onclick="pause();"><i class="fas fa-pause"></i></button>
+      <button class="timeline-button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
+      <button class="timeline-button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
+      <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
       <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
       <div id="slider-container">

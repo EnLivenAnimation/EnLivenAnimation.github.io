@@ -23,7 +23,7 @@ function exportTL(){
 
 let fileText = "sad6.8sad35sad";
 function readFile() {
-  let input = document.querySelector("file-import");
+  let input = document.querySelector("file-selector");
   input.addEventListener('change', () => {
       let files = input.files;
       console.log(files);
