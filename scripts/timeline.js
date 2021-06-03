@@ -48,6 +48,7 @@ function playKeyframe() {
       } else if (loop) {
         setTimeout(function(){ 
           currentRender = 0;
+          currentKeyframe = 0;
           updateRenderedButton();
           playKeyframe();
         }, 1000 * tweens / fps);
@@ -86,7 +87,8 @@ function move() {
       move();
     } else {
       if (currentRender < timelineLength - 1) {
-        currentRender++;
+        currentRender ++;
+        currentKeyframe ++;
         updateRenderedButton();
       }
       this.playKeyframe();
