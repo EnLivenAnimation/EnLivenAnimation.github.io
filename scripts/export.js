@@ -20,7 +20,7 @@ function exportTL(){
 
 let fileText = "sad6.8sad35sad";
 function readFile() {
-  let input = document.querySelector('input');
+  let input = document.getElementById("file-import");
 
   input.addEventListener('change', () => {
       let files = input.files;
@@ -36,12 +36,13 @@ function readFile() {
           b = parse(fileText);
           implementTL(b);
       };
+
       reader.onerror = (e) => alert(e.target.error.name);
     
       reader.readAsText(file);
+
   });
 }
-readFile();
 
 function implementTL(arr){
   var index = 0;
@@ -56,6 +57,9 @@ function implementTL(arr){
       }
       console.log(sprite.timeline);
   }
+
+  loadButtons();
+
 }
 
 function parse(s) {
@@ -65,4 +69,6 @@ function parse(s) {
       tmp[i] = parseFloat(tmp[i]);
   }
   return tmp;
-}
+} 
+
+readFile();

@@ -1,3 +1,9 @@
+document.getElementById("xpos").value = "";
+document.getElementById("ypos").value = "";
+document.getElementById("width").value = "";
+document.getElementById("height").value = "";
+document.getElementById("rotation").value = "";
+
 function setPropertyPanelValues(x, y, w, h, r){
   document.getElementById("xpos").value = Math.round(x);
   document.getElementById("ypos").value = Math.round(-1*y+app.screen.height);

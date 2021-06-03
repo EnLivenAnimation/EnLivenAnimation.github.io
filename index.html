@@ -10,6 +10,7 @@
   <!-- STYLESHEET -->
   <link rel="stylesheet" href="style/index.css">
   <!-- EXTERNAL SCRIPTS -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
   <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
   <script src="scripts/pixi/pixi.min.js"></script>
   <!-- FRONTEND SCRIPTS -->
@@ -22,7 +23,7 @@
   <script src="scripts/timeline.js" async></script>
   <script src="scripts/input.js" async></script>
   <script src="scripts/add.js" async></script>
-  <script src="scripts/export.js"></script>
+  <script src="scripts/export.js" async></script>
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
@@ -36,7 +37,8 @@
         <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
           <a href="javascript:location.reload(true)">New File</a>
-          <a href="#import">Import</a>
+          <label for="file-import" class="custom-file-upload">Import</label>
+          <input type="file" id="file-import" multiple>
           <button onclick="exportTL()">Export</button>
         </div>
       </div>
@@ -67,11 +69,7 @@
           <button onclick="addHuman();">Human</button>
         </div>
       </div>
-      <button id="delete" type="button" onclick="
-      DeleteSprite();
-      ">Delete</button>
-
-      <input type="file" id="file-selector" multiple>
+      <button id="delete" class="navbar-button" type="button" onclick="DeleteSprite();">Delete</button>
     </div>
     
     <!-- RELATIONS PANEL -->

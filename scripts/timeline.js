@@ -1,4 +1,4 @@
-let tweens = 30;
+let tweens;
 let frame;
 let fps = 60;
 let timelineLength = 0;
@@ -15,6 +15,8 @@ slider.oninput = function() {
   tweens = sliderLabel.innerHTML;
   tweens++;
 }
+
+tweens = slider.value;
 
 function play() {
   paused = false;
@@ -170,6 +172,8 @@ function setButtons() {
     element.setAttribute("onclick", `loadKeyframe(${i})`);
     element.innerHTML = i + 1;
   }
+
+  updateActiveButton();
 }
 
 function updateActiveButton() {
@@ -186,4 +190,15 @@ function updateRenderedButton() {
     elements[i].setAttribute("class", "inactive-keyframe");
   }
   document.getElementById(`timeline-frame-${currentRender}`).setAttribute("class", "active-keyframe");
+}
+
+function loadButtons() {
+  if (allSprites[0].timeline.length > 0) {
+    currentKeyframe = 0;
+    for (let i = 0; i < allSprites[0].timeline.length; i ++) {
+      addButton();
+    }
+    setButtons();
+    loadKeyframe(0);
+  }
 }

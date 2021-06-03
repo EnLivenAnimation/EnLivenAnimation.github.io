@@ -3,6 +3,7 @@
   --light-grey: #f9f9f9;
   --dark-green: #5c996a;
   --light-green: #d1e1d1;
+  --dark-grey: #4a4a4a;
   --white: white;
 }
 
@@ -15,7 +16,7 @@
 
 #grid {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
   grid-template-rows: auto 10fr 2fr;
   grid-gap: 0.5em;
 
@@ -101,9 +102,27 @@
   border: none;
   width: 100%;
   text-align: left;
+  cursor: pointer;
 }
 
 .dropdown-content button:hover {background-color: var(--light-green)}
+
+.dropdown-content input {
+  display: none;
+}
+
+.dropdown-content label {
+  display: inline-block;
+  color: var(--white);
+  padding: 6px 8px;
+  cursor: pointer;
+  width: 90%;
+}
+
+.dropdown-content label:hover {
+  background-color: var(--light-green);
+  /* overflow: hidden; */
+}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container whenthe user clicks on the dropdown button) */
 .show {display:block;}
@@ -154,19 +173,19 @@ ul {
 }
 
 #xpos{
-  color:black;
+  color: var(--dark-grey);
 }
 #ypos{
-  color:black;
+  color: var(--dark-grey);
 }
 #width{
-  color:black;
+  color: var(--dark-grey);
 }
 #height{
-  color:black;
+  color: var(--dark-grey);
 }
 #rotation{
-  color:black;
+  color:  var(--dark-grey);
 }
 
 input[type=number]{
@@ -228,6 +247,7 @@ input[type=number]{
 
 .inactive-keyframe {
   background-color: var(--light-green);
+  color: var(--dark-grey);
 }
 
 #slider {
