@@ -2,12 +2,9 @@ function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.setAttribute('download', filename);
-
   element.style.display = 'none';
   document.body.appendChild(element);
-
   element.click();
-
   document.body.removeChild(element);
 }
 
@@ -23,7 +20,8 @@ function exportTL(){
 
 let fileText = "sad6.8sad35sad";
 function readFile() {
-  let input = document.querySelector("file-selector");
+  let input = document.querySelector('input');
+
   input.addEventListener('change', () => {
       let files = input.files;
       console.log(files);
@@ -35,7 +33,6 @@ function readFile() {
           const file = e.target.result;
           const lines = file.split(/\r\n|\n/);
           fileText = lines.join('\n');
-          
           b = parse(fileText);
           implementTL(b);
       };
@@ -45,6 +42,21 @@ function readFile() {
   });
 }
 readFile();
+
+function implementTL(arr){
+  var index = 0;
+  let keyframes = arr.length / 5 / allSprites.length;
+  console.log(keyframes);
+  for (i in allSprites){
+      sprite = allSprites[i];
+      sprite.timeline = [];
+      for (j = 0; j < keyframes; j++){
+          sprite.timeline.push([arr[index], arr[index+1], arr[index+2], arr[index+3], arr[index+4]]);
+          index+= 5;
+      }
+      console.log(sprite.timeline);
+  }
+}
 
 function parse(s) {
   const regex = /-?((\d+)((\.\d*)?))/g;
