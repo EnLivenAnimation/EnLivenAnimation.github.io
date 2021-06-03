@@ -15,7 +15,7 @@
 
 #grid {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
   grid-template-rows: auto 10fr 2fr;
   grid-gap: 0.5em;
 
@@ -92,6 +92,18 @@
   
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {background-color: var(--light-green)}
+
+.dropdown-content button {
+  background-color: var(--dark-green);
+  color: var(--white);
+  padding: 6px 8px;
+  text-decoration: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content button:hover {background-color: var(--light-green)}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container whenthe user clicks on the dropdown button) */
 .show {display:block;}
