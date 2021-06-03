@@ -25,6 +25,8 @@ loader
   .add("res/img/circle.png")
   .add("res/img/background.jpg")
   .add("res/img/square.jpg")
+  .add("res/img/justin-sheet.png")
+  .add("res/img/triangle.png")
   .load(setup)
 
 function setup() {
