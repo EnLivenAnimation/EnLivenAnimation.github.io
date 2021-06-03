@@ -16,7 +16,7 @@
 
 #grid {
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: auto 10fr 2fr;
   grid-gap: 0.5em;
 
@@ -186,9 +186,6 @@ ul {
 }
 #rotation{
   color:  var(--dark-grey);
-}
-#alpha{
-  color:black;
 }
 
 input[type=number]{

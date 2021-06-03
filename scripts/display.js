@@ -11,7 +11,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.visualWidth = visualWidth;
   DisplayedSprite.visualHeight = visualHeight;
   DisplayedSprite.indexinAllSprites = allSprites.length;
-  DisplayedSprite.d = [0, 0, 0, 0, 0, 0];
+  DisplayedSprite.d = [0, 0, 0, 0, 0];
   DisplayedSprite.interactive = true;
   DisplayedSprite.buttonMode = true;
   DisplayedSprite.anchor.set(0.5);
