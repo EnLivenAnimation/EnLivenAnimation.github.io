@@ -198,8 +198,7 @@ function enableButtons(eventData) {
     currButton.alpha = 1;
     currButton.interactive = true;
   }
-
-  setPropertyPanelValues(this.x, this.y, this.width, this.height, this.rotation);
+  selectedSprite = this;
 }
 
 function disableButtons(eventData) {
@@ -211,6 +210,7 @@ function disableButtons(eventData) {
       currButton.interactive = false;
     }
   }
+  selectedSprite = null;
 }
 
 let canParentMove = false;
