@@ -6,6 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EnLiven Animate</title>
   <link rel="shortcut icon" type="image/jpg" href="res/icons/favicon.ico"/>
+
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="style/index.css">
+  <!-- EXTERNAL SCRIPTS -->
+  <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
+  <script src="scripts/pixi/pixi.min.js"></script>
+  <!-- FRONTEND SCRIPTS -->
+  <script src="scripts/navbar.js" async></script>
+  <script src="scripts/properties.js" async></script>
+  <script src="scripts/treeview.js" async></script>
+  <!-- BACKEND SCRIPTS -->
+  <script src="scripts/display.js" async></script>
+  <script src="scripts/buttons.js" async></script>
+  <script src="scripts/timeline.js" async></script>
+  <script src="scripts/input.js" async></script>
+  <script src="scripts/add.js" async></script>
+  <script src="scripts/export.js"></script>
+  <!-- MAIN SCRIPT -->
+  <script src="scripts/main.js" async></script>
 </head>
 
 <body>
@@ -17,9 +36,8 @@
         <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
           <a href="javascript:location.reload(true)">New File</a>
-          <a href="#save">Save</a>
           <a href="#import">Import</a>
-          <a href="#export">Export</a>
+          <button onclick="exportTL()">Export</button>
         </div>
       </div>
       <div class="dropdown">
@@ -86,23 +104,5 @@
       <div id="timeline-keyframes"></div>
     </div>
   </div>
-
-  <!-- STYLESHEET -->
-  <link rel="stylesheet" href="style/index.css">
-  <!-- EXTERNAL SCRIPTS -->
-  <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
-  <script src="scripts/pixi/pixi.min.js"></script>
-  <!-- FRONTEND SCRIPTS -->
-  <script src="scripts/navbar.js" async></script>
-  <script src="scripts/properties.js" async></script>
-  <script src="scripts/treeview.js" async></script>
-  <!-- BACKEND SCRIPTS -->
-  <script src="scripts/display.js" async></script>
-  <script src="scripts/buttons.js" async></script>
-  <script src="scripts/timeline.js" async></script>
-  <script src="scripts/input.js" async></script>
-  <script src="scripts/add.js" async></script>
-  <!-- MAIN SCRIPT -->
-  <script src="scripts/main.js" async></script>
 </body>
 </html>
