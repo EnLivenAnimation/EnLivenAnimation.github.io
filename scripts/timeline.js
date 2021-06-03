@@ -36,7 +36,7 @@ function playKeyframe() {
           sprite.width = sprite.timeline[currentRender][2];
           sprite.height = sprite.timeline[currentRender][3];
           sprite.rotation = sprite.timeline[currentRender][4];
-          sprite.alpha = sprite.timeline[currentRender][5];
+          sprite.alpha = parseFloat(sprite.timeline[currentRender][5]);
           
           for (j in sprite.d) {
             sprite.d[j] = (sprite.timeline[currentRender+1][j] - sprite.timeline[currentRender][j]) / tweens;
@@ -80,7 +80,7 @@ function move() {
         sprite.width += sprite.d[2];
         sprite.height += sprite.d[3];
         sprite.rotation += sprite.d[4];
-        sprite.alpha += sprite.d[5];
+        sprite.alpha += parseFloat(sprite.d[5]);
         resizeButtons(sprite);
       }
       move();
@@ -97,7 +97,7 @@ function move() {
 function addKeyframe() {
   for (i in allSprites) {
     sprite = allSprites[i];
-    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation, sprite.alpha];
+    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation, parseFloat(sprite.alpha)];
     sprite.timeline.splice(currentKeyframe+1, 0, g);
   }
   currentKeyframe ++;
@@ -120,7 +120,7 @@ function loadKeyframe(keyframe) {
       sprite.width = sprite.timeline[currentKeyframe][2];
       sprite.height = sprite.timeline[currentKeyframe][3];
       sprite.rotation = sprite.timeline[currentKeyframe][4];
-      sprite.alpha = sprite.timeline[currentKeyframe][5];
+      sprite.alpha = parseFloat(sprite.timeline[currentKeyframe][5]);
       resizeButtons(sprite);
     }
   }
@@ -149,7 +149,7 @@ function editKeyframe() {
 
   for (i in allSprites) {
     sprite = allSprites[i];
-    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation, sprite.alpha];
+    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation, parseFloat(sprite.alpha)];
     sprite.timeline.splice(currentKeyframe+1, 0, g);
   }
 
