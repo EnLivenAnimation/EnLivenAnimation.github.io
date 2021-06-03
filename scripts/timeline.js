@@ -36,6 +36,7 @@ function playKeyframe() {
           sprite.width = sprite.timeline[currentRender][2];
           sprite.height = sprite.timeline[currentRender][3];
           sprite.rotation = sprite.timeline[currentRender][4];
+          sprite.alpha = sprite.timeline[currentRender][5];
           
           for (j in sprite.d) {
             sprite.d[j] = (sprite.timeline[currentRender+1][j] - sprite.timeline[currentRender][j]) / tweens;
@@ -79,6 +80,7 @@ function move() {
         sprite.width += sprite.d[2];
         sprite.height += sprite.d[3];
         sprite.rotation += sprite.d[4];
+        sprite.alpha += sprite.d[5];
         resizeButtons(sprite);
       }
       move();
@@ -95,7 +97,7 @@ function move() {
 function addKeyframe() {
   for (i in allSprites) {
     sprite = allSprites[i];
-    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation];
+    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation, sprite.alpha];
     sprite.timeline.splice(currentKeyframe+1, 0, g);
   }
   currentKeyframe ++;
@@ -109,12 +111,18 @@ function loadKeyframe(keyframe) {
   currentKeyframe = keyframe;
   for (i in allSprites) {
     sprite = allSprites[i];
-    sprite.x = sprite.timeline[currentKeyframe][0];
-    sprite.y = sprite.timeline[currentKeyframe][1];
-    sprite.width = sprite.timeline[currentKeyframe][2];
-    sprite.height = sprite.timeline[currentKeyframe][3];
-    sprite.rotation = sprite.timeline[currentKeyframe][4];
-    resizeButtons(sprite);
+    if (sprite.timeline[currentKeyframe].length == 1){
+      sprite.alpha = 0;
+    }
+    else{
+      sprite.x = sprite.timeline[currentKeyframe][0];
+      sprite.y = sprite.timeline[currentKeyframe][1];
+      sprite.width = sprite.timeline[currentKeyframe][2];
+      sprite.height = sprite.timeline[currentKeyframe][3];
+      sprite.rotation = sprite.timeline[currentKeyframe][4];
+      sprite.alpha = sprite.timeline[currentKeyframe][5];
+      resizeButtons(sprite);
+    }
   }
 
   updateActiveButton();
@@ -141,7 +149,7 @@ function editKeyframe() {
 
   for (i in allSprites) {
     sprite = allSprites[i];
-    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation];
+    const g = [sprite.x, sprite.y, sprite.width, sprite.height, sprite.rotation, sprite.alpha];
     sprite.timeline.splice(currentKeyframe+1, 0, g);
   }
 

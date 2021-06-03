@@ -196,7 +196,7 @@ function BRotate() {
 function closing(sprite){
     lastModifiedSprite = sprite;
     resizeButtons(sprite);
-    setPropertyPanelValues(sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.rotation);
+    setPropertyPanelValues(sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.rotation, sprite.alpha);
 }
 
 // END BUTTON FUNCTIONS
@@ -270,7 +270,7 @@ let canParentMove = false;
             currSprite = currSprite.directParent;
         }
 
-        setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
+        setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation, this.alpha);
     }
     function onDragMoveSprite() {
         if (this.dragging) {
