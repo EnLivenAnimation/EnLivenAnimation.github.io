@@ -17,7 +17,7 @@ function addCircle(){
 
 function addSquare(){
     let squaretexture = PIXI.Texture.from("res/img/square.jpg");
-    displaySprite(squaretexture, 200, 200, 120, 120, null, null);
+    displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
 }
 
 function addTriangle(){
