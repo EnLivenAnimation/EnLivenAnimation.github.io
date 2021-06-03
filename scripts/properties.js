@@ -1,9 +1,9 @@
 function setPropertyPanelValues(x, y, w, h, r){
-  document.getElementById("x").value = Math.round(x);
-  document.getElementById("y").value = Math.round(-1*y+app.screen.height);
-  document.getElementById("w").value = Math.round(w);
-  document.getElementById("h").value = Math.round(h);
-  document.getElementById("r").value = Math.round(r * (180 / Math.PI));
+  document.getElementById("xpos").value = Math.round(x);
+  document.getElementById("ypos").value = Math.round(-1*y+app.screen.height);
+  document.getElementById("width").value = Math.round(w);
+  document.getElementById("height").value = Math.round(h);
+  document.getElementById("rotation").value = Math.round(r * (180 / Math.PI));
 }
 
 function deconvert(sprite,x,y,w,h,r){
