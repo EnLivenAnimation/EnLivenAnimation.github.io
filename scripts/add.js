@@ -16,7 +16,7 @@ function addCircle(){
 }
 
 function addSquare(){
-    let squaretexture = PIXI.Texture.from("res/img/square.png");
+    let squaretexture = PIXI.Texture.from("res/img/square.jpg");
     displaySprite(squaretexture, 200, 200, 120, 120, null, null);
 }
 
