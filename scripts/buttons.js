@@ -5,7 +5,7 @@ let buttonVisualSize = 7;
 let bvs = buttonVisualSize;
 
 { // RE EVALUATE VALUES
-function resizeButtons(sprite) { // might be hard coded
+function resizeButtons(sprite) {
     resetVisualValues(sprite);
     for (i in sprite.buttonArray) {
         sprite.buttonArray[i].width = bvs*sprite.originalWidth/sprite.visualWidth;
@@ -278,6 +278,7 @@ let canParentMove = false;
             this.x = newPosition2.x;
             this.y = newPosition2.y;
             canParentMove = false;
+            closing(this);
         }
     }
 }
