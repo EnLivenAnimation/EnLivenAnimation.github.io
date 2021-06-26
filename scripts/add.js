@@ -22,6 +22,16 @@ function addCircle(){
     displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
 }
 
+function testingTmp(){
+    let circletexture = PIXI.Texture.from("res/img/circle.png");
+    let triangletexture = PIXI.Texture.from("res/img/triangle.png");
+    displaySprite(circletexture, 200, 200, 10, 500, 0x117711, null);
+    displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
+    displaySprite(circletexture, 200, 200, 10, 250, 0x117711, null);
+    displaySprite(circletexture, 200, 200, 250, 10, 0x117711, null);
+    displaySprite(circletexture, 300, 300, 500, 10, 0xeeee55, null);
+}
+
 function addSquare(){
     let squaretexture = PIXI.Texture.from("res/img/square.jpg");
     displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);

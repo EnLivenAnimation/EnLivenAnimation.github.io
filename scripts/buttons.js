@@ -5,7 +5,7 @@ let buttonVisualSize = 7;
 let bvs = buttonVisualSize;
 
 { // RE EVALUATE VALUES
-function resizeButtons(sprite) { // might be hard coded
+function resizeButtons(sprite) {
     resetVisualValues(sprite);
     for (i in sprite.buttonArray) {
         sprite.buttonArray[i].width = bvs*sprite.originalWidth/sprite.visualWidth;
@@ -186,10 +186,14 @@ function BRotate() {
         const newPosition3 = this.data.getLocalPosition(this.parent);
         this.x = newPosition3.x;
         this.y = newPosition3.y;
-        theta = Math.atan2(-this.y, this.x);
-        sprite.rotation+= Math.PI/2-theta;
-        this.position.set(0, -sprite.n*(1+40/sprite.visualHeight))
+        // theta = -Math.atan2(this.x,this.y);
+        theta = Math.atan2(this.x*sprite.visualWidth/sprite.originalWidth, -this.y*sprite.visualHeight/sprite.originalHeight);
+        // theta = Math.atan2(sprite.visualY - this.y, -sprite.visualX+this.x);
+        // sprite.rotation+= Math.PI/2-theta;
+        sprite.rotation+= theta;
+        this.position.set(0, -sprite.n*(1+40/sprite.visualHeight));
         a = false;
+        console.log(Math.PI/2-theta);
         closing(sprite);
     }
 }
@@ -278,6 +282,7 @@ let canParentMove = false;
             this.x = newPosition2.x;
             this.y = newPosition2.y;
             canParentMove = false;
+            closing(this);
         }
     }
 }
