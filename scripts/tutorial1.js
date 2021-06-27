@@ -28,11 +28,15 @@ function turnOff2(){
     x.style.filter = "brightness(100%)";   
 }
 
-addCircle();
+function outLine(){
+    let circle = PIXI.Texture.from("res/img/circle.png");
+    displaySprite(circle, 20, 450, 120, 120, 00000000, null);
+}
+outLine();
+function removeCirlce(){
 
-
-
-//addCircle();
+    
+}
 //displaySprite()
 //
 //PopUpText

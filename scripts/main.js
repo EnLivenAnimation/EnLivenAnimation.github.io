@@ -43,7 +43,7 @@ function setup() {
 
 function Looping(){
   setTimeout(function(){ 
-    if (allSprites.length == 1){
+    if (allSprites.length == 2 && Math.round(allSprites[1].y) == 31 && Math.round(allSprites[1].x) == 20){
       popUp2();
     }
     else{
