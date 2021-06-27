@@ -129,7 +129,6 @@ function deleteKeyframe() {
     sprite = allSprites[i];
     sprite.timeline.splice(currentKeyframe, 1);
   }
-
   deleteButton();
   setButtons();
   updateActiveButton();

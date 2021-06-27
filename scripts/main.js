@@ -19,7 +19,7 @@ let app = new Application({
 document.getElementById("canvas").appendChild(app.view);
 
 let state, KFButton, allSprites = [], texture2;
-let texture,sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h;
+let texture,sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h,canTurnOff;
 
 loader
   .add("res/img/circle.png")
@@ -38,6 +38,18 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons); 
   app.stage.addChild(background);
+  Looping();
+}
+
+function Looping(){
+  setTimeout(function(){ 
+    if (allSprites.length == 1){
+      popUp2();
+    }
+    else{
+      Looping();
+    }
+  }, 1000);
 }
 
 const atlas = loadFile("./res/atlas/atlas.txt");

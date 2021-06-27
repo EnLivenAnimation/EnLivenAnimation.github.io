@@ -44,7 +44,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       DisplayedSprite.y = (-1*parent.visualY+app.screen.height-visualY) * parent.originalHeight / parent.visualHeight;
       DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
       DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
-
       DisplayedSprite.directParent = parent;
   }
 
@@ -53,7 +52,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
           DisplayedSprite.timeline.push([-1]);
       }
   }
-
   let Buttontexture = PIXI.Texture.from("res/img/square.jpg");
   button1 =  new Sprite(Buttontexture);
   button2 =  new Sprite(Buttontexture);
@@ -66,7 +64,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   buttonR =  new Sprite(Buttontexture);
 
   DisplayedSprite.buttonArray = [button1, button2, button3, button4, button5, button6, button7, button8, buttonR];
-
   let m = DisplayedSprite.originalWidth/2;
   let n = DisplayedSprite.originalHeight/2;
   DisplayedSprite.m = m;
@@ -89,7 +86,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
           .on('pointerup', onDragEndButton)
           .on('pointerupoutside', onDragEndButton);
   }
-
   DisplayedSprite.buttonArray[0]
       .on('pointermove', B1);
   DisplayedSprite.buttonArray[1]
@@ -108,7 +104,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       .on('pointermove', B8);
   DisplayedSprite.buttonArray[8]
       .on('pointermove', BRotate);
-
   resizeButtons(DisplayedSprite);
   disableButtons();
   return DisplayedSprite;
