@@ -245,6 +245,10 @@ let canParentMove = false;
         this.dragging = true;
         canParentMove = false;
         
+        // var mousePosition = renderer.plugins.interaction.mouse.global;
+        var mousePosition = event.data.getLocalPosition();
+        console.log(mousePosition);
+
         currSprite = this;
         while (currSprite.directParent != null) {
             currSprite.directParent.interactive = false;

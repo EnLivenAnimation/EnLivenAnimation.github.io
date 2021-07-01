@@ -38,6 +38,7 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons); 
   app.stage.addChild(background);
+  addTriangle();
   // testingTmp();
 }
 
