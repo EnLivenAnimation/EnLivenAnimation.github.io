@@ -24,7 +24,7 @@
   <script src="scripts/add.js" async></script>
   <script src="scripts/export.js" async></script>
   <!-- MAIN SCRIPT -->
-  <script src="scripts/main.js" async></script>
+  <script src="scripts/Main1.js" async></script>
   <script src="scripts/tutorial1.js" async></script>
 </head>
 
@@ -96,7 +96,7 @@
     <div id="timeline" class="panel">
       <button class="timeline-button" onclick="play();"><i class="fas fa-play"></i></button>
       <button class="timeline-button" onclick="pause();"><i class="fas fa-pause"></i></button>
-      <button class="timeline-button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
+      <button class="timeline-button" id = "keyFrame" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
       <button class="timeline-button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
@@ -111,16 +111,35 @@
 </div>
   <div class="popup">
     <span class="popuptext" id="myPopup">
-        Welcome to the Squash and Stretch Tutorial. To begin please add a circle and place it over the black circle outline
-      <button class="navbar-button" type="button" onclick ="turnOff();">Next</button>
+      Welcome to the Squash and Stretch Tutorial. To begin please add a circle and place it over the black circle outline
+    <button class="navbar-button" type="button" onclick ="turnOff();">Next</button>
     </span>  
   </div>
   <div class="popup">
     <span class="popuptext" id="myPopup1">
-        Edward.
-      <button class="navbar-button" type="button" onclick ="turnOff2();">Next</button>
-    </span>  
-  </div>
-
+      Press the add button and add this position as a keyframe.
+    <button class="navbar-button" type="button" onclick ="turnOff2();">Next</button>
+  </span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup3">
+    Great! Now do this for the rest of the outlines that you will see.
+  <button class="navbar-button" type="button" onclick ="turnOff3();">Next</button>
+</span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup4">
+    Congratulations. Now set the tweens slider you see on the bottom down to 0 and click play. Remember, animation is all about creativity.
+    Hopefully this taught you some basics of Squish and Squash.
+  <button class="navbar-button" type="button" onclick ="turnOff4();">Next</button>
+</span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup3">
+    Notice how at this point, the ball has gone from a circular shape into an oval one. This is what we call squishing.
+  <button class="navbar-button" type="button" onclick ="turnOff3();">Next</button>
+</span>  
+</div>
+</div>
 </body>
 </html>

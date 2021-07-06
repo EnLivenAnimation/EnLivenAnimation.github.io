@@ -108,3 +108,8 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   disableButtons();
   return DisplayedSprite;
 }
+function displaySprite2(texture, visualX, visualY, visualWidth, visualHeight, tint, parent, rotate){
+    let a =  displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent);
+    a.angle = rotate;
+    return a;
+}

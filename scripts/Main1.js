@@ -19,7 +19,7 @@ let app = new Application({
 document.getElementById("canvas").appendChild(app.view);
 
 let state, KFButton, allSprites = [], texture2;
-let texture,sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h,canTurnOff;
+let texture,sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h;
 
 loader
   .add("res/img/circle.png")
@@ -28,7 +28,6 @@ loader
   .add("res/img/justin-sheet.png")
   .add("res/img/triangle.png")
   .load(setup)
-
 function setup() {
   const bg = PIXI.Texture.from("res/img/background.jpg");
   var background = new PIXI.Sprite(bg);
@@ -38,9 +37,26 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons); 
   app.stage.addChild(background);
+  outline();
+  Looping();
 }
-
-
+function Looping(){
+  console.log(allSprites[1].y);
+  console.log(allSprites[1].x);
+    setTimeout(function(){ 
+      if (allSprites.length == 22 && Math.abs(allSprites[21].y +4) <= 2 && Math.abs(allSprites[21].x-5) <= 2){
+        popUp2();
+        console.log("AS");
+      }
+      else if(allSprites.length == 22 && Math.abs(allSprites[21].y -66) <= 2 && Math.abs(allSprites[21].x-71) <= 2){
+        popUp4();
+        console.log("bS");
+      }
+      else{
+        Looping();
+      }
+    }, 1000);
+}
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);

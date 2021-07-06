@@ -321,7 +321,6 @@ input[type=number]{
   margin-bottom: 180px;
   margin-left: 280px;
 }
-
 /* Popup arrow */
 .popup .popuptext::after {
   position: absolute;
