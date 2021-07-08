@@ -42,8 +42,6 @@ function setup() {
 }
 
 function Looping(){
-  console.log(allSprites[21].y);
-  console.log(allSprites[21].x);
     setTimeout(function(){ 
       if (allSprites.length == 22 && Math.abs(allSprites[21].y +4) <= 2 && Math.abs(allSprites[21].x-5) <= 2){
         popUp2();
@@ -51,11 +49,14 @@ function Looping(){
       else if(allSprites.length == 22 && Math.abs(allSprites[21].y -66) <= 2 && Math.abs(allSprites[21].x-71) <= 2){
         popUp4();
       }
-      else{
-        Looping();
-      }
+      Looping();
     }, 1000);
 }
+
+
+
+
+
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);
