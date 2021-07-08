@@ -40,17 +40,16 @@ function setup() {
   outline();
   Looping();
 }
+
 function Looping(){
-  console.log(allSprites[1].y);
-  console.log(allSprites[1].x);
+  console.log(allSprites[21].y);
+  console.log(allSprites[21].x);
     setTimeout(function(){ 
       if (allSprites.length == 22 && Math.abs(allSprites[21].y +4) <= 2 && Math.abs(allSprites[21].x-5) <= 2){
         popUp2();
-        console.log("AS");
       }
       else if(allSprites.length == 22 && Math.abs(allSprites[21].y -66) <= 2 && Math.abs(allSprites[21].x-71) <= 2){
         popUp4();
-        console.log("bS");
       }
       else{
         Looping();

@@ -10,11 +10,13 @@ function popUp(){
     var x = document.getElementById("dim");
     x.style.filter = "brightness(50%)";
 }
+let addFirstKeyFrame = false;
 function popUp2(){
     var popup = document.getElementById("myPopup1");
     popup.classList.toggle("show"); 
     var x = document.getElementById("dim");
     x.style.filter = "brightness(50%)";  
+    addFirstKeyFrame = true;
 }
 function popUp3(){
     var popup = document.getElementById("myPopup3");
@@ -81,59 +83,27 @@ function outline(){
     s = displaySprite2(circle, 842, 158, 90, 88, 00000000, null,-43);
     t = displaySprite2(circle, 858, 113, 90, 88, 00000000, null,-43);
     u = displaySprite2(circle, 868, 89, 101, 75, 00000000, null,1);
-    z.interactive = false;
-    a.interactive = false;
-    k.interactive = false;
-    l.interactive = false;
-    m.interactive = false;
-    n.interactive = false;
-    o.interactive = false;
-    p.interactive = false;
-    q.interactive = false;
-    r.interactive = false;
-    s.interactive = false;
-    t.interactive = false;
-    u.interactive = false;
-    c.interactive = false;
-    d.interactive = false;
-    e.interactive = false;
-    f.interactive = false;
-    g.interactive = false;
-    h.interactive = false;
-    v.interactive = false;
-    j.interactive = false;
-    a.alpha = 0;
-    d.alpha = 0;
-    e.alpha = 0;
-    f.alpha = 0;
-    g.alpha = 0;
-    h.alpha = 0;
-    v.alpha = 0;
-    j.alpha = 0;
-    k.alpha = 0;
-    l.alpha = 0;
-    m.alpha = 0;
-    n.alpha = 0;
-    o.alpha = 0;
-    p.alpha = 0;
-    q.alpha = 0;
-    r.alpha = 0;
-    s.alpha = 0;
-    t.alpha = 0;
-    u.alpha = 0;
-    c.alpha = 0;
+    for (i = 1; i < 21;i++){
+        interactive(i);
+        removeCircle(i);
     }
+  }
 }
 function removeCircle(i){
     allSprites[i].alpha = 0;
 }
+function enableCircle(i){
+    allSprites[i].alpha = 1;
+}
+function interactive(i){
+    allSprites[i].interactive = false;
+}
 
-
-document.getElementById("keyFrame").onclick = function(){
-    a3 = true;
-    addKeyframe();
+function addKeyframePopUp(){
+   if (addFirstKeyFrame)
+    {addKeyframe();
     popUp3();
-    console.log("SMTH IS HAPPENING");
+    document.getElementById("addButton").setAttribute("onclick","addKeyframe();")}
 };
 //displaySprite()
 //
