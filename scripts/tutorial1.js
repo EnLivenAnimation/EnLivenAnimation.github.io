@@ -11,6 +11,7 @@ function popUp(){
     x.style.filter = "brightness(50%)";
 }
 let addFirstKeyFrame = false;
+
 function popUp2(){
     var popup = document.getElementById("myPopup1");
     popup.classList.toggle("show"); 
@@ -42,8 +43,7 @@ function turnOff2(){
     popup2.classList.toggle("show");
     var x = document.getElementById("dim");
     x.style.filter = "brightness(100%)"; 
-    removeCircle(0);
-    
+    removeCircle(0); 
 }
 function turnOff3(){
     var popup3 = document.getElementById("myPopup3");
@@ -55,9 +55,91 @@ function turnOff4(){
     var popup2 = document.getElementById("myPopup4");
     popup2.classList.toggle("show");
     var x = document.getElementById("dim");
-    x.style.filter = "brightness(100%)"; 
-
+    x.style.filter = "brightness(100%)";
 }
+function outlineOff2(){
+    removeCircle(1);
+    allSprites[2].alpha = 1;
+}
+function outlineOff3(){
+    removeCircle(2);
+    allSprites[3].alpha = 1;
+}
+function outlineOff4(){
+    removeCircle(3);
+    allSprites[4].alpha = 1;
+}
+function outlineOff5(){
+    removeCircle(4);
+    allSprites[5].alpha = 1;
+}
+function outlineOff6(){
+    removeCircle(5);
+    allSprites[6].alpha = 1;
+}
+function outlineOff7(){
+    removeCircle(6);
+    allSprites[7].alpha = 1;
+}
+function outlineOff8(){
+    removeCircle(7);
+    allSprites[8].alpha = 1;
+}
+function outlineOff9(){
+    removeCircle(8);
+    allSprites[9].alpha = 1;
+}
+function outlineOff10(){
+    removeCircle(9);
+    allSprites[10].alpha = 1;
+}
+function outlineOff11(){
+    removeCircle(10);
+    allSprites[11].alpha = 1;
+}
+function outlineOff12(){
+    removeCircle(11);
+    allSprites[12].alpha = 1;
+}
+function outlineOff13(){
+    removeCircle(12);
+    allSprites[13].alpha = 1;
+}
+function outlineOff14(){
+    removeCircle(13);
+    allSprites[14].alpha = 1;
+}
+function outlineOff15(){
+    removeCircle(14);
+    allSprites[15].alpha = 1;
+}
+function outlineOff16(){
+    removeCircle(15);
+    allSprites[16].alpha = 1;
+}
+function outlineOff17(){
+    removeCircle(16);
+    allSprites[17].alpha = 1;
+}
+function outlineOff18(){
+    removeCircle(17);
+    allSprites[18].alpha = 1;
+}
+function outlineOff19(){
+    removeCircle(18);
+    allSprites[19].alpha = 1;
+}
+function outlineOff20(){
+    removeCircle(19);
+    allSprites[20].alpha = 1;
+}
+function outlineOff21(){
+    removeCircle(20);
+    allSprites[20].alpha = 1;
+}
+
+
+
 {
 let a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
 function outline(){

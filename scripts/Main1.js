@@ -43,15 +43,17 @@ function setup() {
 
 function Looping(){
     setTimeout(function(){ 
-      if (allSprites.length == 22 && Math.abs(allSprites[21].y +4) <= 2 && Math.abs(allSprites[21].x-5) <= 2){
+      if (allSprites.length == 22 && Math.abs(allSprites[21].visualY + 4) <= 2 && Math.abs(allSprites[21].visualX-5) <= 2){
         popUp2();
       }
-      else if(allSprites.length == 22 && Math.abs(allSprites[21].y -66) <= 2 && Math.abs(allSprites[21].x-71) <= 2){
+      else if(allSprites.length == 22 && Math.abs(allSprites[21].visualY -66) <= 2 && Math.abs(allSprites[21].visualX-71) <= 2){
         popUp4();
       }
       Looping();
     }, 1000);
 }
+
+
 
 
 

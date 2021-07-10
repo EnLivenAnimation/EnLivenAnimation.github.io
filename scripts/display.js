@@ -80,7 +80,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       currButton.x = xs[i];
       currButton.y = ys[i];
       currButton.tint = 0x1a73e8;
-
       currButton
           .on('pointerdown', onDragStartButton)
           .on('pointerup', onDragEndButton)
@@ -108,6 +107,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   disableButtons();
   return DisplayedSprite;
 }
+
 function displaySprite2(texture, visualX, visualY, visualWidth, visualHeight, tint, parent, rotate){
     let a =  displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent);
     a.angle = rotate;
