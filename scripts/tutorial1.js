@@ -12,6 +12,7 @@ function popUp(){
     x.style.filter = "brightness(50%)";
     console.log("Pop up 1 done");
     pucai++;
+    console.log("pucai = " + pucai);
 }
 let addFirstKeyFrame = false;
 
@@ -24,6 +25,7 @@ function popUp2(){
     addFirstKeyFrame = true;
     console.log("Pop up 2 done");
     pucai++;
+    console.log("pucai = " + pucai);
 }
 function popUp3(){
     console.log("Pop up 3 start");
@@ -34,6 +36,7 @@ function popUp3(){
     allSprites[1].alpha = 1;
     console.log("Pop up 3 done");
     pucai++;
+    console.log("pucai = " + pucai);
 }
 function popUp4(){
     console.log("Pop up 4 start");
@@ -43,6 +46,7 @@ function popUp4(){
     x.style.filter = "brightness(50%)";  
     console.log("Pop up 4 done");
     pucai++;
+    console.log("pucai = " + pucai);
 }
 function turnOff(){
     var popup = document.getElementById("myPopup");
@@ -62,6 +66,7 @@ function turnOff3(){
     popup3.classList.toggle("show");
     var x = document.getElementById("dim");
     x.style.filter = "brightness(100%)"; 
+    Looping();
 }
 function turnOff4(){
     var popup2 = document.getElementById("myPopup4");

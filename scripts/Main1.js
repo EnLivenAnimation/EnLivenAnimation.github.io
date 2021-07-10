@@ -41,19 +41,22 @@ function setup() {
   Looping();
 }
 
+let currentOutline = 0.
 let outlineCoords = [
-
+  [5, 486],
+  [71, 416]
 ]
 let pucai = 0; // pucai = popUpCommandsArrayIndex
 function Looping(){
     setTimeout(function(){ 
       // console.log(allSprites[21].visualX);
-      if (allSprites.length == 22){
+      if (allSprites.length == 22 && currentOutline < 22){
         console.log(Math.abs(allSprites[21].visualY));
         // console.log(Math.abs(allSprites[21].visualX-5) <= 10);
-        if (Math.abs(allSprites[21].visualY - 486) <= 10 && Math.abs(allSprites[21].visualX-5) <= 10){
+        if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 10 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 10){
           console.log("Success");
-          popUp2();
+          currentOutline++;
+          popUpCommandsArray[pucai]();
         }
         else{
           Looping();
