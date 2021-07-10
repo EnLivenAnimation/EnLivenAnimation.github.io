@@ -169,6 +169,7 @@ function outline(){
         interactive(i);
         removeCircle(i);
     }
+    interactive(0);
   }
 }
 function removeCircle(i){
@@ -183,7 +184,8 @@ function interactive(i){
 
 function addKeyframePopUp(){
    if (addFirstKeyFrame)
-    {addKeyframe();
+    {
+    addKeyframe();
     popUp3();
     document.getElementById("addButton").setAttribute("onclick","addKeyframe();")}
 };

@@ -42,6 +42,8 @@ function setup() {
 }
 
 function Looping(){
+  console.log(allSprites[20].visualX + "X");
+  console.log(allSprites[20].visualY + "Y");
     setTimeout(function(){ 
       if (allSprites.length == 22 && Math.abs(allSprites[21].visualY + 4) <= 2 && Math.abs(allSprites[21].visualX-5) <= 2){
         popUp2();
@@ -52,13 +54,6 @@ function Looping(){
       Looping();
     }, 1000);
 }
-
-
-
-
-
-
-
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);
