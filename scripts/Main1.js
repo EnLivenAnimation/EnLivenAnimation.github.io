@@ -41,15 +41,30 @@ function setup() {
   Looping();
 }
 
+let outlineCoords = [
+
+]
+let pucai = 0; // pucai = popUpCommandsArrayIndex
 function Looping(){
     setTimeout(function(){ 
-      if (allSprites.length == 22 && Math.abs(allSprites[21].visualY + 4) <= 2 && Math.abs(allSprites[21].visualX-5) <= 2){
-        popUp2();
+      // console.log(allSprites[21].visualX);
+      if (allSprites.length == 22){
+        console.log(Math.abs(allSprites[21].visualY));
+        // console.log(Math.abs(allSprites[21].visualX-5) <= 10);
+        if (Math.abs(allSprites[21].visualY - 486) <= 10 && Math.abs(allSprites[21].visualX-5) <= 10){
+          console.log("Success");
+          popUp2();
+        }
+        else{
+          Looping();
+        }
       }
-      else if(allSprites.length == 22 && Math.abs(allSprites[21].visualY -66) <= 2 && Math.abs(allSprites[21].visualX-71) <= 2){
-        popUp4();
+      // else if(allSprites.length == 22 && Math.abs(allSprites[21].visualY -66) <= 2 && Math.abs(allSprites[21].visualX-71) <= 2){
+      //   popUp4();
+      // }
+      else{
+        Looping();
       }
-      Looping();
     }, 1000);
 }
 

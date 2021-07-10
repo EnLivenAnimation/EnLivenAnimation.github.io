@@ -5,32 +5,44 @@ jQuery(window).load(function () {
 let a3 = false;
 let counter = 0;
 function popUp(){
+    console.log("Pop up 1 start");
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show"); 
     var x = document.getElementById("dim");
     x.style.filter = "brightness(50%)";
+    console.log("Pop up 1 done");
+    pucai++;
 }
 let addFirstKeyFrame = false;
 
 function popUp2(){
+    console.log("Pop up 2 start");
     var popup = document.getElementById("myPopup1");
     popup.classList.toggle("show"); 
     var x = document.getElementById("dim");
     x.style.filter = "brightness(50%)";  
     addFirstKeyFrame = true;
+    console.log("Pop up 2 done");
+    pucai++;
 }
 function popUp3(){
+    console.log("Pop up 3 start");
     var popup = document.getElementById("myPopup3");
     popup.classList.toggle("show"); 
     var x = document.getElementById("dim");
     x.style.filter = "brightness(50%)";  
     allSprites[1].alpha = 1;
+    console.log("Pop up 3 done");
+    pucai++;
 }
 function popUp4(){
+    console.log("Pop up 4 start");
     var popup = document.getElementById("myPopup4");
     popup.classList.toggle("show"); 
     var x = document.getElementById("dim");
     x.style.filter = "brightness(50%)";  
+    console.log("Pop up 4 done");
+    pucai++;
 }
 function turnOff(){
     var popup = document.getElementById("myPopup");
@@ -190,3 +202,10 @@ function addKeyframePopUp(){
 //displaySprite()
 //
 //PopUpText
+
+let popUpCommandsArray = [
+    function(){popUp();}, 
+    function(){popUp2();}, 
+    function(){popUp3();}, 
+    function(){popUp4();}
+];
