@@ -42,14 +42,8 @@ function setup() {
 }
 
 let currentOutline = 0.
-let outlineCoords = [
-  [5, 486],
-  [71, 416]
-]
 let pucai = 0; // pucai = popUpCommandsArrayIndex
 function Looping(){
-  console.log(allSprites[20].visualX + "X");
-  console.log(allSprites[20].visualY + "Y");
     setTimeout(function(){ 
       // console.log(allSprites[21].visualX);
       if (allSprites.length == 22 && currentOutline < 22){
@@ -64,14 +58,25 @@ function Looping(){
           Looping();
         }
       }
-      // else if(allSprites.length == 22 && Math.abs(allSprites[21].visualY -66) <= 2 && Math.abs(allSprites[21].visualX-71) <= 2){
-      //   popUp4();
-      // }
       else{
         Looping();
       }
     }, 1000);
 }
+
+function Looping2(){
+  //if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 10 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 10){ 
+    currentOutline++;
+    popUpCommandsArray[pucai]();
+  //}
+}
+
+
+
+
+
+
+
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);

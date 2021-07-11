@@ -73,89 +73,130 @@ function turnOff4(){
     popup2.classList.toggle("show");
     var x = document.getElementById("dim");
     x.style.filter = "brightness(100%)";
+    //Looping2();
 }
 function outlineOff2(){
     removeCircle(1);
     allSprites[2].alpha = 1;
+    pucai++;
+    Looping2();
 }
 function outlineOff3(){
     removeCircle(2);
     allSprites[3].alpha = 1;
+    pucai++;  
+    //Looping2();
 }
 function outlineOff4(){
     removeCircle(3);
     allSprites[4].alpha = 1;
+    pucai++;
+    //Looping2();
 }
 function outlineOff5(){
     removeCircle(4);
     allSprites[5].alpha = 1;
+    pucai++;
+    //Looping2();
 }
 function outlineOff6(){
     removeCircle(5);
     allSprites[6].alpha = 1;
+    pucai++;
+    //Looping2();
 }
 function outlineOff7(){
     removeCircle(6);
     allSprites[7].alpha = 1;
+    pucai++;
+   //Looping2();
 }
 function outlineOff8(){
     removeCircle(7);
     allSprites[8].alpha = 1;
+    pucai++;
+   // Looping2();
 }
 function outlineOff9(){
     removeCircle(8);
     allSprites[9].alpha = 1;
+    pucai++;
+    //Looping2();
 }
 function outlineOff10(){
     removeCircle(9);
     allSprites[10].alpha = 1;
+    pucai++;
+   // Looping2();
 }
 function outlineOff11(){
     removeCircle(10);
     allSprites[11].alpha = 1;
+    pucai++;
+   // Looping2();
 }
 function outlineOff12(){
     removeCircle(11);
     allSprites[12].alpha = 1;
+    pucai++;
+    //Looping2();
 }
 function outlineOff13(){
     removeCircle(12);
     allSprites[13].alpha = 1;
+    pucai++;
+   // Looping2();
 }
 function outlineOff14(){
     removeCircle(13);
     allSprites[14].alpha = 1;
+    pucai++;
+    //Looping();
 }
 function outlineOff15(){
     removeCircle(14);
     allSprites[15].alpha = 1;
+    pucai++;
+    //Looping();
 }
 function outlineOff16(){
     removeCircle(15);
     allSprites[16].alpha = 1;
+    pucai++;
+    Looping();
 }
 function outlineOff17(){
     removeCircle(16);
     allSprites[17].alpha = 1;
+    pucai++;
+    Looping();
 }
 function outlineOff18(){
     removeCircle(17);
     allSprites[18].alpha = 1;
+    pucai++;
+    Looping();
 }
 function outlineOff19(){
     removeCircle(18);
     allSprites[19].alpha = 1;
+    pucai++;
+    Looping();
 }
 function outlineOff20(){
     removeCircle(19);
     allSprites[20].alpha = 1;
+    pucai++;
+    Looping();
 }
 function outlineOff21(){
     removeCircle(20);
     allSprites[20].alpha = 1;
+    pucai++;
+    Looping();
 }
 
-
+let outlineCoords = [];
 
 {
 let a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
@@ -187,8 +228,34 @@ function outline(){
         removeCircle(i);
     }
     interactive(0);
+    outlineCoords = [
+        [5, 486],
+        [71, 416],
+        [133,allSprites[2].visualY],
+        [203,allSprites[3].visualY],
+        [259,allSprites[4].visualY],
+        [306,allSprites[5].visualY],
+        [368,allSprites[6].visualY],
+        [427,allSprites[7].visualY],
+        [460,allSprites[8].visualY],
+        [495,allSprites[9].visualY],
+        [532,allSprites[10].visualY],
+        [581,allSprites[11].visualY],
+        [608,allSprites[12].visualY],
+        [620,allSprites[13].visualY],
+        [707,allSprites[14].visualY],
+        [765,allSprites[15].visualY],
+        [790,allSprites[16].visualY],
+        [825,allSprites[17].visualY],
+        [842,allSprites[18].visualY],
+        [858,allSprites[19].visualY],
+        [868,allSprites[20].visualY]
+    ]
   }
+  
 }
+
+
 function removeCircle(i){
     allSprites[i].alpha = 0;
 }
@@ -214,5 +281,25 @@ let popUpCommandsArray = [
     function(){popUp();}, 
     function(){popUp2();}, 
     function(){popUp3();}, 
-    function(){popUp4();}
+    function(){popUp4();},
+    function(){outlineOff2();},
+    function(){outlineOff3();},
+    function(){outlineOff4();},
+    function(){outlineOff5();},
+    function(){outlineOff6();},
+    function(){outlineOff7();},
+    function(){outlineOff8();},
+    function(){outlineOff9();},
+    function(){outlineOff10();},
+    function(){outlineOff11();},
+    function(){outlineOff12();},
+    function(){outlineOff13();},
+    function(){outlineOff14();},
+    function(){outlineOff15();},
+    function(){outlineOff16();},
+    function(){outlineOff17();},
+    function(){outlineOff18();},
+    function(){outlineOff19();},
+    function(){outlineOff20();},
+    function(){outlineOff21();}
 ];

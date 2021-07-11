@@ -113,3 +113,25 @@ function displaySprite2(texture, visualX, visualY, visualWidth, visualHeight, ti
     a.angle = rotate;
     return a;
 }
+
+/* 
+allSprites[2] x = 133 and y = 112
+allSprites[3] x = 203 and y = 221
+allSprites[4] x = 259 and y = 308
+allSprites[5] x = 306  and y = 374
+allSprites[6] x = 368 and y = 444
+allSprites[7] x = 427  and y = 364
+allSprites[8] x = 460 and y = 284
+allSprites[9] x = 495 and y = 218
+allSprites[10] x = 532  and y = 209
+allSprites[11] x = 581 and y = 245
+allSprites[12] x = 608 and y = 307
+allSprites[13] x = 620 and y = 349
+allSprites[14] x = 707  and y = 451
+allSprites[15] x = 765 and y = 357
+allSprites[16] x = 790 and y = 311 
+allSprites[17] x = 825 and y = 289
+allSprites[18] x = 842  and y = 324
+allSprites[19] x = 858  and y = 369
+allSprites[20] x = 868 and y = 393
+*/
