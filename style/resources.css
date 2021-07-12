@@ -48,6 +48,8 @@
   font-family: 'Times New Roman', Times, serif;
   padding: 15px;
   margin-left:10%;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 #principles{
