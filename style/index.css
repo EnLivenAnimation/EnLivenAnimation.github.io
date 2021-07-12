@@ -65,7 +65,7 @@
 
 /* Dropdown button on hover & focus */
 .navbar-button:hover, .navbar-button:focus {
-  background-color: #4a4a4a;
+  background-color: var(--light-green);
 }
 
 /* The container <div> - needed to position the dropdown content */

@@ -20,7 +20,7 @@ function resizeButtons(sprite) {
 function resetVisualValues(sprite) {
     if (sprite.directParent == null) {
         sprite.visualX = sprite.x;
-        sprite.visualY = sprite.y;
+        sprite.visualY = -1*sprite.y+app.screen.height;
         sprite.visualWidth = sprite.width;
         sprite.visualHeight = sprite.height;
     }
