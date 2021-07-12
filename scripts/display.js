@@ -111,5 +111,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
 
   resizeButtons(DisplayedSprite);
   disableButtons();
+
+  createSkin(DisplayedSprite);
   return DisplayedSprite;
 }

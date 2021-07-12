@@ -121,6 +121,8 @@ function loadKeyframe(keyframe) {
     resizeButtons(sprite);
   }
 
+  displaySkins(currentKeyframe - 1);
+
   updateActiveButton();
 }
 
