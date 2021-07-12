@@ -94,7 +94,7 @@ function waitUntilKFCreated(){
 function Looping2(){
     setTimeout(function(){ 
         // console.log(allSprites[currentOutline].visualX + ", " + allSprites[currentOutline].visualY);
-        if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 5 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 5 && letGo){ 
+        if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 5 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 5 && letGogit && Math.abs(allSprites[21].height - allSprites[currentOutline].height) <= 5 && Math.abs(allSprites[21].width - allSprites[currentOutline].width) <= 5){ 
           waitUntilKFCreated();
           match = true;
         }
