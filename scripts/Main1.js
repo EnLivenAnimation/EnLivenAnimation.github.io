@@ -42,6 +42,8 @@ function setup() {
 }
 
 let a,b,c,d,e,f,g,hi,j,k,l,m,n,o,p,q,r,s,t,u,v,z;
+let letGo = false;
+
 
 function outline(){
     let circle = PIXI.Texture.from("res/img/circle.png");
@@ -107,6 +109,7 @@ function Looping(){
         if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 10 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 10){
           currentOutline++;
           popUpCommandsArray[pucai]();
+          
         }
         else{
           Looping();

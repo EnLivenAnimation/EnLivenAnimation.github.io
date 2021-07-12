@@ -193,7 +193,7 @@ function BRotate() {
         sprite.rotation+= theta;
         this.position.set(0, -sprite.n*(1+40/sprite.visualHeight));
         a = false;
-        console.log(Math.PI/2-theta);
+        
         closing(sprite);
     }
 }
@@ -236,6 +236,7 @@ let canParentMove = false;
     function onDragStartButton(event) {
         this.data = event.data;
         this.alpha = 0.5;
+        letGo = false;
         this.dragging = true;
         interactiveButtons = true;
     }
@@ -244,7 +245,7 @@ let canParentMove = false;
         this.alpha = 0.5;
         this.dragging = true;
         canParentMove = false;
-        
+        letGo = false;
         currSprite = this;
         while (currSprite.directParent != null) {
             currSprite.directParent.interactive = false;
@@ -256,6 +257,7 @@ let canParentMove = false;
         this.dragging = false;
         this.data = null;
         interactiveButtons = false;
+        letGo = true;
         lastModifiedSprite.interactive = true;
         lastModifiedSprite.alpha = 1;
         lastModifiedSprite.dragging = false;
@@ -267,7 +269,7 @@ let canParentMove = false;
         this.data = null;
         resizeButtons(this);
         canParentMove = true;
-        
+        letGo = true;
         currSprite = this;
         while (currSprite.directParent != null) {
             currSprite.directParent.interactive = true;
@@ -283,6 +285,7 @@ let canParentMove = false;
             this.y = newPosition2.y;
             canParentMove = false;
             closing(this);
+            letGo = false;
         }
     }
 }
