@@ -271,7 +271,8 @@ function addKeyframePopUp(){
     {
     addKeyframe();
     popUp3();
-    document.getElementById("addButton").setAttribute("onclick","addKeyframe();")}
+    document.getElementById("addButton").setAttribute("onclick","addKeyframe();")
+}
 };
 //displaySprite()
 //
