@@ -100,9 +100,13 @@
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
       <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
-      <div id="slider-container">
-        <label id="slider-label" for="slider">TWEENS</label>
-        <input id="slider" type="range" name="slider" min="0" max="30" value="20">
+      <div id="fpsSlider-container">
+        <label id="fpsSlider-label" for="slider">FPS</label>
+        <input id="fpsSlider" type="range" name="fpsSlider" min="20" max="120" value="60">
+      </div>
+      <div id="tweensSlider-container">
+        <label id="tweensSlider-label" for="slider">TWEENS</label>
+        <input id="tweensSlider" type="range" name="tweensSlider" min="0" max="30" value="20">
       </div>
       <div id="timeline-keyframes"></div>
     </div>

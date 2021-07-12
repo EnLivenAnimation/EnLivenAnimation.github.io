@@ -7,16 +7,25 @@ let currentKeyframe = -1;
 let loop = false;
 let paused = true;
 
-const slider = document.getElementById("slider");
-const sliderLabel = document.getElementById("slider-label");
-sliderLabel.innerHTML = slider.value;
-slider.oninput = function() {
-  sliderLabel.innerHTML = this.value;
-  tweens = sliderLabel.innerHTML;
+const tweensSlider = document.getElementById("tweensSlider");
+const tweensSliderLabel = document.getElementById("tweensSlider-label");
+tweensSliderLabel.innerHTML = tweensSlider.value;
+tweensSlider.oninput = function() {
+  tweensSliderLabel.innerHTML = this.value;
+  tweens = tweensSliderLabel.innerHTML;
   tweens++;
 }
 
-tweens = slider.value;
+const fpsSlider = document.getElementById("fpsSlider");
+const fpsSliderLabel = document.getElementById("fpsSlider-label");
+fpsSliderLabel.innerHTML = fpsSlider.value;
+fpsSlider.oninput = function() {
+  fpsSliderLabel.innerHTML = this.value;
+  fps = fpsSliderLabel.innerHTML;
+}
+
+tweens = tweensSlider.value;
+fps = fpsSlider.value;
 
 function play() {
   paused = false;
