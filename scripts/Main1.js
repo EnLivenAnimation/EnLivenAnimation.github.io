@@ -100,16 +100,14 @@ let currentOutline = 0.
 let pucai = 0; // pucai = popUpCommandsArrayIndex
 function Looping(){
     setTimeout(function(){ 
-      // console.log(allSprites[21].visualX);
       if (allSprites.length == 22 && currentOutline < 22){
-        // console.log(Math.abs(allSprites[21].visualY));
-        // console.log(Math.abs(allSprites[21].visualX-5) <= 10);
         if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 10 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 10){
           currentOutline++;
           popUpCommandsArray[pucai]();
         }
         else{
           Looping();
+          
         }
       }
       else{
@@ -117,12 +115,6 @@ function Looping(){
       }
     }, 1000);
 }
-
-
-
-
-
-
 
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);

@@ -36,6 +36,21 @@ function popUp4(){
     pucai++;
     // Looping2();
 }
+function popUp5(){
+    var popup = document.getElementById("myPopup5");
+    popup.classList.toggle("show"); 
+    var x = document.getElementById("dim");
+    x.style.filter = "brightness(50%)";  
+   
+}
+function turnOff5(){
+    var popup = document.getElementById("myPopup5");
+    popup.classList.toggle("show"); 
+    var x = document.getElementById("dim");
+    x.style.filter = "brightness(100%)";  
+    waitUntilKFCreated();
+}
+
 function turnOff(){
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
@@ -73,15 +88,19 @@ function outlineOff(n){
     console.log("outline " + n + " is off");
     Looping2();
 }
-
+let pop5 = true;
 function waitUntilKFCreated(){
     setTimeout(function(){
         console.log("waiting for KF to be created");
-        if (justaddedkf){
-            // console.log(currentOutline);
+        if (currentOutline == 5 && pop5){
+            popUp5();
+            pop5 = false;
+        }
+        else if (justaddedkf){
             outlineOff(currentOutline);
             currentOutline++;
             justaddedkf = false;
+            //pop5 = false;   
         }
         else{
             waitUntilKFCreated();
@@ -91,7 +110,6 @@ function waitUntilKFCreated(){
 
 function Looping2(){
     setTimeout(function(){ 
-        // console.log(allSprites[currentOutline].visualX + ", " + allSprites[currentOutline].visualY);
         if (Math.abs(allSprites[21].visualX - allSprites[currentOutline].visualX) <= 10 && Math.abs(allSprites[21].visualY - allSprites[currentOutline].visualY) <= 10){ 
           waitUntilKFCreated();
         }
@@ -99,129 +117,6 @@ function Looping2(){
             Looping2();
         }
     }, 1000);
-}
-
-
-{// function outlineOff2(){
-//     removeCircle(1);
-//     allSprites[2].alpha = 1;
-//     pucai++;
-//     Looping2();
-// }
-// function outlineOff3(){
-//     removeCircle(2);
-//     allSprites[3].alpha = 1;
-//     pucai++;  
-//     //Looping2();
-// }
-// function outlineOff4(){
-//     removeCircle(3);
-//     allSprites[4].alpha = 1;
-//     pucai++;
-//     //Looping2();
-// }
-// function outlineOff5(){
-//     removeCircle(4);
-//     allSprites[5].alpha = 1;
-//     pucai++;
-//     //Looping2();
-// }
-// function outlineOff6(){
-//     removeCircle(5);
-//     allSprites[6].alpha = 1;
-//     pucai++;
-//     //Looping2();
-// }
-// function outlineOff7(){
-//     removeCircle(6);
-//     allSprites[7].alpha = 1;
-//     pucai++;
-//    //Looping2();
-// }
-// function outlineOff8(){
-//     removeCircle(7);
-//     allSprites[8].alpha = 1;
-//     pucai++;
-//    // Looping2();
-// }
-// function outlineOff9(){
-//     removeCircle(8);
-//     allSprites[9].alpha = 1;
-//     pucai++;
-//     //Looping2();
-// }
-// function outlineOff10(){
-//     removeCircle(9);
-//     allSprites[10].alpha = 1;
-//     pucai++;
-//    // Looping2();
-// }
-// function outlineOff11(){
-//     removeCircle(10);
-//     allSprites[11].alpha = 1;
-//     pucai++;
-//    // Looping2();
-// }
-// function outlineOff12(){
-//     removeCircle(11);
-//     allSprites[12].alpha = 1;
-//     pucai++;
-//     //Looping2();
-// }
-// function outlineOff13(){
-//     removeCircle(12);
-//     allSprites[13].alpha = 1;
-//     pucai++;
-//    // Looping2();
-// }
-// function outlineOff14(){
-//     removeCircle(13);
-//     allSprites[14].alpha = 1;
-//     pucai++;
-//     //Looping();
-// }
-// function outlineOff15(){
-//     removeCircle(14);
-//     allSprites[15].alpha = 1;
-//     pucai++;
-//     //Looping();
-// }
-// function outlineOff16(){
-//     removeCircle(15);
-//     allSprites[16].alpha = 1;
-//     pucai++;
-//     Looping();
-// }
-// function outlineOff17(){
-//     removeCircle(16);
-//     allSprites[17].alpha = 1;
-//     pucai++;
-//     Looping();
-// }
-// function outlineOff18(){
-//     removeCircle(17);
-//     allSprites[18].alpha = 1;
-//     pucai++;
-//     Looping();
-// }
-// function outlineOff19(){
-//     removeCircle(18);
-//     allSprites[19].alpha = 1;
-//     pucai++;
-//     Looping();
-// }
-// function outlineOff20(){
-//     removeCircle(19);
-//     allSprites[20].alpha = 1;
-//     pucai++;
-//     Looping();
-// }
-// function outlineOff21(){
-//     removeCircle(20);
-//     allSprites[20].alpha = 1;
-//     pucai++;
-//     Looping();
-// }
 }
 
 let outlineCoords = [];
