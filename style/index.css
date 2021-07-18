@@ -261,7 +261,7 @@ input[type=number]{
 
 #slider {
   -webkit-appearance: none;
-  height: 5px;
+  height: 3px;
   background: var(--dark-green);
   border-radius: 10px;
   /* overflow: hidden; */
