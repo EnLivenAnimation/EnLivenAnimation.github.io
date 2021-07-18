@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnLiven Animate</title>
+  <link rel="shortcut icon" type="image/jpg" href="res/icons/favicon.ico"/>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="style/index.css">
+  <!-- EXTERNAL SCRIPTS -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/3d9aefd90b.js" crossorigin="anonymous"></script>
+  <script src="scripts/pixi/pixi.min.js"></script>
+  <!-- FRONTEND SCRIPTS -->
+  <script src="scripts/navbar.js" async></script>
+  <script src="scripts/properties.js" async></script>
+  <script src="scripts/treeview.js" async></script>
+  <!-- BACKEND SCRIPTS -->
+  <script src="scripts/display.js" async></script>
+  <script src="scripts/buttons.js" async></script>
+  <script src="scripts/timeline.js" async></script>
+  <script src="scripts/input.js" async></script>
+  <script src="scripts/add.js" async></script>
+  <script src="scripts/export.js" async></script>
+  <!-- MAIN SCRIPT -->
+  <script src="scripts/Main1.js" async></script>
+  <script src="scripts/tutorial1.js" async></script>
+</head>
+
+<body>
+  <div id ="dim">
+  <div id="grid">
+    <!-- TOP NAVBAR -->
+    <div id="navbar">
+      <a id="home" class="navbar-button" href="home.html"><i class="fas fa-leaf"></i></a>
+      <div class="dropdown">
+        <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
+        <div id="file-dropdown" class="dropdown-content">
+          <a href="javascript:location.reload(true)">New File</a>
+          <label for="file-import" class="custom-file-upload">Import</label>
+          <input type="file" id="file-import" multiple>
+          <button onclick="exportTL()">Export</button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="displayDropdown('edit-dropdown')" class="navbar-button">Edit</button>
+        <div id="edit-dropdown" class="dropdown-content">
+          <a href="#undo">Undo</a>
+          <a href="#redo">Redo</a>
+          <a href="#cut">Cut</a>
+          <a href="#copy">Copy</a>
+          <a href="#paste">Paste</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="displayDropdown('view-dropdown')" class="navbar-button">View</button>
+        <div id="view-dropdown" class="dropdown-content">
+          <a href="#fullscreen">Full Screen</a>
+          <a href="#play">Play</a>
+          <a href="#pause">Pause</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button onclick="displayDropdown('add-dropdown')" class="navbar-button">Add</button>
+        <div id="add-dropdown" class="dropdown-content">
+          <button onclick="addCircle();">Circle</button>
+          <button onclick="addSquare();">Square</button>
+          <button onclick="addTriangle();">Triangle</button>
+          <button onclick="addHuman();">Human</button>
+        </div>
+      </div>
+      <button id="delete" class="navbar-button" type="button" onclick="DeleteSprite();">Delete</button>
+    </div>
+    
+    <!-- RELATIONS PANEL -->
+    <div id="relations" class="panel">
+      <ul id="relations-list">
+      </ul>
+    </div>
+
+    <!-- CANVAS PANEL -->
+    <div id="canvas">
+    </div>
+
+    <!-- PROPERTIES PANEL -->
+    <div id="properties" class="panel">
+      <p id="x">X</p><input type="number" id="xpos" name="xpos" min="-100" max="100000">
+      <p id="y">Y</p><input type="number" id="ypos" name="ypos" min="-100" max="100000">
+      <p id="w">W</p><input type="number" id="width" name="width" min="0" max="100000">
+      <p id="h">H</p><input type="number" id="height" name="height" min="0" max="100000">
+      <p id="r">R</p><input type="number" id="rotation" name="rotation" min="-100000" max="100000">
+    </div>
+    
+    <!-- TIMELINE PANEL -->
+    <div id="timeline" class="panel">
+      <button class="timeline-button" onclick="play();"><i class="fas fa-play"></i></button>
+      <button class="timeline-button" onclick="pause();"><i class="fas fa-pause"></i></button>
+      <button class="timeline-button" id = "addButton" onclick="addKeyframe2();"><i class="fas fa-plus"></i></button>
+      <button class="timeline-button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
+      <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
+      <span></span>
+      <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
+      <div id="slider-container">
+        <label id="slider-label" for="slider">TWEENS</label>
+        <input id="slider" type="range" name="slider" min="0" max="30" value="20">
+      </div>
+      <div id="timeline-keyframes"></div>
+    </div>
+  </div>
+</div>
+  <div class="popup">
+    <span class="popuptext" id="myPopup">
+      Welcome to the Squash and Stretch Tutorial. To begin please add a circle and place it over the black circle outline
+    <button class="navbar-button" type="button" onclick ="turnOff();">Next</button>
+    </span>  
+  </div>
+  <div class="popup">
+    <span class="popuptext" id="myPopup1">
+      Press the add button and add this position as a keyframe.
+    <button class="navbar-button" type="button" onclick ="turnOff2();">Next</button>
+  </span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup3">
+    Great! Now do this for the rest of the outlines that you will see.
+  <button class="navbar-button" type="button" onclick ="turnOff3();">Next</button>
+</span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup4">
+    Congratulations. Now set the tweens slider you see on the bottom down to 0 and click play. Remember, animation is all about creativity.
+    Hopefully this taught you some basics of Squish and Squash.
+  <button class="navbar-button" type="button" onclick ="turnOff4();">Next</button>
+</span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup3">
+    Notice how at this point, the ball has gone from a circular shape into an oval one. This is to make it seem as if the ball is falling faster down at this point.
+    This is essentially the squish part of the tutorial.
+  <button class="navbar-button" type="button" onclick ="turnOff3();">Next</button>
+</span>  
+</div>
+<div class="popup">
+  <span class="popuptext" id="myPopup5">
+    At this point we see that the ball is squashing. This is the second part of the tutorial. This is ideal because 
+  <button class="navbar-button" type="button" onclick ="turnOff5();"><a href="Tutorial1.html">Resources</a></button>
+</span>  
+</div>
+</div>
+</body>
+</html>
