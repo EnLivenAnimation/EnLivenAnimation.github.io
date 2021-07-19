@@ -210,7 +210,7 @@ input[type=number]{
   margin-right: 0.5em;
 
   display: grid;
-  grid-template-columns: auto auto auto auto auto 100fr auto auto;
+  grid-template-columns: auto auto auto auto auto 100fr auto auto auto;
   grid-template-rows: 1fr 2fr;
   column-gap: 15px;
   row-gap: 5px;

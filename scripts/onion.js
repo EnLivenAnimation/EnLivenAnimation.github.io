@@ -1,6 +1,6 @@
 function testOnion(){
-    addSquare();
-    addKeyframe();
+    // addSquare();
+    // addKeyframe();
 }
 
 let skinSet = [];
@@ -102,3 +102,14 @@ function displaySkins(skinArray, keyframe){
         }
     }
 }
+
+let loop = false;
+function toggleOnionSkins() {
+    if (loop) {
+      loop = false;
+      document.getElementById("OnionLoop").setAttribute("class", "loop-disabled");
+    } else {
+      loop = true;
+      document.getElementById("OnionLoop").setAttribute("class", "loop-enabled");
+    }
+  }
