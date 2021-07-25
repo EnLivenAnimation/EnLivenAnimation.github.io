@@ -28,6 +28,8 @@ tweens = tweensSlider.value;
 fps = fpsSlider.value;
 
 function play() {
+  turnOffAllSkins();
+  
   paused = false;
 
   disableButtons();

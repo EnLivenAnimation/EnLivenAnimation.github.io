@@ -1,5 +1,6 @@
 function testOnion(){
     addSquare();
+    addHuman();
     addKeyframe();
 }
 
@@ -8,9 +9,21 @@ let allSkins = [
     [],
     []
 ];
+let onion = false;
 
 var KFsbefore = 1;
 var KFsafter = 1;
+
+function toggleOnionSkins() {
+    if (onion) {
+        turnOffAllSkins();
+        onion = false;
+        document.getElementById("onion").setAttribute("class", "onion-disabled");
+    } else {
+        onion = true;
+        document.getElementById("onion").setAttribute("class", "onion-enabled");
+    }
+}
 
 function duplicateSkinSet(){
     let tmpSet = [];
@@ -23,7 +36,7 @@ function duplicateSkinSet(){
         DisplayedSkin.buttonMode = false;
         DisplayedSkin.anchor.set(0.5);
 
-        DisplayedSkin.tint = originalSprite.tint;
+        DisplayedSkin.tint = baseSkin.tint;
     
         app.stage.addChild(DisplayedSkin);
         tmpSet.push(DisplayedSkin);
@@ -78,27 +91,41 @@ function createSkin(originalSprite) {
 }
 
 function displaySkins(skinArray, keyframe){
-    if (allSprites.length > 0){
+    if (onion){
+        if (allSprites.length > 0){
 
-        if (keyframe >= 0 && keyframe <= allSprites[0].timeline.length - 1){
+            if (keyframe >= 0 && keyframe <= allSprites[0].timeline.length - 1){
 
-            for (i in skinArray){
-                let skin = skinArray[i];
-                let sprite = allSprites[i];
+                for (i in skinArray){
+                    let skin = skinArray[i];
+                    let sprite = allSprites[i];
 
-                skin.x = sprite.timeline[keyframe][0];
-                skin.y = sprite.timeline[keyframe][1];
-                skin.width = sprite.timeline[keyframe][2];
-                skin.height = sprite.timeline[keyframe][3];
-                skin.rotation = sprite.timeline[keyframe][4];
-                skin.alpha = 0.4;
+                    skin.x = sprite.timeline[keyframe][0];
+                    skin.y = sprite.timeline[keyframe][1];
+                    skin.width = sprite.timeline[keyframe][2];
+                    skin.height = sprite.timeline[keyframe][3];
+                    skin.rotation = sprite.timeline[keyframe][4];
+                    skin.alpha = 0.4;
+                }
             }
-        }
-        else{
-            for (i in allSprites){
-                let skin = skinArray[i];
-                skin.alpha = 0;
+            else{
+                turnOffSkins(skinArray);
             }
         }
     }
+    else{
+        turnOffSkins(skinArray);
+    }
+}
+
+function turnOffSkins(skinArray){
+    for (i in allSprites){
+        let skin = skinArray[i];
+        skin.alpha = 0;
+    }
+}
+
+function turnOffAllSkins(){
+    turnOffSkins(allSkins[0]);
+    turnOffSkins(allSkins[1]);
 }
