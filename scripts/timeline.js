@@ -132,8 +132,8 @@ function loadKeyframe(keyframe) {
     resizeButtons(sprite);
   }
 
-  console.log(currentKeyframe - 1);
-  console.log(currentKeyframe + 1);
+  // console.log(currentKeyframe - 1);
+  // console.log(currentKeyframe + 1);
   displaySkins(allSkins[0], currentKeyframe - 1);
   // preframe
   displaySkins(allSkins[1], currentKeyframe + 1);

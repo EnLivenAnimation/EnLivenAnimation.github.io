@@ -38,10 +38,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       parent.spriteChildren.push(DisplayedSprite);
 
       DisplayedSprite.x = (visualX - parent.visualX)*parent.originalWidth/parent.visualWidth;
-      // console.log(app.screen.height);
-      // console.log(parent.visualY);
-      // console.log(DisplayedSprite.visualY);
-      DisplayedSprite.y = (-1*parent.visualY+app.screen.height-visualY) * parent.originalHeight / parent.visualHeight;
+      DisplayedSprite.y = (parent.visualY-visualY) * parent.originalHeight / parent.visualHeight;
       DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
       DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
 
@@ -112,6 +109,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   resizeButtons(DisplayedSprite);
   disableButtons();
 
-  createSkin(DisplayedSprite);
+  createSkins(DisplayedSprite, parent);
   return DisplayedSprite;
 }

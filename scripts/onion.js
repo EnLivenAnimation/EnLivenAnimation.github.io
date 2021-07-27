@@ -1,5 +1,5 @@
 function testOnion(){
-    addSquare();
+    // addSquare();
     addHuman();
     addKeyframe();
 }
@@ -25,69 +25,50 @@ function toggleOnionSkins() {
     }
 }
 
-function duplicateSkinSet(){
-    let tmpSet = [];
-    for (i in skinSet){
-        let baseSkin = skinSet[i];
-
-        let DisplayedSkin = new Sprite(baseSkin.texture);
-
-        DisplayedSkin.interactive = false;
-        DisplayedSkin.buttonMode = false;
-        DisplayedSkin.anchor.set(0.5);
-
-        DisplayedSkin.tint = baseSkin.tint;
-    
-        app.stage.addChild(DisplayedSkin);
-        tmpSet.push(DisplayedSkin);
-
-        DisplayedSkin.alpha = 0.5;
-    }
-    console.log(tmpSet);
-    allSkins.push(tmpSet);
-    return null;
-}
-
-function createSkin(originalSprite) {
+function createOneSkin(originalSprite, parentSkin){
     DisplayedSkin = new Sprite(originalSprite.texture);
-
+    
+    DisplayedSkin.indexinAllSprites = allSprites.length;
+    
     DisplayedSkin.interactive = false;
     DisplayedSkin.buttonMode = false;
     DisplayedSkin.anchor.set(0.5);
+    
+    if (originalSprite.tint != null){
+        DisplayedSkin.tint = originalSprite.tint;
+    }
 
-    DisplayedSkin.tint = originalSprite.tint;
-  
-    skinSet.push(DisplayedSkin);
+    DisplayedSkin.alpha = 0;
 
-    skin2 = new Sprite(originalSprite.texture);
+    DisplayedSkin.deleted = false;
 
-    skin2.interactive = false;
-    skin2.buttonMode = false;
-    skin2.anchor.set(0.5);
+    app.stage.addChild(DisplayedSkin);
 
-    skin2.tint = originalSprite.tint;
-  
-    app.stage.addChild(skin2);
+    DisplayedSkin.directParent = null;
+    if (parentSkin != null) {
+        parentSkin.addChild(DisplayedSkin);
 
-    allSkins[0].push(skin2);
+        DisplayedSkin.directParent = parentSkin;
+    }
 
-    skin2.alpha = 0;
+    return DisplayedSkin;
+}
 
-    skin3 = new Sprite(originalSprite.texture);
+function createBothSkins(originalSprite, parentSkinIndex){
+    let preskin = createOneSkin(originalSprite, allSkins[0][parentSkinIndex]);
+    allSkins[0].push(preskin);
 
-    skin3.interactive = false;
-    skin3.buttonMode = false;
-    skin3.anchor.set(0.5);
+    let postskin = createOneSkin(originalSprite, allSkins[1][parentSkinIndex]);
+    allSkins[1].push(postskin);
+}
 
-    skin3.tint = originalSprite.tint;
-  
-    app.stage.addChild(skin3);
-
-    allSkins[1].push(skin3);
-
-    skin3.alpha = 0;
-  
-    return null;
+function createSkins(originalSprite, parent){
+    if (parent == null){
+        createBothSkins(originalSprite, null);
+    }
+    else{
+        createBothSkins(originalSprite, parent.indexinAllSprites);
+    }
 }
 
 function displaySkins(skinArray, keyframe){
@@ -100,12 +81,19 @@ function displaySkins(skinArray, keyframe){
                     let skin = skinArray[i];
                     let sprite = allSprites[i];
 
-                    skin.x = sprite.timeline[keyframe][0];
-                    skin.y = sprite.timeline[keyframe][1];
-                    skin.width = sprite.timeline[keyframe][2];
-                    skin.height = sprite.timeline[keyframe][3];
-                    skin.rotation = sprite.timeline[keyframe][4];
-                    skin.alpha = 0.4;
+                    let x = sprite.timeline[keyframe][0];
+                    let y = sprite.timeline[keyframe][1];
+                    let w = sprite.timeline[keyframe][2];
+                    let h = sprite.timeline[keyframe][3];
+                    let r = sprite.timeline[keyframe][4];
+
+                    skin.x = x;
+                    skin.y = y;
+                    skin.width = w;
+                    skin.height = h;
+                    skin.rotation = r;
+                    skin.alpha = 0.35;
+
                 }
             }
             else{
@@ -119,7 +107,7 @@ function displaySkins(skinArray, keyframe){
 }
 
 function turnOffSkins(skinArray){
-    for (i in allSprites){
+    for (i in skinArray){
         let skin = skinArray[i];
         skin.alpha = 0;
     }
