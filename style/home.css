@@ -32,6 +32,8 @@ body{
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 3fr 10fr 3fr 2fr;
   background-color: #5c996a;
+  position: fixed;
+  z-index: 999;
 }
 
 #navbar a {
@@ -91,7 +93,6 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
-
 }
 
 #introduction{

@@ -1,0 +1,58 @@
+body{
+    overflow:auto;
+    height:740px;
+    
+}
+
+#signupimg{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100%;
+}
+
+#background{
+    object-fit: fill;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-height: 100%;
+    width: auto;
+}
+
+#signup-info{
+    background-color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 10%;
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+button{
+    width:60%;
+    height: 50px;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+    border-color: black;
+    background-color: #EDEBEB;
+    text-align: left;
+    color:#686868;
+}
+
+button:hover{
+    background-color: #838181;
+}
+
+.signup-button{
+    background-color:#7AD17E ;
+    border-radius: 30px;
+    margin-top: 20px;
+    width: 20%;
+    text-align: center;
+    border-color: transparent;
+}
+
+.signup-button:hover{
+    background-color: #9BC8A5;
+}
