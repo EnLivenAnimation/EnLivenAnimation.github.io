@@ -2,16 +2,30 @@ let selectedSprite = null;
 
 function DeleteSprite(){
     if (selectedSprite != null){
+        let spriteIndex = selectedSprite.indexinAllSprites;
+
         selectedSprite.alpha = 0;
         selectedSprite.interactive = false;
         selectedSprite.deleted = true;
-        allSprites.splice(selectedSprite.indexinAllSprites, 1);
+        allSprites.splice(selectedSprite.spriteIndex, 1);
         for (i in allSprites){
             sprite = allSprites[i];
-            if (sprite.indexinAllSprites >= selectedSprite.indexinAllSprites){
+            if (sprite.indexinAllSprites >= spriteIndex){
                 sprite.indexinAllSprites--;
             }
         }
+
+        preskin = allSkins[0][spriteIndex];
+        preskin.alpha = 0;
+        preskin.interactive = false;
+        preskin.deleted = true;
+        allSkins[0].splice(spriteIndex, 1);
+
+        postskin = allSkins[1][spriteIndex];
+        postskin.alpha = 0;
+        postskin.interactive = false;
+        postskin.deleted = true;
+        allSkins[1].splice(spriteIndex, 1);
     }
     selectedSprite = null;
     disableButtons();
