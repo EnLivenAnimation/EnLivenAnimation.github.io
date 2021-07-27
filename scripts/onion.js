@@ -92,7 +92,12 @@ function displaySkins(skinArray, keyframe){
                     skin.width = w;
                     skin.height = h;
                     skin.rotation = r;
-                    skin.alpha = 0.35;
+                    if (skin.directParent == null){
+                        skin.alpha = 0.35;
+                    }
+                    else{
+                        skin.alpha = 1;
+                    }
 
                 }
             }
