@@ -25,6 +25,7 @@
   <script src="scripts/input.js" async></script>
   <script src="scripts/add.js" async></script>
   <script src="scripts/export.js" async></script>
+  <script src="scripts/onion.js" async></script>
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
@@ -116,6 +117,7 @@
       <button class="timeline-button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
+      <button id="onion" class="onion-disabled" type="button" onclick="toggleOnionSkins();"><i class="fas fa-ellipsis-h"></i></button>
       <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
       <div id="fpsSlider-container" style="background-color: #d1e1d1; border-radius: 10px; padding: 10px;">
         <p style="text-align: justify;">FPS</p>

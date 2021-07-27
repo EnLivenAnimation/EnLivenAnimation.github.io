@@ -212,7 +212,7 @@ input[type=number]{
   margin-right: 0.5em;
 
   display: grid;
-  grid-template-columns: auto auto auto auto auto 100fr auto auto auto;
+  grid-template-columns: auto auto auto auto auto 100fr auto auto auto auto;
   grid-template-rows: 1fr 1fr;
   column-gap: 15px;
   row-gap: 5px;
@@ -233,6 +233,18 @@ input[type=number]{
 }
 
 .loop-disabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--light-green);
+}
+
+.onion-enabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--dark-green);
+}
+
+.onion-disabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--light-green);

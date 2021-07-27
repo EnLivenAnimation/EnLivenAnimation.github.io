@@ -28,6 +28,8 @@ tweens = tweensSlider.value;
 fps = fpsSlider.value;
 
 function play() {
+  turnOffAllSkins();
+  
   paused = false;
 
   disableButtons();
@@ -129,6 +131,13 @@ function loadKeyframe(keyframe) {
     sprite.rotation = sprite.timeline[currentKeyframe][4];
     resizeButtons(sprite);
   }
+
+  // console.log(currentKeyframe - 1);
+  // console.log(currentKeyframe + 1);
+  displaySkins(allSkins[0], currentKeyframe - 1);
+  // preframe
+  displaySkins(allSkins[1], currentKeyframe + 1);
+  // postframe
 
   updateActiveButton();
 }

@@ -39,6 +39,7 @@ function setup() {
   background.on('click', disableButtons); 
   app.stage.addChild(background);
   // testingTmp();
+  // testOnion();
 }
 
 const atlas = loadFile("./res/atlas/atlas.txt");
