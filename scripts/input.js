@@ -110,6 +110,7 @@ function myFunction() {
   var btn = document.createElement("BUTTON");
   btn.innerHTML = "CLICK ME";
   document.getElementById("relations").appendChild(btn);
+  document.addEventListener("drop",drop());
 }
 
 function countDistinct(arr, n) {
@@ -125,7 +126,6 @@ function countDistinct(arr, n) {
   }
   return res;
 }
-
 
 function readCoordinates(atlas) {
   const regex = /\d+,\d+,\d+,\d+/g;

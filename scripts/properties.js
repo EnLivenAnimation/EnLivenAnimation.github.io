@@ -48,3 +48,7 @@ propertyPanel.addEventListener('change', (event) => {
   deconvert(selectedSprite,tmpX,tmpY,tmpW,tmpH,tmpR);
   resizeButtons(selectedSprite);
 });
+
+
+
+

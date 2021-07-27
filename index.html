@@ -25,6 +25,8 @@
   <script src="scripts/add.js" async></script>
   <script src="scripts/export.js" async></script>
   <script src="scripts/onion.js" async></script>
+  <script src="scripts/Parent.js" async></script>
+  <script scr="scripts/background.js" async></script>
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
@@ -103,9 +105,9 @@
       <button id="OnionLoop" class="loop-disabled" type="button" onclick="toggleOnionSkins();"><i class="fas fa-ellipsis-h"></i></button>
       <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
       <div id="slider-container">
-        <label id="slider-label" for="slider">TWEENS</label>
-        <input id="slider" type="range" name="slider" min="0" max="30" value="20">
-      </div>
+          <label id="slider-label" for="slider">TWEENS</label>
+          <input id="slider" type="range" name="slider" min="0" max="30" value="20">
+        </div>
       <div id="timeline-keyframes"></div>
     </div>
   </div>

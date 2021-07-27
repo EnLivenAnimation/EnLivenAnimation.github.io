@@ -29,17 +29,27 @@ loader
   .add("res/img/triangle.png")
   .load(setup)
 
+
+
 function setup() {
   const bg = PIXI.Texture.from("res/img/background.jpg");
+  const gg = PIXI.Texture.from("res/img/square.jpg");
   var background = new PIXI.Sprite(bg);
   background.width = app.screen.width;
   background.height = app.screen.height;
   background.alpha = 0;
   background.interactive = true;
-  background.on('click', disableButtons); 
-  app.stage.addChild(background);
+  background.on('click', disableButtons);
+
+  app.stage.addChild(background,gg);
+  addBackground(background,)
   // testingTmp();
-  testOnion();
+  //testOnion();
+}
+
+function addBackground(background1,wantedTexture){
+  background1.alpha = 1;
+  background1.texture = wantedTexture;
 }
 
 const atlas = loadFile("./res/atlas/atlas.txt");
