@@ -25,11 +25,13 @@ nav{
 nav.scroll {
     background-color: white;
     color: black;
+    transition: background-color 0.2s;
 }
 
 nav.scroll2 {
     background-color: green;
     color: #eef;
+    transition: background-color 0.2s;
 }
 
 nav button{
@@ -50,28 +52,33 @@ nav button:hover {
     transition-duration: 0.4s;
     background-color: #b6b6b6;
     color:black;
+    transition: background-color 0.2s;
 }
 
 nav button.scroll{
     background-color: #9BC8A5;
     color:white;
+    transition: background-color 0.2s;
 }
 
 nav button.scroll:hover{
     transition-duration: 0.4s;
     background-color: #7AD17E;
     color:white;
+    transition: background-color 0.2s;
 }
 
 nav button.scroll2{
     background-color: #7eb6af;
     color:white;
+    transition: background-color 0.2s;
 }
 
 nav button.scroll2:hover{
     transition-duration: 0.4s;
     background-color: #50D7AE;
     color:white;
+    transition: background-color 0.2s;
 }
 
 
@@ -95,7 +102,36 @@ nav button.scroll2:hover{
 }
 
 .hero-text{
-    font-size: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position:fixed; 
+    margin-top: 10%;
+    font-weight:bold;
+}
+
+hero{
+    color: teal;
+    text-align: center;
+}
+
+hero.scroll{
+    color:#47B544;
+    text-align: center;
+    transition: text-color 0.2s;
+}
+hero.scroll2{
+    display: none;
+    color: transparent;
+    text-align: center;
+}
+
+.hero-text.scroll2{
+    color: transparent;
+}
+
+.hero-text h2{
+    color: #9BC8A5;
+    text-align: center;
 }
 
 
@@ -109,7 +145,8 @@ nav button.scroll2:hover{
 
 .description{
     text-align: center;
-    font-family: 'Courier Prime';font-size: 22px;
+    font-family: 'Courier Prime';
+    font-size: 22px;
     padding: 30px;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr 1fr;

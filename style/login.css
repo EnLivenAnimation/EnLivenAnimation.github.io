@@ -28,6 +28,12 @@ body{
     text-align: center;
 }
 
+#loginbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 17px;
+}
+
 button{
     width:60%;
     height: 50px;
@@ -51,8 +57,9 @@ button:hover{
     width: 20%;
     text-align: center;
     border-color: transparent;
+    color: white;
 }
 
 .login-button:hover{
-    background-color: #9BC8A5;
+    background-color: #0467fa;
 }

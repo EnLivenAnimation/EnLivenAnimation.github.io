@@ -10,6 +10,12 @@ body{
     height: 100%;
 }
 
+#signupbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 17px;
+}
+
 #background{
     object-fit: fill;
     background-repeat: no-repeat;
@@ -51,8 +57,9 @@ button:hover{
     width: 20%;
     text-align: center;
     border-color: transparent;
+    color: white;
 }
 
 .signup-button:hover{
-    background-color: #9BC8A5;
+    background-color: #10e63e;
 }
