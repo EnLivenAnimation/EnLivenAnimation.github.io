@@ -249,7 +249,23 @@ let canParentMove = false;
         while (currSprite.directParent != null) {
             currSprite.directParent.interactive = false;
             currSprite = currSprite.directParent;
+
         }
+        console.log(currSprite.visualX + "X");
+        console.log(currSprite.visualY + "Y");
+        console.log(mouseX + "MOUSE POSX");
+        console.log(mouseY + " MOUSE POS Y");
+        console.log(currSprite.visualHeight + " HEIGHT");
+        console.log(currSprite.visualWidth + "WIDTH");
+        console.log((mouseX  - currSprite.visualX + (currSprite.visualWidth / 2 )) / currSprite.visualWidth + " RATIO X");
+        console.log(1- ((mouseY - currSprite.visualY  + (currSprite.visualHeight / 2 )) / currSprite.visualHeight) + "RATIO Y")
+       
+        // currSprite.anchor.set(         
+        //      (mouseX  - currSprite.visualX + (currSprite.visualWidth / 2 )) / currSprite.visualWidth,
+        //      1/2 -((mouseY - currSprite.visualY  + (currSprite.visualHeight / 2 )) / currSprite.visualHeight));
+        itr.mouse.global.x =  (mouseX  - currSprite.visualX + (currSprite.visualWidth / 2 ));
+        itr.mouse.global.y = 1/2 -((mouseY - currSprite.visualY  + (currSprite.visualHeight / 2 )));
+       // currSprite.anchor.set(1,1/2);
     }
     function onDragEndButton() {
         this.alpha = 1;
@@ -283,6 +299,22 @@ let canParentMove = false;
             this.y = newPosition2.y;
             canParentMove = false;
             closing(this);
+            if (mouseX - this.visualWidth/2 + this.x < 0){
+                //const distanceToZero = 0 -mouseX - this.visualWidth/2 + this.x
+                this.x = 0;  
+            }
+            if (mouseX> app.screen.width){
+                //const distanceToZero = 0 -mouseX - this.visualWidth/2 + this.x
+                this.x = app.screen.width; 
+            }
+            if (actualMouseY > app.screen.height){
+                this.y = app.screen.height;
+            }
+            if (actualMouseY - this.visualHeight/2 + this.y < 0){
+                this.y = 0;
+            }
+          
+            
         }
     }
 }

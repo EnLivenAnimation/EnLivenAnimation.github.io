@@ -22,7 +22,7 @@ function removeParent(child,parent){
         console.log(child.visualX + "SDJSK");
         child.width = child.visualWidth*parent.originalWidth/parent.visualWidth;
         child.height = child.visualHeight*parent.originalHeight/parent.visualHeight;
-        let newChild = addCircle();//displaySprite(child.Texture,child.visualX,child.visualY,child.width,child.height,null,null);
+        let newChild = displaySprite(child.Texture,child.visualX,child.visualY,child.width,child.height,null,null);
         // newChild.x = child.x;
         // newChild.y = child.y;
         // newChild.visualX = child.visualX;
@@ -34,22 +34,12 @@ function removeParent(child,parent){
         newChild.alpha = 0;
         newChild.interactive = false;
         parent.removeChild(child);
-        allSprites.shift();
+        allSprites.splice(0,1);
         // newChild.x = 240;
         // newChild.y = 240;
         newChild.alpha = 1;
         newChild.interactive = true;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 

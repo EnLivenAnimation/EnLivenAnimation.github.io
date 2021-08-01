@@ -30,7 +30,8 @@ loader
   .load(setup)
 
 
-
+  
+  
 function setup() {
   const bg = PIXI.Texture.from("res/img/background.jpg");
   const gg = PIXI.Texture.from("res/img/square.jpg");
@@ -51,7 +52,15 @@ function addBackground(background1,wantedTexture){
   background1.alpha = 1;
   background1.texture = wantedTexture;
 }
-
+let mouseX = 0;
+let mouseY = 0;
+let actualMouseY = 0;
+const itr = app.renderer.plugins.interaction;
+  itr.on('mousemove', ()=>{
+     mouseX = itr.mouse.global.x;
+     mouseY = app.screen.height - itr.mouse.global.y;
+     actualMouseY = itr.mouse.global.y;
+  })
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);
