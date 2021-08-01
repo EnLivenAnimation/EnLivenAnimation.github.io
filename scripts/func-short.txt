@@ -1,0 +1,78 @@
+displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent)
+DeleteSprite()
+
+DeleteSprite()
+[new function]
+
+addCircle()
+DeleteSprite()
+
+
+addSquare()
+DeleteSprite()
+
+addTriangle()
+DeleteSprite()
+
+addHuman()
+DeleteSprite()
+
+B1()
+B2()
+B3()
+B4()
+B5()
+B6()
+B7()
+B8()
+BRotate()
+[scale/rotate by theta] new function to rotate or scale by a given number
+
+onDragStartButton(event)
+onDragStartSprite(event)
+onDragEndButton()
+onDragEndSprite()
+onDragMoveSprite()
+[new function for moving a sprite from (x1, y1) to (x2, y2)]
+
+toggleOnionSkins()
+self-undo
+
+displaySkins(skinArray, keyframe)
+turnOffSkins(skinArray)
+
+turnOffSkins(skinArray)
+displaySkins(skinArray, keyframe)
+
+turnOffAllSkins()
+displaySkins(skinArray, keyframe)
+displaySkins(skinArray, keyframe)
+
+setPropertyPanelValues(x, y, w, h, r)
+deconvert(sprite, x, y, w, h, r)
+
+play()
+pause()
+
+playKeyframe()
+pause()
+
+pause()
+play()
+
+toggleLooping()
+toggleLooping()
+
+
+addKeyframe()
+deleteKeyframe()
+
+deleteKeyframe()
+addKeyframe()
+
+loadKeyframe(keyframe)
+loadKeyframe(keyframe)
+
+
+editKeyframe()
+editKeyframe()

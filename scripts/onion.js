@@ -122,3 +122,8 @@ function turnOffAllSkins(){
     turnOffSkins(allSkins[0]);
     turnOffSkins(allSkins[1]);
 }
+
+function turnOnAllSkins(){
+    displaySkins(allSkins[0], currentKeyframe - 1);
+    displaySkins(allSkins[1], currentKeyframe + 1);
+}
