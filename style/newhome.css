@@ -26,6 +26,8 @@ nav.scroll {
     background-color: white;
     color: black;
     transition: background-color 0.2s;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
 }
 
 nav.scroll2 {
@@ -52,33 +54,40 @@ nav button:hover {
     transition-duration: 0.4s;
     background-color: #b6b6b6;
     color:black;
-    transition: background-color 0.2s;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
 }
 
 nav button.scroll{
     background-color: #9BC8A5;
     color:white;
-    transition: background-color 0.2s;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
+    
 }
 
 nav button.scroll:hover{
     transition-duration: 0.4s;
     background-color: #7AD17E;
     color:white;
-    transition: background-color 0.2s;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
 }
 
 nav button.scroll2{
     background-color: #7eb6af;
     color:white;
-    transition: background-color 0.2s;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
+    
 }
 
 nav button.scroll2:hover{
     transition-duration: 0.4s;
     background-color: #50D7AE;
     color:white;
-    transition: background-color 0.2s;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
 }
 
 
@@ -88,17 +97,26 @@ nav button.scroll2:hover{
 
 
 #hero{
-    height: 2000px;
+    height: 1500px;
     object-fit: scale-down;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    text-align: center;
 }
 
 
 .hero img{
     max-width: 100%;
     height: auto;
+}
+
+#hero2{
+    height: 800px;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-text{
@@ -112,17 +130,45 @@ nav button.scroll2:hover{
 hero{
     color: teal;
     text-align: center;
+    position:relative;
+    overflow: hidden;
+    background: linear-gradient(to right,#50D7AE, #50D7AE 50%, teal 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+    text-decoration: none;
 }
 
-hero.scroll{
+hero:hover{
+    background-position: 0 100%;
+}
+
+hero2{
+    color: teal;
+}
+
+hero.scroll2{
     color:#47B544;
     text-align: center;
     transition: text-color 0.2s;
 }
-hero.scroll2{
+hero.scroll{
     display: none;
     color: transparent;
     text-align: center;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
+}
+
+hero2.scroll{
+    display: none;
+    color: transparent;
+    text-align: center;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
 }
 
 .hero-text.scroll2{
@@ -162,18 +208,37 @@ hero.scroll2{
 }
 
 .intro-button{
-    text-align: center;
-    border-radius: 30px;
+    background-color: teal;
+    color: white;
     border-color: transparent;
-    height: 50px;
-    width:100px;
-    position: center;
-    
+    border-radius: 30px;
+    text-align: center;
+    font-size: 23px;
+    width: 50%;
+    height:50%;
+    margin:auto;
+    display: grid;  
+    justify-content: center;  
+    align-items: center;  
+}
+
+.intro-button:hover{ 
+    background-color:#7AD17E;
+    transition: background 1s, color 1s;
+    -webkit-transition: background 1s, color 1s;
 }
 
 .container{
     margin-left: 20px;
     margin-right: 20px;
+}
+
+#intro2{
+    height:1000px;
+    background-color: #00b472;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .footer-dark{
