@@ -68,7 +68,7 @@
       <div class="dropdown">
         <button onclick="displayDropdown('edit-dropdown')" class="navbar-button">Edit</button>
         <div id="edit-dropdown" class="dropdown-content">
-          <a href="#undo">Undo</a>
+          <button onclick="undo();">Undo</button>
           <a href="#redo">Redo</a>
           <a href="#cut">Cut</a>
           <a href="#copy">Copy</a>
@@ -92,7 +92,7 @@
           <button onclick="addHuman();">Human</button>
         </div>
       </div>
-      <button id="delete" class="navbar-button" type="button" onclick="DeleteSprite();">Delete</button>
+      <button id="delete" class="navbar-button" type="button" onclick="deleteSelectedSprite();">Delete</button>
     </div>
     
     <!-- RELATIONS PANEL -->

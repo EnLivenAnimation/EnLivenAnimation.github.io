@@ -1,21 +1,21 @@
 displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent)
-DeleteSprite()
+deleteSelectedSprite()
 
-DeleteSprite()
+deleteSelectedSprite()
 [new function]
 
 addCircle()
-DeleteSprite()
+deleteSelectedSprite()
 
 
 addSquare()
-DeleteSprite()
+deleteSelectedSprite()
 
 addTriangle()
-DeleteSprite()
+deleteSelectedSprite()
 
 addHuman()
-DeleteSprite()
+deleteSelectedSprite()
 
 B1()
 B2()

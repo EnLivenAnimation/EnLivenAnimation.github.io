@@ -1,6 +1,6 @@
 displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent)
 
-DeleteSprite()
+deleteSelectedSprite()
 
 addCircle()
 

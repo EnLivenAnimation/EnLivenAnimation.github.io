@@ -43,6 +43,9 @@ let canParentMove = false;
 
         setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
     }
+
+
+    
     function onDragMoveSprite() {
         if (this.dragging) {
             const newPosition2 = this.data.getLocalPosition(this.parent);

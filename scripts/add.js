@@ -1,6 +1,6 @@
 let selectedSprite = null;
 
-function DeleteSprite(){
+function deleteSelectedSprite(){
     if (selectedSprite != null){
         let spriteIndex = selectedSprite.indexinAllSprites;
 
@@ -29,6 +29,13 @@ function DeleteSprite(){
     }
     selectedSprite = null;
     disableButtons();
+}
+
+function deleteSprite(sprite){
+    let holdingSelectedSprite = selectedSprite;
+    selectedSprite = sprite;
+    deleteSelectedSprite();
+    selectedSprite = holdingSelectedSprite;
 }
 
 function addCircle(){

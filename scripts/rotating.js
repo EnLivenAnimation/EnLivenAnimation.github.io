@@ -22,3 +22,39 @@ function rotateSpriteRad(sprite, theta){
     sprite.rotation+= theta;
     closing(sprite);
 }
+
+function onRotateStartSprite(event) {
+    this.data = event.data;
+    this.alpha = 0.5;
+    this.dragging = true;
+    canParentMove = false;
+    
+    currSprite = this;
+    while (currSprite.directParent != null) {
+        currSprite.directParent.interactive = false;
+        currSprite = currSprite.directParent;
+    }
+
+    thetai = currSprite.rotation;
+}
+
+let thetai, thetaf;
+
+function onRotateEndSprite() {
+    this.alpha = 1;
+    this.dragging = false;
+    this.data = null;
+    resizeButtons(this);
+    canParentMove = true;
+    
+    currSprite = this;
+    while (currSprite.directParent != null) {
+        currSprite.directParent.interactive = true;
+        currSprite = currSprite.directParent;
+    }
+
+    thetaf = currSprite.rotation;
+    undoStack.push([14, [currSprite, thetaf-thetai]]);
+
+    setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
+}

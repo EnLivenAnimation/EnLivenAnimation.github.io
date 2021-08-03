@@ -81,10 +81,10 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       currButton.y = ys[i];
       currButton.tint = 0x1a73e8;
 
-      currButton
-          .on('pointerdown', onDragStartButton)
-          .on('pointerup', onDragEndButton)
-          .on('pointerupoutside', onDragEndButton);
+    currButton
+        .on('pointerdown', onDragStartButton)
+        .on('pointerup', onDragEndButton)
+        .on('pointerupoutside', onDragEndButton);
   }
 
   DisplayedSprite.buttonArray[0]
@@ -106,9 +106,18 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.buttonArray[8]
       .on('pointermove', BRotate);
 
-  resizeButtons(DisplayedSprite);
   disableButtons();
+  resizeButtons(DisplayedSprite);
 
   createSkins(DisplayedSprite, parent);
+
+  if (DisplayedSprite.directParent != null){
+      selectedSprite = DisplayedSprite.directParent;
+  }
+  else{
+      selectedSprite = DisplayedSprite;
+  }
+
+  undoStack.push([0, null]);
   return DisplayedSprite;
 }
