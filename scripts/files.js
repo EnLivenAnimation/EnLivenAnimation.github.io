@@ -1,9 +1,8 @@
-var file1 = "50.xsl";
-var file2 = "30.doc";
-
-console.log(getFileExtension(file1)); 
-console.log(getFileExtension(file2));
-
+let file1 = "50.js";
+let file2 = "timeline(1).enl";
 function getFileExtension(filename) {
-    return filename.split('.').pop();
+     return filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
 }
+
+
+const imgages = [];

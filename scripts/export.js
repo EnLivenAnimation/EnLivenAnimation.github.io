@@ -13,22 +13,26 @@ function exportTL(){
   for (i in allSprites){
       stuff+= JSON.stringify(allSprites[i].timeline);
       stuff+= "\n";
+      stuff += JSON.stringify(allSprites[i].texture.textureCacheIds);
   }
-  download("timeline.json", stuff);
+  download("timeline.enl", stuff);
   this.alpha = 1;
 }
 
-let fileText = "sad6.8sad35sad";
-function readFile() {
-  let input = document.getElementById("file-import");
+function getFileExtension(filename) {
+  filename = filename + "";
+  return filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
+}
 
+function readFile() {
+  var input = document.getElementById("file-import");
+  
   input.addEventListener('change', () => {
       let files = input.files;
-      console.log(files);
+      //console.log(files);
       if (files.length == 0) return;
       const file = files[0];
       let reader = new FileReader();
-    
       reader.onload = (e) => {
           const file = e.target.result;
           const lines = file.split(/\r\n|\n/);
@@ -36,12 +40,11 @@ function readFile() {
           b = parse(fileText);
           implementTL(b);
       };
-
       reader.onerror = (e) => alert(e.target.error.name);
     
       reader.readAsText(file);
-
-  });
+    
+    });
 }
 
 function implementTL(arr){

@@ -46,12 +46,14 @@ function setup() {
   addBackground(background,)
   // testingTmp();
   //testOnion();
+  console.log( getFileExtension("50.txt"));
 }
 
 function addBackground(background1,wantedTexture){
   background1.alpha = 1;
   background1.texture = wantedTexture;
 }
+
 let mouseX = 0;
 let mouseY = 0;
 let actualMouseY = 0;
