@@ -13,6 +13,15 @@ function BRotate() {
     }
 }
 
+function undoRotate(){
+    if (undoparam.length != 2){
+        console.alert("Something broke! D:")
+    }
+    else{
+        rotateSpriteRad(undoparam[0], -undoparam[1]);
+    }
+}
+
 function rotateSpriteDeg(sprite, theta){
     sprite.rotation+= DegtoRad(theta);
     closing(sprite);
@@ -34,8 +43,6 @@ function onRotateStartSprite(event) {
         currSprite.directParent.interactive = false;
         currSprite = currSprite.directParent;
     }
-
-    thetai = currSprite.rotation;
 }
 
 let thetai, thetaf;
@@ -53,8 +60,31 @@ function onRotateEndSprite() {
         currSprite = currSprite.directParent;
     }
 
-    thetaf = currSprite.rotation;
-    undoStack.push([14, [currSprite, thetaf-thetai]]);
-
     setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
+}
+
+function onRotateStartButton(event) {
+    this.data = event.data;
+    this.alpha = 0.5;
+    this.dragging = true;
+    interactiveButtons = true;
+
+    currSprite = this.parent;
+    thetai = currSprite.rotation;
+}
+
+function onRotateEndButton() {
+    this.alpha = 1;
+    this.dragging = false;
+    this.data = null;
+    interactiveButtons = false;
+    lastModifiedSprite.interactive = true;
+    lastModifiedSprite.alpha = 1;
+    lastModifiedSprite.dragging = false;
+
+    currSprite = this.parent;
+    resizeButtons(currSprite);
+    thetaf = currSprite.rotation;
+
+    undoStack.push([14, [currSprite, thetaf-thetai]]);
 }

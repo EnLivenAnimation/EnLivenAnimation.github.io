@@ -20,21 +20,21 @@ function XtoVisualX(sprite, x){
 
 function visualYtoY(sprite, visualY){
     if (sprite.directParent == null){
-        return visualY;
+        return app.screen.height - visualY;
     }
     else{
         let parent = sprite.directParent;
-        return visualY * parent.originalHeight / parent.visualHeight;
+        return (app.screen.height - visualY) * parent.originalHeight / parent.visualHeight;
     }
 }
 
 function YtoVisualY(sprite, y){
     if (sprite.directParent == null){
-        return y;
+        return app.screen.height - y;
     }
     else{
         let parent = sprite.directParent;
-        return y*parent.visualHeight/parent.originalHeight;
+        return app.screen.height - (y * parent.visualHeight / parent.originalHeight);
     }
 }
 

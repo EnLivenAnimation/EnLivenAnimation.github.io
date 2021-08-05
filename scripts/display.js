@@ -86,6 +86,10 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
         .on('pointerup', onDragEndButton)
         .on('pointerupoutside', onDragEndButton);
   }
+  buttonR
+    .on('pointerdown', onRotateStartButton)
+    .on('pointerup', onRotateEndButton)
+    .on('pointerupoutside', onRotateEndButton);
 
   DisplayedSprite.buttonArray[0]
       .on('pointermove', B1);
@@ -118,6 +122,5 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       selectedSprite = DisplayedSprite;
   }
 
-  undoStack.push([0, null]);
   return DisplayedSprite;
 }

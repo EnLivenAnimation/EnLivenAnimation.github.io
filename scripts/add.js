@@ -38,11 +38,6 @@ function deleteSprite(sprite){
     selectedSprite = holdingSelectedSprite;
 }
 
-function addCircle(){
-    let circletexture = PIXI.Texture.from("res/img/circle.png");
-    displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
-}
-
 function testingTmp(){
     let circletexture = PIXI.Texture.from("res/img/circle.png");
     let triangletexture = PIXI.Texture.from("res/img/triangle.png");
@@ -53,14 +48,27 @@ function testingTmp(){
     displaySprite(circletexture, 300, 300, 500, 10, 0xeeee55, null);
 }
 
+
+
+function addCircle(){
+    let circletexture = PIXI.Texture.from("res/img/circle.png");
+    var tempSprite = displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
+    
+    undoStack.push([0, [tempSprite]]);
+}
+
 function addSquare(){
     let squaretexture = PIXI.Texture.from("res/img/square.jpg");
-    displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
+    var tempSprite = displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
+    
+    undoStack.push([0, [tempSprite]]);
 }
 
 function addTriangle(){
     let triangletexture = PIXI.Texture.from("res/img/triangle.png");
-    displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
+    var tempSprite = displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
+
+    undoStack.push([0, [tempSprite]]);
 }
 
 function addHuman(){
@@ -96,4 +104,15 @@ function addHuman(){
     
     textureRightLeg.frame = rightlegrectangle;
     displaySprite(textureRightLeg, 225, 75, 50, 129, null, torsoSprite);
+
+    undoStack.push([0, [torsoSprite]]);
+}
+
+function undoAddSprite(){
+    if (undoparam.length != 1){
+        console.alert("Something broke! D:")
+    }
+    else{
+        deleteSprite(undoparam[0]);
+    }
 }

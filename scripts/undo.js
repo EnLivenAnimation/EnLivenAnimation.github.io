@@ -7,6 +7,7 @@ function addToUndoStack(functionID, othervars){
 
 function testUndo(){
     undoStack.push([14,[allSprites[0], Math.PI/4]]);
+    return undoStack;
 }
 
 function testUndo2(){
@@ -21,7 +22,8 @@ function undo(){
     let commandID = command[0];
     undoparam = command[1];
 
-    allUndoFunctions[commandID](undoparam);
+    console.log(undoparam);
+    allUndoFunctions[commandID]();
 }
 
 let undoparam = [];
@@ -58,12 +60,12 @@ let allFunctions = [
 ]
 
 let allUndoFunctions = [
-    function(){	deleteSelectedSprite()	;}, // 0
+    function(){	undoAddSprite()	;}, // 0
     function(){		;},
-    function(){	deleteSelectedSprite()	;},
-    function(){	deleteSelectedSprite()	;},
-    function(){	deleteSelectedSprite()	;},
-    function(){	deleteSelectedSprite()	;}, // 5
+    function(){	undoAddSprite()	;},
+    function(){	undoAddSprite()	;},
+    function(){	undoAddSprite()	;},
+    function(){	undoAddSprite()	;}, // 5
     function(){	scaleSprite(sprite, sx, sy)	;},
     function(){	scaleSprite(sprite, sx, sy)	;},
     function(){	scaleSprite(sprite, sx, sy)	;},
@@ -72,12 +74,12 @@ let allUndoFunctions = [
     function(){	scaleSprite(sprite, sx, sy)	;},
     function(){	scaleSprite(sprite, sx, sy)	;},
     function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	rotateSpriteRad(sprite, theta)	;},
-    function(){	moveSprite(sprite, dx, dy)	;}, // 15
-    function(){	moveSprite(sprite, dx, dy)	;},
-    function(){	moveSprite(sprite, dx, dy)	;},
-    function(){	moveSprite(sprite, dx, dy)	;},
-    function(){	moveSprite(sprite, dx, dy)	;},
+    function(){	undoRotate()	;},
+    function(){	undoMove()	;}, // 15
+    function(){	undoMove()	;},
+    function(){	undoMove()	;},
+    function(){	undoMove()	;},
+    function(){	undoMove()	;},
     function(){	toggleOnionSkins()	;}, // 20
     function(){	turnOffSkins(skinArray)	;},
     function(){	displaySkins(skinArray, keyframe);
