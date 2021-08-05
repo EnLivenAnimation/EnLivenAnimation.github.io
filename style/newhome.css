@@ -204,7 +204,8 @@ hero2.scroll{
 }
 
 .description h2{
-    text-decoration: underline; font-size: 60px;
+    text-decoration: underline; 
+    font-size: 60px;
 }
 
 .intro-button{
@@ -234,12 +235,50 @@ hero2.scroll{
 }
 
 #intro2{
+    font-family: 'Courier Prime';
     height:1000px;
-    background-color: #00b472;
+    background-color: #d8f5c0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-
+    grid-template-rows:1fr auto 3fr;
+    padding: 80px;
 }
+
+#intro2 h1{
+    font-size: 60px;
+    display: grid;  
+    justify-content: center;  
+    align-items: center; 
+}
+
+.tablink {
+    background-color: rgb(115, 235, 225);
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 25px;
+    width: 25%;
+}
+  
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+    height: 100%;
+}
+  
+#London {background-color:red;}
+#Paris {background-color:green;}
+#Tokyo {background-color:blue;}
+#Oslo {background-color:orange;}
 
 .footer-dark{
     padding:50px 0;

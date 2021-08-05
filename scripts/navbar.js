@@ -24,12 +24,20 @@ window.onscroll = () => {
     hero1.className = 'scroll';
     hero2.className ='scroll';
   }  
-  else if(this.scrollY>=1350){
+  else if(this.scrollY>=1350 && this.scrollY<=2400){
     nav.className='scroll';
     b1.className = 'scroll2';
     b2.className = 'scroll2';
     b3.className = 'scroll2';
     b4.className = 'scroll2';
+    hero2.className ='scroll';
+  }
+  else{
+    nav.className='scroll';
+    b1.className = 'scroll';
+    b2.className = 'scroll';
+    b3.className = 'scroll';
+    b4.className = 'scroll';
     hero2.className ='scroll';
   }
 };
