@@ -27,6 +27,7 @@
   <script src="scripts/onion.js" async></script>
   <script src="scripts/files.js" async></script>
   <script src="scripts/mousePos.js" async></script>
+  <script src="scripts/background.js" async></script>
  
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
@@ -74,8 +75,15 @@
         </div>
       </div>
       <button id="delete" class="navbar-button" type="button" onclick="DeleteSprite();">Delete</button>
+    <div class="dropdown">
+      <button onclick="displayDropdown('background-dropdown')" class="navbar-button">AddBackground</button>
+      <div id="background-dropdown" class="dropdown-content">
+        <button onclick="addDefault();">Default</button>
+        <button onclick="addBlackBackground();">BlackBackground</button>
+        <button onclick="addYourName();">YourNameBackground</button>
+      </div>
     </div>
-    
+    </div>
     <!-- RELATIONS PANEL -->
     <div id="relations" class="panel">
       <ul id="relations-list">

@@ -7,7 +7,11 @@ function download(filename, text) {
   element.click();
   document.body.removeChild(element);
 }
-
+let text;
+function FileName() {
+  let person = prompt("FileName?", "timeline");
+  text = person;
+}
 function exportTL(){
   stuff = "";
   for (i in allSprites){
@@ -15,7 +19,8 @@ function exportTL(){
       stuff+= "\n";
       stuff += JSON.stringify(allSprites[i].texture.textureCacheIds);
   }
-  download("timeline.enl", stuff);
+  FileName();
+  download(text + ".enl", stuff);
   this.alpha = 1;
 }
 
@@ -26,7 +31,6 @@ function getFileExtension(filename) {
 
 function readFile() {
   var input = document.getElementById("file-import");
-  
   input.addEventListener('change', () => {
       let files = input.files;
       //console.log(files);
@@ -45,6 +49,17 @@ function readFile() {
       reader.readAsText(file);
     
     });
+}
+function readImage(file) {
+  if (file.type && !file.type.startsWith('image/')) {
+    console.log('File is not an image.', file.type, file);
+    return;
+  }
+  const reader = new FileReader();
+  reader.addEventListener('load', (event) => {
+    img.src = event.target.result;
+  });
+  reader.readAsDataURL(file);
 }
 
 function implementTL(arr){
@@ -75,3 +90,4 @@ function parse(s) {
 } 
 
 readFile();
+readImage();

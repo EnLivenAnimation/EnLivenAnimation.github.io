@@ -24,36 +24,33 @@ let texture,sprite, button, button2, button3, button4, button5, button6, button7
 loader
   .add("res/img/circle.png")
   .add("res/img/background.jpg")
+  .add("res/img/blackBackground.jpg")
   .add("res/img/square.jpg")
   .add("res/img/justin-sheet.png")
   .add("res/img/triangle.png")
   .load(setup)
 
 
-  
-  
+  //const bg = PIXI.Texture.from("res/img/background.jpg");
+let background;
+// let background = new PIXI.Sprite(PIXI.loader.resources["res/img/justin-sheet.png"].texture);
 function setup() {
-  const bg = PIXI.Texture.from("res/img/background.jpg");
-  const gg = PIXI.Texture.from("res/img/square.jpg");
-  var background = new PIXI.Sprite(bg);
+  background = new PIXI.Sprite(PIXI.loader.resources["res/img/justin-sheet.png"].texture);
   background.width = app.screen.width;
   background.height = app.screen.height;
   background.alpha = 0;
   background.interactive = true;
   background.on('click', disableButtons);
-
-  app.stage.addChild(background,gg);
-  addBackground(background,)
-  // testingTmp();
+  app.stage.addChild(background);
+  
+  //testingTmp();
   //testOnion();
   console.log( getFileExtension("50.txt"));
 }
 
-function addBackground(background1,wantedTexture){
-  background1.alpha = 1;
-  background1.texture = wantedTexture;
-}
+  
 
+console.log(background);
 let mouseX = 0;
 let mouseY = 0;
 let actualMouseY = 0;
