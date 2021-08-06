@@ -38,6 +38,12 @@ function resetVisualValues(sprite) {
 
 function closing(sprite){
     lastModifiedSprite = sprite;
+    if (sprite.width == 0){
+        sprite.width = 0.001;
+    }
+    if (sprite.height == 0){
+        sprite.height = 0.001;
+    }
     resizeButtons(sprite);
     setPropertyPanelValues(sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.rotation);
 }

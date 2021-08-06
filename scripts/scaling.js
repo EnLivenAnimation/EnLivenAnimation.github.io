@@ -124,7 +124,7 @@
             a = false;
             sprite.height+= (this.y - halfheight) * sprite.height / halfheight;
             this.y = halfheight;
-    
+
             closing(sprite);
         }
     }
@@ -140,13 +140,55 @@
             sprite.width+= (this.x + halfwidth) * sprite.width / -halfwidth;
             this.y = 0;
             this.x = -halfwidth;
+            
             closing(sprite);
         }
     }
 }
 
+
+function onDragStartButton(event) {
+    this.data = event.data;
+    this.alpha = 0.5;
+    this.dragging = true;
+    interactiveButtons = true;
+
+    currSprite = this.parent;
+    wi = currSprite.width;
+    hi = currSprite.height;
+}
+
+function onDragEndButton() {
+    this.alpha = 1;
+    this.dragging = false;
+    this.data = null;
+    interactiveButtons = false;
+    lastModifiedSprite.interactive = true;
+    lastModifiedSprite.alpha = 1;
+    lastModifiedSprite.dragging = false;
+
+    currSprite = this.parent;
+    undoStack.push([6, [currSprite, wi / currSprite.width, hi / currSprite.height]]);
+    console.log("hi");
+
+    justscaled = true;
+
+    resizeButtons(this.parent);
+}
+
+let justscaled = false;
+
 function scaleSprite(sprite, sx, sy){
     sprite.width *= sx;
     sprite.height *= sy;
     closing(sprite);
+}
+
+function undoScale(){
+    if (undoparam.length != 3){
+        console.alert("Something broke! D:")
+    }
+    else{
+        scaleSprite(undoparam[0], undoparam[1], undoparam[2]);
+    }
 }

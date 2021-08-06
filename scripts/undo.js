@@ -66,14 +66,14 @@ let allUndoFunctions = [
     function(){	undoAddSprite()	;},
     function(){	undoAddSprite()	;},
     function(){	undoAddSprite()	;}, // 5
-    function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	scaleSprite(sprite, sx, sy)	;}, // 10 
-    function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	scaleSprite(sprite, sx, sy)	;},
-    function(){	scaleSprite(sprite, sx, sy)	;},
+    function(){	undoScale()	;},
+    function(){	undoScale()	;},
+    function(){	undoScale()	;},
+    function(){	undoScale()	;},
+    function(){	undoScale()	;}, // 10 
+    function(){	undoScale()	;},
+    function(){	undoScale()	;},
+    function(){	undoScale()	;},
     function(){	undoRotate()	;},
     function(){	undoMove()	;}, // 15
     function(){	undoMove()	;},

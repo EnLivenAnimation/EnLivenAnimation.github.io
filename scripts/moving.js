@@ -2,16 +2,7 @@ let canParentMove = false;
 
 let xi, yi;
 
-function onDragStartButton(event) {
-    this.data = event.data;
-    this.alpha = 0.5;
-    this.dragging = true;
-    interactiveButtons = true;
 
-    currSprite = this.parent;
-    xi = currSprite.x;
-    yi = currSprite.y;
-}
 function onDragStartSprite(event) {
     this.data = event.data;
     this.alpha = 0.5;
@@ -29,16 +20,7 @@ function onDragStartSprite(event) {
     }
 
 }
-function onDragEndButton() {
-    this.alpha = 1;
-    this.dragging = false;
-    this.data = null;
-    interactiveButtons = false;
-    lastModifiedSprite.interactive = true;
-    lastModifiedSprite.alpha = 1;
-    lastModifiedSprite.dragging = false;
-    resizeButtons(this.parent);
-}
+
 function onDragEndSprite() {
     this.alpha = 1;
     this.dragging = false;
@@ -48,16 +30,18 @@ function onDragEndSprite() {
     
     currSprite = this;
     
-    undoStack.push([15, [currSprite, xi, yi]]);
+    if (currSprite.x != xi && currSprite.y != yi){
+       undoStack.push([15, [currSprite, currSprite.x - xi, currSprite.y - yi]]);
+    }
 
     while (currSprite.directParent != null) {
         currSprite.directParent.interactive = true;
         currSprite = currSprite.directParent;
     }
 
-    console.log("bruh");
+    // console.log("bruh");
 
-    console.log(xi + " " + yi);
+    // console.log(xi + " " + yi);
     setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
 }
 
@@ -80,6 +64,12 @@ function moveSpriteVisual(sprite, vx, vy){ // takes in visual values
     closing(sprite);
 }
 
+function moveSpriteByActual(sprite, vx, vy){
+    sprite.x -= vx;
+    sprite.y -= vy;
+    closing(sprite);
+}
+
 function moveSpriteToActual(sprite, x, y){ // takes in non-visual values
     sprite.position.set(x,y);
     closing(sprite);
@@ -98,6 +88,6 @@ function undoMove(){
         console.alert("Something broke! D:")
     }
     else{
-        moveSpriteToActual(undoparam[0], undoparam[1], undoparam[2]);
+        moveSpriteByActual(undoparam[0], undoparam[1], undoparam[2]);
     }
 }
