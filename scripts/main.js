@@ -47,10 +47,7 @@ function setup() {
   //testOnion();
   console.log( getFileExtension("50.txt"));
 }
-
-  
-
-console.log(background);
+// console.log(background);
 let mouseX = 0;
 let mouseY = 0;
 let actualMouseY = 0;

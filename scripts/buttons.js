@@ -227,8 +227,7 @@ function disableButtons(eventData) {
         }
     }
     selectedSprite = null;
-}
-
+  }
 }
 
 let canParentMove = false;
@@ -249,7 +248,6 @@ let canParentMove = false;
         while (currSprite.directParent != null) {
             currSprite.directParent.interactive = false;
             currSprite = currSprite.directParent;
-
         }
         console.log(currSprite.visualX + "X");
         console.log(currSprite.visualY + "Y");
