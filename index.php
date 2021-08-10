@@ -1,11 +1,9 @@
 <?php
     include_once 'header.php'
 ?>
-
                 <?php
                     if(isset($_SESSION["useruid"])){
-                        echo "<p style='color:black;' >Hello there " . $_SESSION["useruid"] ."</p>";
-                    
+                        echo "<p style='color:black;' >Hello there " . $_SESSION["useruid"] ."</p>";    
                     } 
                 ?>
             <div id="hero">

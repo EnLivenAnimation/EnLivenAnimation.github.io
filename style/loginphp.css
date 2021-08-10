@@ -34,20 +34,20 @@ body{
     font-size: 17px;
 }
 
-button{
+input{
     width:60%;
     height: 50px;
     text-decoration: none;
     margin: 10px;
     padding: 10px;
     border-color: black;
-    background-color: #EDEBEB;
+    background-color: #f5f4f4;
     text-align: left;
-    color:#686868;
+    color:black;
 }
 
-button:hover{
-    background-color: #838181;
+input:hover{
+    background-color: #cacaca;
 }
 
 .login-button{
@@ -58,6 +58,7 @@ button:hover{
     text-align: center;
     border-color: transparent;
     color: white;
+    height:50px;
 }
 
 .login-button:hover{

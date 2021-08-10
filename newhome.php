@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,7 +24,15 @@
             <button id="b1">Animate</button>
             <button id="b2" >Resources</button>
             <button id="b3">Community</button>
-            <button onclick="location.href='login.html'" id="b4">Log In</button>
+            <button onclick="location.href='newlogin.php'" id="b4">Log In</button>
+            <?php
+                    if(isset($_SESSION["useruid"])){
+                        echo "<a href = 'includes/logout.inc.php'>Log Out</a>";
+                    }
+                    else{
+                        echo "<a href = 'newlogin.php'>Log In</a>";
+                    }
+            ?>
         </nav>
 
         <div style="background-image: url('nature.jpg');" id="hero">

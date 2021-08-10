@@ -4,10 +4,16 @@ body{
     
 }
 
-#loginimg{
+#signupimg{
     display: grid;
     grid-template-columns: 1fr 2fr;
     height: 100%;
+}
+
+#signupbar{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 17px;
 }
 
 #background{
@@ -19,19 +25,13 @@ body{
     width: auto;
 }
 
-#login-info{
+#signup-info{
     background-color: white;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 10%;
     font-family: 'Montserrat';
     text-align: center;
-}
-
-#loginbar{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    font-size: 17px;
 }
 
 button{
@@ -50,8 +50,8 @@ button:hover{
     background-color: #838181;
 }
 
-.login-button{
-    background-color:#4782DA ;
+.signup-button{
+    background-color:#7AD17E ;
     border-radius: 30px;
     margin-top: 20px;
     width: 20%;
@@ -60,14 +60,6 @@ button:hover{
     color: white;
 }
 
-.login-button:hover{
-    background-color: #0467fa;
-}
-
-.login-info{
-    width:70%;
-    height:50px;
-    border-radius: 30px; 
-    padding:10px;
-    margin-top: 10px;
+.signup-button:hover{
+    background-color: #10e63e;
 }
