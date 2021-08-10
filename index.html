@@ -33,6 +33,7 @@
   <script src="scripts/export.js" async></script>
   <script src="scripts/onion.js" async></script>
   <script src="scripts/undo.js" async></script>
+  <script src="scripts/background.js" async></script>
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
@@ -95,6 +96,14 @@
         </div>
       </div>
       <button id="delete" class="navbar-button" type="button" onclick="deleteSelectedSprite();">Delete</button>
+      <div class="dropdown">
+      <button onclick="displayDropdown('background-dropdown')" class="navbar-button">AddBackground</button>
+      <div id="background-dropdown" class="dropdown-content">
+        <button onclick="addDefault();">Default</button>
+        <button onclick="addBlackBackground();">BlackBackground</button>
+        <button onclick="addYourName();">YourNameBackground</button>
+      </div>
+    </div>
     </div>
     
     <!-- RELATIONS PANEL -->
