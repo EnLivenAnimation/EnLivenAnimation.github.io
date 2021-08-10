@@ -38,10 +38,10 @@ function resetVisualValues(sprite) {
 
 function closing(sprite){
     lastModifiedSprite = sprite;
-    if (sprite.width == 0){
+    if (sprite.width < 0.001){
         sprite.width = 0.001;
     }
-    if (sprite.height == 0){
+    if (sprite.height < 0.001){
         sprite.height = 0.001;
     }
     resizeButtons(sprite);

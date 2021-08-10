@@ -69,18 +69,18 @@
         <button onclick="displayDropdown('edit-dropdown')" class="navbar-button">Edit</button>
         <div id="edit-dropdown" class="dropdown-content">
           <button onclick="undo();">Undo</button>
-          <a href="#redo">Redo</a>
-          <a href="#cut">Cut</a>
+          <!-- <a href="#redo">Redo</a> -->
+          <!-- <a href="#cut">Cut</a>
           <a href="#copy">Copy</a>
-          <a href="#paste">Paste</a>
+          <a href="#paste">Paste</a> -->
         </div>
       </div>
       <div class="dropdown">
         <button onclick="displayDropdown('view-dropdown')" class="navbar-button">View</button>
         <div id="view-dropdown" class="dropdown-content">
-          <a href="#fullscreen">Full Screen</a>
-          <a href="#play">Play</a>
-          <a href="#pause">Pause</a>
+          <!-- <a href="#fullscreen">Full Screen</a> -->
+          <button onclick="play();">Play</button>
+          <button onclick="pause();">Pause</button>
         </div>
       </div>
       <div class="dropdown">
@@ -119,7 +119,7 @@
       <button class="timeline-button" onclick="play();"><i class="fas fa-play"></i></button>
       <button class="timeline-button" onclick="pause();"><i class="fas fa-pause"></i></button>
       <button class="timeline-button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
-      <button class="timeline-button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
+      <button class="timeline-button" onclick="deleteCurrentKeyframe();"><i class="fas fa-minus"></i></button>
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
       <button id="onion" class="onion-disabled" type="button" onclick="toggleOnionSkins();"><i class="fas fa-ellipsis-h"></i></button>

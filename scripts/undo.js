@@ -54,7 +54,7 @@ let allFunctions = [
     function(){pause();},
     function(){toggleLooping();},
     function(){addKeyframe();},
-    function(){deleteKeyframe();},
+    function(){deleteCurrentKeyframe();},
     function(){loadKeyframe(keyframe);},
     function(){editKeyframe();}
 ]
@@ -89,8 +89,8 @@ let allUndoFunctions = [
     function(){	pause()	;}, // 25 
     function(){	play()	;},
     function(){	toggleLooping()	;},
-    function(){	deleteKeyframe()	;},
-    function(){	addKeyframe()	;},
+    function(){	undoAddKeyframe()	;},
+    function(){	undoDeleteKeyframe()	;},
     function(){	loadKeyframe(keyframe)	;}, // 30
     function(){	editKeyframe()	;},
 ]

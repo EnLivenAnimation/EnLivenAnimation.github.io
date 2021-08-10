@@ -19,6 +19,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       DisplayedSprite.tint = tint;
   }
   DisplayedSprite.timeline = [];
+  DisplayedSprite.deletedTimeline = [];
   DisplayedSprite
     .on('pointerdown', onDragStartSprite)
     .on('pointerup', onDragEndSprite)
@@ -115,11 +116,9 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
 
   createSkins(DisplayedSprite, parent);
 
-  if (DisplayedSprite.directParent != null){
-      selectedSprite = DisplayedSprite.directParent;
-  }
-  else{
-      selectedSprite = DisplayedSprite;
+  selectedSprite = DisplayedSprite;
+  while (selectedSprite.directParent != null){
+      selectedSprite = selectedSprite.directParent;
   }
 
   return DisplayedSprite;

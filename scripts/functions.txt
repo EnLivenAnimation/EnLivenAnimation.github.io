@@ -82,7 +82,7 @@ move()
 
 addKeyframe()
 loadKeyframe(keyframe)
-deleteKeyframe()
+deleteCurrentKeyframe()
 editKeyframe()
 
 addButton()

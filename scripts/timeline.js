@@ -117,8 +117,23 @@ function addKeyframe() {
 
   addButton();
   setButtons();
+
+  undoStack.push([28, [currentKeyframe]]);
+
   updateActiveButton();
 }
+
+function undoAddKeyframe(){
+  if (undoparam.length != 1){
+    console.alert("Something broke! D:")
+  }
+  else{
+    deleteKeyframe(undoparam[0]);
+    isThisAnUndo = true;
+  }
+}
+
+let isThisAnUndo = false;
 
 function loadKeyframe(keyframe) {
   currentKeyframe = keyframe;
@@ -142,14 +157,56 @@ function loadKeyframe(keyframe) {
   updateActiveButton();
 }
 
-function deleteKeyframe() {
+let dtIndex = 0;
+
+function deleteCurrentKeyframe() {
   for (i in allSprites) {
     sprite = allSprites[i];
+    sprite.deletedTimeline.push(sprite.timeline[currentKeyframe]);
     sprite.timeline.splice(currentKeyframe, 1);
   }
 
+  if (!isThisAnUndo){
+    undoStack.push([29, [dtIndex, currentKeyframe]]);
+  }
+
+  dtIndex++;
+
+  isThisAnUndo = false;
+
   deleteButton();
   setButtons();
+  updateActiveButton();
+}
+
+function deleteKeyframe(keyframe){
+  currentKeyframe = keyframe;
+  deleteCurrentKeyframe();
+}
+
+function undoDeleteKeyframe(){
+  if (undoparam.length != 2){
+    console.alert("Something broke! D:")
+  }
+  else{ // 0 is the place in the deletedKeyframe
+    // 1 is the index where it should be inserted
+    reAddKeyframe(undoparam[0], undoparam[1]);
+  }
+}
+
+function reAddKeyframe(dtindex, index){
+  for (i in allSprites){
+    sprite = allSprites[i];
+    tmp = sprite.deletedTimeline[dtindex];
+    tmp2 = [tmp[0], tmp[1], tmp[2], tmp[3], tmp[4]];
+    sprite.timeline.splice(index, 0, tmp2);
+  }
+
+  currentKeyframe = index;
+
+  addButton();
+  setButtons();
+
   updateActiveButton();
 }
 

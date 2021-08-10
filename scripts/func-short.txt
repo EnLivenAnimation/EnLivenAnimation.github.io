@@ -65,9 +65,9 @@ toggleLooping()
 
 
 addKeyframe()
-deleteKeyframe()
+deleteCurrentKeyframe()
 
-deleteKeyframe()
+deleteCurrentKeyframe()
 addKeyframe()
 
 loadKeyframe(keyframe)
