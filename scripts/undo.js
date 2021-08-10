@@ -1,8 +1,13 @@
 let undoStack = [];
+let isThisNotAnUndo = true;
 
 function addToUndoStack(functionID, othervars){
     undoStack.push([functionID, othervars]); 
     // othervars is an array
+}
+
+function resetUndo(){ // sets isThisNotAnUndo to true
+    isThisNotAnUndo = true;
 }
 
 function testUndo(){
@@ -21,6 +26,8 @@ function undo(){
     
     let commandID = command[0];
     undoparam = command[1];
+
+    isThisNotAnUndo = false;
 
     console.log(undoparam);
     allUndoFunctions[commandID]();

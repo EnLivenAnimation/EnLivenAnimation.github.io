@@ -1,111 +1,8 @@
-let tweens;
-let frame;
-let fps = 60;
 let timelineLength = 0;
 let currentRender = 0;
 let currentKeyframe = -1;
-let loop = false;
-let paused = true;
 
-const tweensSlider = document.getElementById("tweensSlider");
-const tweensSliderLabel = document.getElementById("tweensSlider-label");
-tweensSliderLabel.innerHTML = tweensSlider.value;
-tweensSlider.oninput = function() {
-  tweensSliderLabel.innerHTML = this.value;
-  tweens = tweensSliderLabel.innerHTML;
-  tweens++;
-}
 
-const fpsSlider = document.getElementById("fpsSlider");
-const fpsSliderLabel = document.getElementById("fpsSlider-label");
-fpsSliderLabel.innerHTML = fpsSlider.value;
-fpsSlider.oninput = function() {
-  fpsSliderLabel.innerHTML = this.value;
-  fps = fpsSliderLabel.innerHTML;
-}
-
-tweens = tweensSlider.value;
-fps = fpsSlider.value;
-
-function play() {
-  turnOffAllSkins();
-  
-  paused = false;
-
-  disableButtons();
-  currentRender = 0;
-  updateRenderedButton();
-  timelineLength = allSprites[0].timeline.length;
-  playKeyframe();
-}
-
-function playKeyframe() {
-  if (!paused) {
-    setTimeout(function () {
-      if (currentRender < timelineLength - 1) {
-        for (s in allSprites) {
-          sprite = allSprites[s];
-          sprite.position.set(sprite.timeline[currentRender][0], sprite.timeline[currentRender][1]);
-          sprite.width = sprite.timeline[currentRender][2];
-          sprite.height = sprite.timeline[currentRender][3];
-          sprite.rotation = sprite.timeline[currentRender][4];
-          
-          for (j in sprite.d) {
-            sprite.d[j] = (sprite.timeline[currentRender+1][j] - sprite.timeline[currentRender][j]) / tweens;
-          }
-        }
-        frame = 0;
-        move();
-      } else if (loop) {
-        setTimeout(function(){ 
-          currentRender = 0;
-          currentKeyframe = 0;
-          updateRenderedButton();
-          playKeyframe();
-        }, 1000 * tweens / fps);
-      }
-    }, 1000 / fps);
-  }
-}
-
-function pause() {
-  paused = true;
-}
-
-function toggleLooping() {
-  if (loop) {
-    loop = false;
-    document.getElementById("loop").setAttribute("class", "loop-disabled");
-  } else {
-    loop = true;
-    document.getElementById("loop").setAttribute("class", "loop-enabled");
-  }
-}
-
-function move() {
-  setTimeout(function () {
-    if (frame < tweens) {
-      frame++;
-      for (s in allSprites) {
-        sprite = allSprites[s];
-        sprite.x += sprite.d[0];
-        sprite.y += sprite.d[1];
-        sprite.width += sprite.d[2];
-        sprite.height += sprite.d[3];
-        sprite.rotation += sprite.d[4];
-        resizeButtons(sprite);
-      }
-      move();
-    } else {
-      if (currentRender < timelineLength - 1) {
-        currentRender ++;
-        currentKeyframe ++;
-        updateRenderedButton();
-      }
-      this.playKeyframe();
-    }
-  }, 1000 / fps);
-}
 
 function addKeyframe() {
   for (i in allSprites) {
@@ -118,7 +15,11 @@ function addKeyframe() {
   addButton();
   setButtons();
 
+  console.log("added");
+
   undoStack.push([28, [currentKeyframe]]);
+
+  timelineLength++;
 
   updateActiveButton();
 }
@@ -129,11 +30,8 @@ function undoAddKeyframe(){
   }
   else{
     deleteKeyframe(undoparam[0]);
-    isThisAnUndo = true;
   }
 }
-
-let isThisAnUndo = false;
 
 function loadKeyframe(keyframe) {
   currentKeyframe = keyframe;
@@ -166,17 +64,30 @@ function deleteCurrentKeyframe() {
     sprite.timeline.splice(currentKeyframe, 1);
   }
 
-  if (!isThisAnUndo){
+  if (isThisNotAnUndo){
     undoStack.push([29, [dtIndex, currentKeyframe]]);
+    console.log("added an undo to stack");
+    
+    resetUndo();
   }
 
   dtIndex++;
 
-  isThisAnUndo = false;
+  console.log("deleted");
 
-  deleteButton();
-  setButtons();
-  updateActiveButton();
+  timelineLength--;
+  if (timelineLength >= currentKeyframe){
+    currentKeyframe--;
+  }
+
+  if (timelineLength > 0){
+    deleteButton();
+    setButtons();
+    updateActiveButton();
+  }
+  else{
+    deleteKeyframe0();
+  }
 }
 
 function deleteKeyframe(keyframe){
@@ -202,7 +113,11 @@ function reAddKeyframe(dtindex, index){
     sprite.timeline.splice(index, 0, tmp2);
   }
 
+  console.log("readded");
+
   currentKeyframe = index;
+  
+  timelineLength++;
 
   addButton();
   setButtons();
@@ -237,6 +152,10 @@ function addButton() {
 
 function deleteButton() {
   document.getElementById(`timeline-frame-${currentKeyframe}`).remove();
+}
+
+function deleteKeyframe0() {
+  document.getElementById(`timeline-frame-0`).remove();
 }
 
 function setButtons() {
