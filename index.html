@@ -89,6 +89,15 @@
         </div>
       </div>
       <button id="delete" class="navbar-button" type="button" onclick="DeleteSprite();">Delete</button>
+      <div class="dropdown">
+      <button onclick="displayDropdown('background-dropdown')" class="navbar-button">AddBackground</button>
+      <div id="background-dropdown" class="dropdown-content">
+        <button onclick="addDefault();">Default</button>
+        <button onclick="addBlackBackground();">BlackBackground</button>
+        <button onclick="addYourName();">YourNameBackground</button>
+        <label for="file-import" class="custom-file-upload">Import</label>
+      </div>
+    </div>
     </div>
     
     <!-- RELATIONS PANEL -->
