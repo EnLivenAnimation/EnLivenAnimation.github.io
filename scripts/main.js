@@ -41,7 +41,15 @@ function setup() {
   // testingTmp();
   // testOnion();
 }
-
+let mouseX = 0;
+let mouseY = 0;
+let actualMouseY = 0;
+const itr = app.renderer.plugins.interaction;
+  itr.on('mousemove', ()=>{
+     mouseX = itr.mouse.global.x;
+     mouseY = app.screen.height - itr.mouse.global.y;
+     actualMouseY = itr.mouse.global.y;
+  })
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);
