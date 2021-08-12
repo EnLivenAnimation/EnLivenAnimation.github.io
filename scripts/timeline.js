@@ -3,6 +3,15 @@ let currentRender = 0;
 let currentKeyframe = -1;
 
 
+function enableDeleteKeyframeButton(){
+  document.getElementById("deleteKeyframeButton").setAttribute("class", "delete-enabled");
+  document.getElementById("deleteKeyframeButton").setAttribute("onclick", "deleteCurrentKeyframe();");
+}
+
+function disableDeleteKeyframeButton(){
+  document.getElementById("deleteKeyframeButton").setAttribute("class", "delete-disabled");
+  document.getElementById("deleteKeyframeButton").setAttribute("onclick", "");
+}
 
 function addKeyframe() {
   for (i in allSprites) {
@@ -15,11 +24,13 @@ function addKeyframe() {
   addButton();
   setButtons();
 
-  console.log("added");
+  // console.log("added");
 
   undoStack.push([28, [currentKeyframe]]);
 
   timelineLength++;
+
+  enableDeleteKeyframeButton();
 
   updateActiveButton();
 }
@@ -66,27 +77,27 @@ function deleteCurrentKeyframe() {
 
   if (isThisNotAnUndo){
     undoStack.push([29, [dtIndex, currentKeyframe]]);
-    console.log("added an undo to stack");
+    // console.log("added an undo to stack");
     
     resetUndo();
   }
 
   dtIndex++;
 
-  console.log("deleted");
+  // console.log("deleted");
 
   timelineLength--;
   if (timelineLength >= currentKeyframe){
     currentKeyframe--;
   }
-
-  if (timelineLength > 0){
+  if (timelineLength == 0){
+    disableDeleteKeyframeButton();
+    
+    deleteKeyframe0();
+  } else{
     deleteButton();
     setButtons();
     updateActiveButton();
-  }
-  else{
-    deleteKeyframe0();
   }
 }
 
@@ -113,11 +124,13 @@ function reAddKeyframe(dtindex, index){
     sprite.timeline.splice(index, 0, tmp2);
   }
 
-  console.log("readded");
+  // console.log("readded");
 
   currentKeyframe = index;
   
   timelineLength++;
+
+  enableDeleteKeyframeButton();
 
   addButton();
   setButtons();
@@ -131,7 +144,7 @@ function editKeyframe() {
     sprite.timeline.splice(currentKeyframe, 1);
   }
 
-  currentKeyframe --;
+  currentKeyframe--;
 
   for (i in allSprites) {
     sprite = allSprites[i];

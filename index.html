@@ -83,6 +83,7 @@
         <div id="view-dropdown" class="dropdown-content">
           <!-- <a href="#fullscreen">Full Screen</a> -->
           <button onclick="play();">Play</button>
+          <button onclick="playFromStart();">Play from Start</button>
           <button onclick="pause();">Pause</button>
         </div>
       </div>
@@ -130,7 +131,7 @@
       <button class="timeline-button" onclick="play();"><i class="fas fa-play"></i></button>
       <button class="timeline-button" onclick="pause();"><i class="fas fa-pause"></i></button>
       <button class="timeline-button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
-      <button class="timeline-button" onclick="deleteCurrentKeyframe();"><i class="fas fa-minus"></i></button>
+      <button id="deleteKeyframeButton" class="delete-disabled" onclick=""><i class="fas fa-minus"></i></button>
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
       <button id="onion" class="onion-disabled" type="button" onclick="toggleOnionSkins();"><i class="fas fa-ellipsis-h"></i></button>
