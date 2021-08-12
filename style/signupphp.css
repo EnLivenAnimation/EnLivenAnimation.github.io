@@ -34,20 +34,20 @@ body{
     text-align: center;
 }
 
-button{
+input{
     width:60%;
     height: 50px;
     text-decoration: none;
     margin: 10px;
     padding: 10px;
     border-color: black;
-    background-color: #EDEBEB;
+    background-color: #ffffff;
     text-align: left;
-    color:#686868;
+    color:black;
 }
 
-button:hover{
-    background-color: #838181;
+input:hover{
+    background-color: #e4e4e4;
 }
 
 .signup-button{
@@ -58,8 +58,23 @@ button:hover{
     text-align: center;
     border-color: transparent;
     color: white;
+    height:50px;
 }
 
 .signup-button:hover{
     background-color: #10e63e;
+}
+
+.signup-info{
+    width:70%;
+    height:50px;
+    border-radius: 30px; 
+    padding:10px;
+    margin-top: 10px;
+    color:black;
+}
+
+.signuperror{
+    color:red;
+    margin-top: 10px;
 }

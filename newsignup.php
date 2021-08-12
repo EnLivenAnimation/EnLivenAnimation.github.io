@@ -20,17 +20,49 @@
             <div id="signup-info">
                 <div id="signupbar">
                     <p style="color:#686868; text-align: left;">Already have an account? <a href="newlogin.php" style="color:#0030DB">Log In</a></p>
-                    <a href="newhome.html" style="text-align: right;">Close X</a>
+                    <a href="newhome.php" style="text-align: right;">Close X</a>
                 </div>
                 <h1 style="text-align: center; font-size: 50px; font-weight: bold; margin-top: 50px;">Create Account</h1>
                 
-                <button style="border-radius: 30px; margin-top: 10px;">Email address</button>
-                <button style="border-radius: 30px; margin-top: 10px;">Full name</button>
-                <button style="border-radius: 30px; margin-top: 10px;">Username</button>
-                <button style="border-radius: 30px; margin-top: 10px;">Password</button>
-                <button style="border-radius: 30px; margin-top: 10px;">Confirm password</button>
-                <br>
-                <button class="signup-button">Sign Up</button>
+                <form action = "includes/signup.inc.php" method="post">
+                    <input class ="signup-info" type="text" name="name" placeholder="Full name...">
+                    <br>
+                    <input class ="signup-info" type="text" name="email" placeholder="Email...">
+                    <br>
+                    <input class ="signup-info"  type="text" name="uid" placeholder="User name...">
+                    <br>
+                    <input class ="signup-info"  type="password" name="pwd" placeholder="Password...">
+                    <br>
+                    <input class ="signup-info" type="password" name="pwdrepeat" placeholder="Repeat password...">
+                    <br>
+                    <button class="signup-button" type="submit" name="submit">Sign Up</button>
+                </form>
+
+                <?php
+                if(isset($_GET["error"])){
+                    if($_GET["error"]=="emptyinput"){
+                        echo "<p class='signuperror'>FILL in all fields</p>";
+                    }
+                    else if($_GET["error"]=="invaliduid"){
+                        echo "<p class='signuperror'>Choose a proper username</p>";
+                    }
+                    else if($_GET["error"]=="invalidemail"){
+                        echo "<p class='signuperror'>Choose a proper email</p>";
+                    }
+                    else if($_GET["error"]=="passwordsdontmatch"){
+                        echo "<p class='signuperror'>Passwords doesn't match</p>";
+                    }
+                    else if($_GET["error"]=="usernametaken"){
+                        echo "<p class='signuperror'>Username already taken!</p>";
+                    }
+                    else if($_GET["error"]=="stmtfailed"){
+                        echo "<p class='signuperror'>Something went wrong, try again!</p>";
+                    }
+                    else if($_GET["error"]=="none"){
+                        echo "<p class='signuperror'>You have signed up!</p>";
+                    }
+                }
+                ?>
 
             </div>
         </div>

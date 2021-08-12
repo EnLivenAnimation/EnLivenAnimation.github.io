@@ -2,6 +2,15 @@
     session_start();
 ?>
 
+<?php
+
+
+if($_POST["message"]) {
+    mail("enlivenwon@gmail.com", "User Feedback",
+    $_POST["insert your message here"]. "From: pqqgood@gmail.com");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,13 +33,12 @@
             <button id="b1">Animate</button>
             <button id="b2" >Resources</button>
             <button id="b3">Community</button>
-            <button onclick="location.href='newlogin.php'" id="b4">Log In</button>
             <?php
                     if(isset($_SESSION["useruid"])){
-                        echo "<a href = 'includes/logout.inc.php'>Log Out</a>";
+                        echo "<button onclick=\"location.href='includes/logout.inc.php'\"; id='b4'>Log Out</button>";
                     }
                     else{
-                        echo "<a href = 'newlogin.php'>Log In</a>";
+                        echo "<button onclick=\"location.href='newlogin.php'\";  id='b4'>Log In</button>";
                     }
             ?>
         </nav>
@@ -157,9 +165,10 @@
                             <div class="col item social">
                                 <h3>EnLiven</h3>
                             </div>
-                            <div class="email">
-
-                            </div>
+                            <form method="post" action="subscriberform.php">
+                                <textarea class="email" name="message"></textarea>
+                                <input class="email-button" type="submit">
+                            </form>
 
                         </div>
                     </div>

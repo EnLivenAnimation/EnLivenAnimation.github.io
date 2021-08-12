@@ -41,13 +41,13 @@ input{
     margin: 10px;
     padding: 10px;
     border-color: black;
-    background-color: #f5f4f4;
+    background-color: #ffffff;
     text-align: left;
     color:black;
 }
 
 input:hover{
-    background-color: #cacaca;
+    background-color: #e4e4e4;
 }
 
 .login-button{
@@ -70,5 +70,10 @@ input:hover{
     height:50px;
     border-radius: 30px; 
     padding:10px;
+    margin-top: 10px;
+}
+
+.loginerror{
+    color:red;
     margin-top: 10px;
 }
