@@ -28,19 +28,28 @@ loader
   .add("res/img/justin-sheet.png")
   .add("res/img/triangle.png")
   .load(setup)
-
+let background;
 function setup() {
   const bg = PIXI.Texture.from("res/img/background.jpg");
-  var background = new PIXI.Sprite(bg);
+  background = new PIXI.Sprite(PIXI.loader.resources["res/img/justin-sheet.png"].texture);
   background.width = app.screen.width;
   background.height = app.screen.height;
   background.alpha = 0;
   background.interactive = true;
-  background.on('click', disableButtons); 
+  background.on('click', disableButtons);
   app.stage.addChild(background);
   // testingTmp();
+  // testOnion();
 }
-
+let mouseX = 0;
+let mouseY = 0;
+let actualMouseY = 0;
+const itr = app.renderer.plugins.interaction;
+  itr.on('mousemove', ()=>{
+     mouseX = itr.mouse.global.x;
+     mouseY = app.screen.height - itr.mouse.global.y;
+     actualMouseY = itr.mouse.global.y;
+  })
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
 const coordinates = readCoordinates(atlas);
