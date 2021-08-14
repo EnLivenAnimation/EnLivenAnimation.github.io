@@ -23,7 +23,10 @@ fpsSlider.oninput = function() {
 tweens = tweensSlider.value;
 fps = fpsSlider.value;
 
-
+function playFromStart(){
+    currentKeyframe = 0;
+    play();
+}
 
 
 function play() {
@@ -32,7 +35,7 @@ function play() {
     paused = false;
 
     disableButtons();
-    currentRender = 0;
+    currentRender = currentKeyframe;
     updateRenderedButton();
     playKeyframe();
 }

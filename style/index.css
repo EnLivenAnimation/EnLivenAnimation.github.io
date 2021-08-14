@@ -226,28 +226,45 @@ input[type=number]{
   cursor: pointer;
 }
 
+.delete-enabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--dark-green);
+  cursor: pointer;
+}
+
+.delete-disabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--light-green);
+}
+
 .loop-enabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--dark-green);
+  cursor: pointer;
 }
 
 .loop-disabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--light-green);
+  cursor: pointer;
 }
 
 .onion-enabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--dark-green);
+  cursor: pointer;
 }
 
 .onion-disabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--light-green);
+  cursor: pointer;
 }
 
 #timeline-keyframes {
