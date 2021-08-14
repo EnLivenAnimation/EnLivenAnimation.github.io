@@ -28,7 +28,7 @@ loader
   .add("res/img/justin-sheet.png")
   .add("res/img/triangle.png")
   .load(setup)
-let background;
+let background;  
 function setup() {
   const bg = PIXI.Texture.from("res/img/background.jpg");
   background = new PIXI.Sprite(PIXI.loader.resources["res/img/justin-sheet.png"].texture);
