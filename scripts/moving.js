@@ -10,7 +10,7 @@ function onDragStartSprite(event) {
     canParentMove = false;
     
     currSprite = this;
-
+    ColorSprite = this;
     xi = currSprite.x;
     yi = currSprite.y;
 
