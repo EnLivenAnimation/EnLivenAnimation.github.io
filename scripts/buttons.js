@@ -20,7 +20,7 @@ function resizeButtons(sprite) {
 function resetVisualValues(sprite) {
     if (sprite.directParent == null) {
         sprite.visualX = sprite.x;
-        sprite.visualY = sprite.y;
+        sprite.visualY = -1*sprite.y+app.screen.height;
         sprite.visualWidth = sprite.width;
         sprite.visualHeight = sprite.height;
     }
@@ -34,176 +34,18 @@ function resetVisualValues(sprite) {
 }
 }
 
-{// BUTTON FUNCTIONS
-function B1() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
 
-        let halfwidth = sprite.originalWidth / 2;
-        this.x = newPosition2.x;
-        a = false;
-        sprite.width+= (this.x + halfwidth) * sprite.width / -halfwidth;
-        this.x = -halfwidth;
 
-        let halfheight = sprite.originalHeight / 2;
-        this.y = newPosition2.y;
-        a = false;
-        sprite.height+= (this.y + halfheight) * sprite.height / -halfheight;
-        this.y = -halfheight;
-
-        closing(sprite);
-    }
-}
-function B2() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-        this.y = newPosition2.y;
-        a = false;
-
-        let halfheight = sprite.originalHeight/2;
-        sprite.height+= (this.y + halfheight) * sprite.height / -halfheight;
-        this.x = 0;
-        this.y = -halfheight;
-        closing(sprite);
-    }
-}
-function B3() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-
-        let halfwidth = sprite.originalWidth/2;
-        this.x = newPosition2.x;
-        a = false;
-        sprite.width+= (this.x - halfwidth) * sprite.width / halfwidth;
-        this.x = halfwidth;
-
-        let halfheight = sprite.originalHeight/2;
-        this.y = newPosition2.y;
-        a = false;
-        sprite.height+= (this.y + halfheight) * sprite.height / -halfheight;
-        this.y = -halfheight;
-
-        closing(sprite);
-    }
-}
-function B4() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-        this.x = newPosition2.x;
-        a = false;
-
-        let halfwidth = sprite.originalWidth/2;
-        sprite.width+= (this.x - halfwidth) * sprite.width / halfwidth;
-        this.y = 0;
-        this.x = halfwidth;
-        closing(sprite);
-    }
-}
-function B5() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-
-        let halfwidth = sprite.originalWidth/2;
-        this.x = newPosition2.x;
-        a = false;
-        sprite.width+= (this.x - halfwidth) * sprite.width / halfwidth;
-        this.x = halfwidth;
-
-        let halfheight = sprite.originalHeight/2;
-        this.y = newPosition2.y;
-        a = false;
-        sprite.height+= (this.y - halfheight) * sprite.height / halfheight;
-        this.y = halfheight;
-
-        closing(sprite);
-    }
-}
-function B6() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-        this.y = newPosition2.y;
-        a = false;
-
-        let halfheight = sprite.originalHeight/2;
-        sprite.height+= (this.y - halfheight) * sprite.height / halfheight;
-        this.x = 0;
-        this.y = halfheight;
-        closing(sprite);
-    }
-}
-function B7() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-
-        let halfwidth = sprite.originalWidth/2;
-        this.x = newPosition2.x;
-        a = false;
-        sprite.width+= (this.x + halfwidth) * sprite.width / -halfwidth;
-        this.x = -halfwidth;
-
-        let halfheight = sprite.originalHeight/2;
-        this.y = newPosition2.y;
-        a = false;
-        sprite.height+= (this.y - halfheight) * sprite.height / halfheight;
-        this.y = halfheight;
-
-        closing(sprite);
-    }
-}
-function B8() {
-    if (this.dragging && interactiveButtons) {
-        this.parent.interactive = false;
-        let sprite = this.parent;
-        let newPosition2 = this.data.getLocalPosition(this.parent);
-        this.x = newPosition2.x;
-        a = false;
-
-        let halfwidth = sprite.originalWidth/2;
-        sprite.width+= (this.x + halfwidth) * sprite.width / -halfwidth;
-        this.y = 0;
-        this.x = -halfwidth;
-        closing(sprite);
-    }
-}
-function BRotate() {
-    if (this.dragging && interactiveButtons) {
-        let sprite = this.parent;
-        sprite.interactive = false;
-        const newPosition3 = this.data.getLocalPosition(this.parent);
-        this.x = newPosition3.x;
-        this.y = newPosition3.y;
-        // theta = -Math.atan2(this.x,this.y);
-        theta = Math.atan2(this.x*sprite.visualWidth/sprite.originalWidth, -this.y*sprite.visualHeight/sprite.originalHeight);
-        // theta = Math.atan2(sprite.visualY - this.y, -sprite.visualX+this.x);
-        // sprite.rotation+= Math.PI/2-theta;
-        sprite.rotation+= theta;
-        this.position.set(0, -sprite.n*(1+40/sprite.visualHeight));
-        a = false;
-        console.log(Math.PI/2-theta);
-        closing(sprite);
-    }
-}
 function closing(sprite){
     lastModifiedSprite = sprite;
+    if (sprite.width < 0.001){
+        sprite.width = 0.001;
+    }
+    if (sprite.height < 0.001){
+        sprite.height = 0.001;
+    }
     resizeButtons(sprite);
     setPropertyPanelValues(sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.rotation);
-}
-
-// END BUTTON FUNCTIONS
 }
 
 { // ENABLE AND DISABLE BUTTONS
@@ -229,94 +71,4 @@ function disableButtons(eventData) {
     selectedSprite = null;
 }
 
-}
-
-function findObjectCoords(mouseEvent){
-    var obj = document.getElementById("objectBox");
-    var obj_left = 0;
-    var obj_top = 0;
-    var xpos;
-    var ypos;
-    while (obj.offsetParent)
-    {
-        obj_left += obj.offsetLeft;
-        obj_top += obj.offsetTop;
-        obj = obj.offsetParent;
-    }
-    if (mouseEvent)
-    {
-        //FireFox
-        xpos = mouseEvent.pageX;
-        ypos = mouseEvent.pageY;
-    }
-    else
-    {
-        //IE
-        xpos = window.event.x + document.body.scrollLeft - 2;
-        ypos = window.event.y + document.body.scrollTop - 2;
-    }
-    xpos -= obj_left;
-    ypos -= obj_top;
-    document.getElementById("objectCoords").innerHTML = xpos + ", " + ypos;
-}
-document.getElementById("objectBox").onmousemove = findObjectCoords;
-
-let canParentMove = false;
-{ // ON DRAG START STUFF
-    function onDragStartButton(event) {
-        this.data = event.data;
-        this.alpha = 0.5;
-        this.dragging = true;
-        interactiveButtons = true;
-    }
-    function onDragStartSprite(event) {
-        this.data = event.data;
-        this.alpha = 0.5;
-        this.dragging = true;
-        canParentMove = false;
-        
-        // var mousePosition = renderer.plugins.interaction.mouse.global;
-        var mousePosition = event.data.getLocalPosition();
-        console.log(mousePosition);
-
-        currSprite = this;
-        while (currSprite.directParent != null) {
-            currSprite.directParent.interactive = false;
-            currSprite = currSprite.directParent;
-        }
-    }
-    function onDragEndButton() {
-        this.alpha = 1;
-        this.dragging = false;
-        this.data = null;
-        interactiveButtons = false;
-        lastModifiedSprite.interactive = true;
-        lastModifiedSprite.alpha = 1;
-        lastModifiedSprite.dragging = false;
-        resizeButtons(this.parent);
-    }
-    function onDragEndSprite() {
-        this.alpha = 1;
-        this.dragging = false;
-        this.data = null;
-        resizeButtons(this);
-        canParentMove = true;
-        
-        currSprite = this;
-        while (currSprite.directParent != null) {
-            currSprite.directParent.interactive = true;
-            currSprite = currSprite.directParent;
-        }
-
-        setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
-    }
-    function onDragMoveSprite() {
-        if (this.dragging) {
-            const newPosition2 = this.data.getLocalPosition(this.parent);
-            this.x = newPosition2.x;
-            this.y = newPosition2.y;
-            canParentMove = false;
-            closing(this);
-        }
-    }
 }

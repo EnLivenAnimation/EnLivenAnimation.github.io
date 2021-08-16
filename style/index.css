@@ -113,16 +113,18 @@
 
 .dropdown-content label {
   display: inline-block;
+  background-color: var(--dark-grey);
   color: var(--white);
   padding: 6px 8px;
   cursor: pointer;
-  width: 90%;
+  width: 95%;
+  margin-top: 20px;
 }
-
+/*
 .dropdown-content label:hover {
   background-color: var(--light-green);
-  /* overflow: hidden; */
-}
+  /* overflow: hidden; 
+} */
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container whenthe user clicks on the dropdown button) */
 .show {display:block;}
@@ -210,11 +212,10 @@ input[type=number]{
   margin-right: 0.5em;
 
   display: grid;
-  grid-template-columns: auto auto auto auto auto 100fr auto auto;
-  grid-template-rows: 1fr 2fr;
+  grid-template-columns: auto auto auto auto auto 100fr auto auto auto auto;
+  grid-template-rows: 1fr 1fr;
   column-gap: 15px;
   row-gap: 5px;
-
   padding: 1em;
 }
 
@@ -225,16 +226,45 @@ input[type=number]{
   cursor: pointer;
 }
 
+.delete-enabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--dark-green);
+  cursor: pointer;
+}
+
+.delete-disabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--light-green);
+}
+
 .loop-enabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--dark-green);
+  cursor: pointer;
 }
 
 .loop-disabled {
   border: none;
   background-color: var(--light-grey);
   color: var(--light-green);
+  cursor: pointer;
+}
+
+.onion-enabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--dark-green);
+  cursor: pointer;
+}
+
+.onion-disabled {
+  border: none;
+  background-color: var(--light-grey);
+  color: var(--light-green);
+  cursor: pointer;
 }
 
 #timeline-keyframes {
@@ -289,4 +319,106 @@ input[type=number]{
   font-size: 1em;
   font-weight: 600;
   vertical-align: middle;
+}
+
+#fpsSlider {
+  -webkit-appearance: none;
+  height: 5px;
+  background: var(--dark-green);
+  border-radius: 10px;
+  /* overflow: hidden; */
+}
+
+#fpsSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  background: var(--light-grey);
+  border: 3px solid var(--dark-green);
+}
+
+#fpsSlider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  background: var(--light-grey);
+  border: 3px solid var(--dark-green);
+}
+
+#fpsSlider-label {
+  font-size: 1em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+#tweensSlider {
+  -webkit-appearance: none;
+  height: 5px;
+  background: var(--dark-green);
+  border-radius: 10px;
+  /* overflow: hidden; */
+}
+
+#tweensSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  background: var(--light-grey);
+  border: 3px solid var(--dark-green);
+}
+
+#tweensSlider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  background: var(--light-grey);
+  border: 3px solid var(--dark-green);
+}
+
+#tweensSlider-label {
+  font-size: 1em;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+ /* The Modal (background) */
+ .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

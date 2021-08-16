@@ -1,25 +1,41 @@
 let selectedSprite = null;
 
-function DeleteSprite(){
+function deleteSelectedSprite(){
     if (selectedSprite != null){
+        let spriteIndex = selectedSprite.indexinAllSprites;
+
         selectedSprite.alpha = 0;
         selectedSprite.interactive = false;
         selectedSprite.deleted = true;
-        allSprites.splice(selectedSprite.indexinAllSprites, 1);
+        allSprites.splice(selectedSprite.spriteIndex, 1);
         for (i in allSprites){
             sprite = allSprites[i];
-            if (sprite.indexinAllSprites >= selectedSprite.indexinAllSprites){
+            if (sprite.indexinAllSprites >= spriteIndex){
                 sprite.indexinAllSprites--;
             }
         }
+
+        preskin = allSkins[0][spriteIndex];
+        preskin.alpha = 0;
+        preskin.interactive = false;
+        preskin.deleted = true;
+        allSkins[0].splice(spriteIndex, 1);
+
+        postskin = allSkins[1][spriteIndex];
+        postskin.alpha = 0;
+        postskin.interactive = false;
+        postskin.deleted = true;
+        allSkins[1].splice(spriteIndex, 1);
     }
     selectedSprite = null;
     disableButtons();
 }
 
-function addCircle(){
-    let circletexture = PIXI.Texture.from("res/img/circle.png");
-    displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
+function deleteSprite(sprite){
+    let holdingSelectedSprite = selectedSprite;
+    selectedSprite = sprite;
+    deleteSelectedSprite();
+    selectedSprite = holdingSelectedSprite;
 }
 
 function testingTmp(){
@@ -32,14 +48,27 @@ function testingTmp(){
     displaySprite(circletexture, 300, 300, 500, 10, 0xeeee55, null);
 }
 
+
+
+function addCircle(){
+    let circletexture = PIXI.Texture.from("res/img/circle.png");
+    var tempSprite = displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
+    
+    undoStack.push([0, [tempSprite]]);
+}
+
 function addSquare(){
     let squaretexture = PIXI.Texture.from("res/img/square.jpg");
-    displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
+    var tempSprite = displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
+    
+    undoStack.push([0, [tempSprite]]);
 }
 
 function addTriangle(){
     let triangletexture = PIXI.Texture.from("res/img/triangle.png");
-    displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
+    var tempSprite = displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
+
+    undoStack.push([0, [tempSprite]]);
 }
 
 function addHuman(){
@@ -75,4 +104,15 @@ function addHuman(){
     
     textureRightLeg.frame = rightlegrectangle;
     displaySprite(textureRightLeg, 225, 75, 50, 129, null, torsoSprite);
+
+    undoStack.push([0, [torsoSprite]]);
+}
+
+function undoAddSprite(){
+    if (undoparam.length != 1){
+        console.alert("Something broke! D:")
+    }
+    else{
+        deleteSprite(undoparam[0]);
+    }
 }

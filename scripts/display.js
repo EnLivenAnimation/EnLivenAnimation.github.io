@@ -19,6 +19,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       DisplayedSprite.tint = tint;
   }
   DisplayedSprite.timeline = [];
+  DisplayedSprite.deletedTimeline = [];
   DisplayedSprite
     .on('pointerdown', onDragStartSprite)
     .on('pointerup', onDragEndSprite)
@@ -38,10 +39,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       parent.spriteChildren.push(DisplayedSprite);
 
       DisplayedSprite.x = (visualX - parent.visualX)*parent.originalWidth/parent.visualWidth;
-      // console.log(app.screen.height);
-      // console.log(parent.visualY);
-      // console.log(DisplayedSprite.visualY);
-      DisplayedSprite.y = (-1*parent.visualY+app.screen.height-visualY) * parent.originalHeight / parent.visualHeight;
+      DisplayedSprite.y = (parent.visualY-visualY) * parent.originalHeight / parent.visualHeight;
       DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
       DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
 
@@ -84,11 +82,15 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       currButton.y = ys[i];
       currButton.tint = 0x1a73e8;
 
-      currButton
-          .on('pointerdown', onDragStartButton)
-          .on('pointerup', onDragEndButton)
-          .on('pointerupoutside', onDragEndButton);
+    currButton
+        .on('pointerdown', onDragStartButton)
+        .on('pointerup', onDragEndButton)
+        .on('pointerupoutside', onDragEndButton);
   }
+  buttonR
+    .on('pointerdown', onRotateStartButton)
+    .on('pointerup', onRotateEndButton)
+    .on('pointerupoutside', onRotateEndButton);
 
   DisplayedSprite.buttonArray[0]
       .on('pointermove', B1);
@@ -109,7 +111,15 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.buttonArray[8]
       .on('pointermove', BRotate);
 
-  resizeButtons(DisplayedSprite);
   disableButtons();
+  resizeButtons(DisplayedSprite);
+
+  createSkins(DisplayedSprite, parent);
+
+  selectedSprite = DisplayedSprite;
+  while (selectedSprite.directParent != null){
+      selectedSprite = selectedSprite.directParent;
+  }
+
   return DisplayedSprite;
 }

@@ -17,13 +17,23 @@
   <script src="scripts/navbar.js" async></script>
   <script src="scripts/properties.js" async></script>
   <script src="scripts/treeview.js" async></script>
+  <script src="scripts/import.js" async></script>
   <!-- BACKEND SCRIPTS -->
   <script src="scripts/display.js" async></script>
   <script src="scripts/buttons.js" async></script>
+  <script src="scripts/moving.js" async></script>
+  <script src="scripts/scaling.js" async></script>
+  <script src="scripts/rotating.js" async></script>
+  <script src="scripts/converting.js" async></script>
   <script src="scripts/timeline.js" async></script>
+  <script src="scripts/playing.js" async></script>
+  <script src="scripts/looping.js" async></script>
   <script src="scripts/input.js" async></script>
   <script src="scripts/add.js" async></script>
   <script src="scripts/export.js" async></script>
+  <script src="scripts/onion.js" async></script>
+  <script src="scripts/undo.js" async></script>
+  <script src="scripts/background.js" async></script>
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
@@ -37,27 +47,44 @@
         <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
           <a href="javascript:location.reload(true)">New File</a>
-          <label for="file-import" class="custom-file-upload">Import</label>
-          <input type="file" id="file-import" multiple>
+          <!-- Trigger/Open The Modal -->
+          <button id="myBtn">Import</button>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+          <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+              </div>
+              <div class="modal-body">
+                <label for="file-import" class="custom-file-upload">Import</label>
+                <input type="file" id="file-import" multiple>
+              </div>
+              <div class="modal-footer">
+                <!-- <h3>Modal Footer</h3> -->
+              </div>
+            </div>
+          </div> 
           <button onclick="exportTL()">Export</button>
         </div>
       </div>
       <div class="dropdown">
         <button onclick="displayDropdown('edit-dropdown')" class="navbar-button">Edit</button>
         <div id="edit-dropdown" class="dropdown-content">
-          <a href="#undo">Undo</a>
-          <a href="#redo">Redo</a>
-          <a href="#cut">Cut</a>
+          <button onclick="undo();">Undo</button>
+          <!-- <a href="#redo">Redo</a> -->
+          <!-- <a href="#cut">Cut</a>
           <a href="#copy">Copy</a>
-          <a href="#paste">Paste</a>
+          <a href="#paste">Paste</a> -->
         </div>
       </div>
       <div class="dropdown">
         <button onclick="displayDropdown('view-dropdown')" class="navbar-button">View</button>
         <div id="view-dropdown" class="dropdown-content">
-          <a href="#fullscreen">Full Screen</a>
-          <a href="#play">Play</a>
-          <a href="#pause">Pause</a>
+          <!-- <a href="#fullscreen">Full Screen</a> -->
+          <button onclick="play();">Play</button>
+          <button onclick="playFromStart();">Play from Start</button>
+          <button onclick="pause();">Pause</button>
         </div>
       </div>
       <div class="dropdown">
@@ -69,7 +96,15 @@
           <button onclick="addHuman();">Human</button>
         </div>
       </div>
-      <button id="delete" class="navbar-button" type="button" onclick="DeleteSprite();">Delete</button>
+      <button id="delete" class="navbar-button" type="button" onclick="deleteSelectedSprite();">Delete</button>
+      <div class="dropdown">
+      <button onclick="displayDropdown('background-dropdown')" class="navbar-button">AddBackground</button>
+      <div id="background-dropdown" class="dropdown-content">
+        <button onclick="addDefault();">Default</button>
+        <button onclick="addBlackBackground();">BlackBackground</button>
+        <button onclick="addYourName();">YourNameBackground</button>
+      </div>
+    </div>
     </div>
     
     <!-- RELATIONS PANEL -->
@@ -96,13 +131,20 @@
       <button class="timeline-button" onclick="play();"><i class="fas fa-play"></i></button>
       <button class="timeline-button" onclick="pause();"><i class="fas fa-pause"></i></button>
       <button class="timeline-button" onclick="addKeyframe();"><i class="fas fa-plus"></i></button>
-      <button class="timeline-button" onclick="deleteKeyframe();"><i class="fas fa-minus"></i></button>
+      <button id="deleteKeyframeButton" class="delete-disabled" onclick=""><i class="fas fa-minus"></i></button>
       <button class="timeline-button" onclick="editKeyframe();">REPLACE</button>
       <span></span>
+      <button id="onion" class="onion-disabled" type="button" onclick="toggleOnionSkins();"><i class="fas fa-ellipsis-h"></i></button>
       <button id="loop" class="loop-disabled" type="button" onclick="toggleLooping();"><i class="fas fa-undo-alt"></i></button>
-      <div id="slider-container">
-        <label id="slider-label" for="slider">TWEENS</label>
-        <input id="slider" type="range" name="slider" min="0" max="30" value="20">
+      <div id="fpsSlider-container" style="background-color: #d1e1d1; border-radius: 10px; padding: 10px;">
+        <p style="text-align: justify;">FPS</p>
+        <label id="fpsSlider-label" for="slider">FPS</label>
+        <input id="fpsSlider" type="range" name="fpsSlider" min="20" max="120" value="60">
+      </div>
+      <div id="tweensSlider-container"style="background-color: #d1e1d1; border-radius: 10px; padding: 10px;" >
+        <p style="text-align: justify;">TWEENS</p>
+        <label id="tweensSlider-label" for="slider">TWEENS</label>
+        <input id="tweensSlider" type="range" name="tweensSlider" min="0" max="30" value="20">
       </div>
       <div id="timeline-keyframes"></div>
     </div>
