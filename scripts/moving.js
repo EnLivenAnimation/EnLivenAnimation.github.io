@@ -55,8 +55,15 @@ function onDragMoveSprite() {
         const newPosition2 = this.data.getLocalPosition(this.parent);
         // this.x = newPosition2.x;
         // this.y = newPosition2.y;
-        this.x += mouseX - mX;
-        this.y += mouseY - mY;
+        if (this.directParent == null){
+            this.x += (mouseX - mX);
+            this.y += (mouseY - mY);
+        }
+        else{
+            var parent = this.directParent;
+            this.x += (mouseX - mX)*parent.originalWidth/parent.visualWidth;
+            this.y += (mouseY - mY)*parent.originalHeight/parent.visualHeight;
+        }
         mX = mouseX;
         mY = mouseY;
         canParentMove = false;
