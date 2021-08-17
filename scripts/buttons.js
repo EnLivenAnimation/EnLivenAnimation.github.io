@@ -59,6 +59,18 @@ function enableButtons(eventData) {
     selectedSprite = this;
 }
 
+function enable(eventData) {
+    for (i in allSprites) {
+        sprit = allSprites[i];
+        for (j in sprit.buttonArray) {
+            currButton = sprit.buttonArray[j];
+            currButton.alpha = 1;
+            currButton.interactive = true;
+        }
+    }
+    selectedSprite = null;
+}
+
 function disableButtons(eventData) {
     for (i in allSprites) {
         sprit = allSprites[i];

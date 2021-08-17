@@ -38,18 +38,18 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons);
   app.stage.addChild(background);
-  addTriangle();
+  addSquare();
   // testingTmp();
   // testOnion();
 }
 let mouseX = 0;
 let mouseY = 0;
-let actualMouseY = 0;
+let visualMouseY = 0; // mouseX=mouseY=0 at the top left of the canvas
 const itr = app.renderer.plugins.interaction;
   itr.on('mousemove', ()=>{
      mouseX = itr.mouse.global.x;
-     mouseY = app.screen.height - itr.mouse.global.y;
-     actualMouseY = itr.mouse.global.y;
+     mouseY = itr.mouse.global.y;
+     visualMouseY = app.screen.height - mouseY;
   })
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
