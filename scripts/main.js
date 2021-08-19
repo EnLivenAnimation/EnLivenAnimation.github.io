@@ -54,6 +54,12 @@ deleteKey.press = () =>{
 space.press = () =>{
     play();
 }
+ctrl.press = () => {
+  
+  space.press = () => {
+    playFromStart();
+  }
+};
 }
 let mouseX = 0;
 let mouseY = 0;
