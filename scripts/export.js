@@ -29,19 +29,26 @@ function exportTL(){
 }
 
 function exportE(){
-  stuff ="";
-  for (i in allSprites){
-    stuff+= JSON.stringify(allSprites[i].texture.textureCacheIds);
-    stuff+= "\n";
-    }
-  stuff2 = "";
-  for (i in allSprites){
-      stuff2+= JSON.stringify(allSprites[i].timeline);
-      stuff2+= "\n";
-    }
+  texture =""
+  let a;
+  let b;
   const ev = [];
-  ev[0]= stuff;
-  ev[1]= stuff2;
+  for (i in allSprites){
+    ev[i]=[];
+    for(let j = 0; j<2;j++){
+      if(j==0){
+        texture = JSON.stringify(allSprites[i].texture.textureCacheIds);
+        a = texture.lastIndexOf("/");
+        b = texture.lastIndexOf('"');
+        console.log(texture.substring(a+1,b));
+        ev[i][j]= "[" + texture.substring(a+1,b);
+      }
+      else{
+        ev[i][j]= JSON.stringify(allSprites[i].timeline);
+      }
+    }
+  }
+    
   download("filename.json",ev);
   this.alpha = 1;
 }
