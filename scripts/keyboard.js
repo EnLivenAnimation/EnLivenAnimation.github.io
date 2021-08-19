@@ -45,16 +45,3 @@ function keyboard(value) {
     return key;
 }
   
-let ctrl = keyboard("Control"),
-    z = keyboard("z");
-ctrl.press = () => {
-    console.log("ctlr being pressed");
-    z.press = () => {
-        undo();
-    }
-};
-
-let space = keyboard(" ");
-space.press = () => {
-    console.log("space being pressed");
-}

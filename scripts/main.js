@@ -38,8 +38,22 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons);
   app.stage.addChild(background);
-  // testingTmp();
-  // testOnion();
+  let ctrl = keyboard("Control"),
+    z = keyboard("z"),
+    deleteKey = keyboard("Backspace"),
+    space = keyboard(" ");
+ctrl.press = () => {
+    console.log("ctlr being pressed");
+    z.press = () => {
+        undo();
+    }
+};
+deleteKey.press = () =>{
+    deleteSelectedSprite();
+}
+space.press = () =>{
+    play();
+}
 }
 let mouseX = 0;
 let mouseY = 0;
