@@ -38,9 +38,21 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons);
   app.stage.addChild(background);
+  let ctrl = keyboard("Control"),
+  z = keyboard("z");
+  ctrl.press = () => {
+    console.log("ctlr being pressed")
+    z.press = () => {
+      undo();
+    }
+  };
+ 
   // testingTmp();
   // testOnion();
+
 }
+
+
 let mouseX = 0;
 let mouseY = 0;
 let actualMouseY = 0;
