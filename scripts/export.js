@@ -8,17 +8,46 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
+
+function exportS(){
+  stuff ="";
+  for (i in allSprites){
+    stuff+= JSON.stringify(allSprites[i].texture.textureCacheIds);
+    stuff+= "\n";
+  }
+  console.log(stuff);
+}
+
 function exportTL(){
   stuff = "";
   for (i in allSprites){
       stuff+= JSON.stringify(allSprites[i].timeline);
       stuff+= "\n";
   }
-  download("timeline.json", stuff);
+  console.log(stuff);
+  this.alpha = 1;
+}
+
+function exportE(){
+  stuff ="";
+  for (i in allSprites){
+    stuff+= JSON.stringify(allSprites[i].texture.textureCacheIds);
+    stuff+= "\n";
+    }
+  stuff2 = "";
+  for (i in allSprites){
+      stuff2+= JSON.stringify(allSprites[i].timeline);
+      stuff2+= "\n";
+    }
+  const ev = [];
+  ev[0]= stuff;
+  ev[1]= stuff2;
+  download("filename.json",ev);
   this.alpha = 1;
 }
 
 let fileText = "sad6.8sad35sad";
+
 function readFile() {
   let input = document.getElementById("file-import");
 
@@ -38,7 +67,6 @@ function readFile() {
       };
 
       reader.onerror = (e) => alert(e.target.error.name);
-    
       reader.readAsText(file);
 
   });
