@@ -8,12 +8,11 @@ function onDragStartSprite(event) {
     this.alpha = 0.5;
     this.dragging = true;
     canParentMove = false;
-    
+    ColorSprite = this;
     currSprite = this;
-
+  
     xi = currSprite.x;
     yi = currSprite.y;
-
     while (currSprite.directParent != null) {
         currSprite.directParent.interactive = false;
         currSprite = currSprite.directParent;
