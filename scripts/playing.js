@@ -35,6 +35,9 @@ function play() {
     paused = false;
 
     disableButtons();
+    if (currentKeyframe == timelineLength - 1){
+        currentKeyframe = 0;
+    }
     currentRender = currentKeyframe;
     updateRenderedButton();
     playKeyframe();
