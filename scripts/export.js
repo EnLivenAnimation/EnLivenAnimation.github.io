@@ -11,8 +11,8 @@ function download(filename, text) {
 function exportTL(){
   stuff = "";
   for (i in allSprites){
-      stuff+= JSON.stringify(allSprites[i].timeline);
-      stuff+= "\n";
+    stuff+= JSON.stringify(allSprites[i].timeline);
+    stuff+= "\n";
   }
   download("timeline.json", stuff);
   this.alpha = 1;
