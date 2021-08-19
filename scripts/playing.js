@@ -1,6 +1,7 @@
 let tweens;
 let frame;
 let fps = 60;
+let playing = false;
 
 
 const tweensSlider = document.getElementById("tweensSlider");
@@ -33,8 +34,12 @@ function play() {
     turnOffAllSkins();
 
     paused = false;
+    playing = true;
 
     disableButtons();
+    if (currentKeyframe == timelineLength - 1){
+        currentKeyframe = 0;
+    }
     currentRender = currentKeyframe;
     updateRenderedButton();
     playKeyframe();
@@ -65,6 +70,9 @@ function playKeyframe() {
             playKeyframe();
             }, 1000 * tweens / fps);
         }
+        else{
+            playing = false;
+        }
         }, 1000 / fps);
     }
 }
@@ -72,7 +80,7 @@ function playKeyframe() {
 
 function move() {
     setTimeout(function () {
-        if (frame < tweens) {
+        if (frame < tweens && !paused) {
         frame++;
         for (s in allSprites) {
             sprite = allSprites[s];

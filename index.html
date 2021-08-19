@@ -34,6 +34,8 @@
   <script src="scripts/onion.js" async></script>
   <script src="scripts/undo.js" async></script>
   <script src="scripts/background.js" async></script>
+  <script src="scripts/keyboard.js" async></script>
+  <script src="scripts/Parenting.js" async></script>
   <!-- MAIN SCRIPT -->
   <script src="scripts/main.js" async></script>
 </head>
@@ -96,14 +98,17 @@
           <button onclick="addHuman();">Human</button>
         </div>
       </div>
+
       <button id="delete" class="navbar-button" type="button" onclick="deleteSelectedSprite();">Delete</button>
       <div class="dropdown">
-      <button onclick="displayDropdown('background-dropdown')" class="navbar-button">AddBackground</button>
+
+      <button onclick="displayDropdown('background-dropdown')" class="navbar-button">Background</button>
       <div id="background-dropdown" class="dropdown-content">
         <button onclick="addDefault();">Default</button>
         <button onclick="addBlackBackground();">BlackBackground</button>
         <button onclick="addYourName();">YourNameBackground</button>
       </div>
+
     </div>
     </div>
     
