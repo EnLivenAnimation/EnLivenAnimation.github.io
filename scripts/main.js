@@ -41,6 +41,7 @@ function setup() {
   let ctrl = keyboard("Control"),
     z = keyboard("z"),
     deleteKey = keyboard("Backspace"),
+    altKey = keyboard("Alt"),
     space = keyboard(" ");
 ctrl.press = () => {
     console.log("ctlr being pressed");
@@ -51,15 +52,22 @@ ctrl.press = () => {
 deleteKey.press = () =>{
     deleteSelectedSprite();
 }
-space.press = () =>{
-    play();
+space.press = () => {
+    if (playing){
+      pause();
+    }
+    else{
+      play();
+    }
 }
 ctrl.press = () => {
-  
   space.press = () => {
     playFromStart();
   }
 };
+   altKey.press = () => {
+       addKeyframe();
+   };
 }
 let mouseX = 0;
 let mouseY = 0;
