@@ -174,7 +174,7 @@ ul {
   margin-right: 0.5em;
   display: grid;
   grid-template-columns: 1fr 6fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 10fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 10fr 1fr 1fr;
   gap: 0.5em;
 }
 

@@ -10,6 +10,10 @@ function onDragStartSprite(event) {
     canParentMove = false;
     ColorSprite = this;
     currSprite = this;
+
+    if (waitingForParent){
+        chosenParent = currSprite;
+    }
   
     xi = currSprite.x;
     yi = currSprite.y;

@@ -46,7 +46,7 @@ function readParents(atlas){
   }
   var childNum = [];
   for(i = 0 ; i < parents.length;i++){
-    var temp = parents[i];
+    var tempX = parents[i];
     var tempnum =  0;
     for(j = 0 ; j < array2.length;j++){
       if(array2[j].includes(temp)) tempnum++;
@@ -60,7 +60,7 @@ function readParents(atlas){
     map[array2[i].substring(0,middle)]=array2[i].substring(middle);
   }
   for(i = 0 ; i <parents.length;i++){
-    var temp = parents[i];
+    var tempX = parents[i];
     for(j = 0 ; j < array2.length;j++){
       var start = array2[j].indexOf(".");
       var middle = array2[j].indexOf("(");

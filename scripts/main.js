@@ -18,7 +18,7 @@ let app = new Application({
 
 document.getElementById("canvas").appendChild(app.view);
 
-let state, KFButton, allSprites = [], texture2;
+let KFButton, allSprites = [], texture2;
 let texture,sprite, button, button2, button3, button4, button5, button6, button7, button8, button9, x, y, w, h;
 
 loader
@@ -38,6 +38,11 @@ function setup() {
   background.interactive = true;
   background.on('click', disableButtons);
   app.stage.addChild(background);
+
+  addSquare();
+  addCircle();
+  moveSpriteVisual(allSprites[1],0,300);
+
   let ctrl = keyboard("Control"),
     z = keyboard("z"),
     deleteKey = keyboard("Backspace"),
