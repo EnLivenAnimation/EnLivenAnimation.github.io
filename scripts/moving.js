@@ -54,12 +54,25 @@ function onDragEndSprite() {
 
 function onDragMoveSprite() {
     if (this.dragging) {
+
         const newPosition2 = this.data.getLocalPosition(this.parent);
-        this.x = newPosition2.x;
-        this.y = newPosition2.y;
+        // this.x = newPosition2.x;
+        // this.y = newPosition2.y;
+        if (this.directParent == null){
+            this.x += (mouseX - mX);
+            this.y += (mouseY - mY);
+        }
+        else{
+            var parent = this.directParent;
+            this.x += (mouseX - mX)*parent.originalWidth/parent.visualWidth;
+            this.y += (mouseY - mY)*parent.originalHeight/parent.visualHeight;
+        }
+        mX = mouseX;
+        mY = mouseY;
         canParentMove = false;
         closing(this);
-          if (this.directParent == null){
+
+        if (this.directParent == null){
             if (mouseX - this.visualWidth/2 + this.x < 0){
                 //const distanceToZero = 0 -mouseX - this.visualWidth/2 + this.x
                 this.x = 0;  
