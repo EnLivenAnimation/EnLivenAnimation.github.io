@@ -68,6 +68,23 @@ function onDragMoveSprite() {
         mY = mouseY;
         canParentMove = false;
         closing(this);
+        
+        if (this.directParent == null){
+            if (mouseX - this.visualWidth/2 + this.x < 0){
+                //const distanceToZero = 0 -mouseX - this.visualWidth/2 + this.x
+                this.x = 0;  
+            }
+            if (mouseX> app.screen.width){
+                //const distanceToZero = 0 -mouseX - this.visualWidth/2 + this.x
+                this.x = app.screen.width; 
+            }
+            if (actualMouseY > app.screen.height){
+                this.y = app.screen.height;
+            }
+            if (actualMouseY - this.visualHeight/2 + this.y < 0){
+                this.y = 0;
+            }
+        }
     }
 }
 
