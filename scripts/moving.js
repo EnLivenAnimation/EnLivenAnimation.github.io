@@ -17,12 +17,14 @@ function onDragStartSprite(event) {
   
     xi = currSprite.x;
     yi = currSprite.y;
+
+    mX = mouseX;
+    mY = mouseY;
+  
     while (currSprite.directParent != null) {
         currSprite.directParent.interactive = false;
         currSprite = currSprite.directParent;
     }
-    itr.mouse.global.x =  (mouseX  - currSprite.visualX + (currSprite.visualWidth / 2 ));
-    itr.mouse.global.y = 1/2 -((mouseY - currSprite.visualY  + (currSprite.visualHeight / 2 )));
 
 }
 
@@ -47,9 +49,9 @@ function onDragEndSprite() {
     // console.log("bruh");
 
     // console.log(xi + " " + yi);
+    
     setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
 }
-
 
 
 function onDragMoveSprite() {
@@ -71,7 +73,7 @@ function onDragMoveSprite() {
         mY = mouseY;
         canParentMove = false;
         closing(this);
-
+        
         if (this.directParent == null){
             if (mouseX - this.visualWidth/2 + this.x < 0){
                 //const distanceToZero = 0 -mouseX - this.visualWidth/2 + this.x
