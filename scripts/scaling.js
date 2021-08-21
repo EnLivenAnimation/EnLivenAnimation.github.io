@@ -171,7 +171,6 @@ function onDragEndButton() {
     if (wi / currSprite.width != 1 || hi / currSprite.height != 1){
         undoStack.push([6, [currSprite, wi / currSprite.width, hi / currSprite.height]]);
     }
-    console.log("hi");
 
     justscaled = true;
 
