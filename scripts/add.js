@@ -72,7 +72,7 @@ function addTriangle(){
 }
 
 function addHuman(){
-    let spritesheet = PIXI.utils.TextureCache["res/img/justin-sheet.png"];
+    let spritesheet = PIXI.utils.TextureCache["res/img/spritesheet-human.png"];
     let textureHead = new PIXI.Texture(spritesheet);
     let textureTorso = new PIXI.Texture(spritesheet);
     let textureLeftArm = new PIXI.Texture(spritesheet);

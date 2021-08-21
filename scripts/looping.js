@@ -3,6 +3,7 @@ let paused = true;
 
 function pause() {
     paused = true;
+    playing = false;
 }
 
 function toggleLooping() {
