@@ -48,11 +48,19 @@ ctrl.press = () => {
         undo();
     }
 };
+
 deleteKey.press = () =>{
-    deleteSelectedSprite();
+  deleteSelectedSprite();
 }
-space.press = () =>{
+
+space.press = () => {
+  // console.log("space being pressed");
+  if (playing){
+    pause();
+  }
+  else{
     play();
+  }
 }
 ctrl.press = () => {
   

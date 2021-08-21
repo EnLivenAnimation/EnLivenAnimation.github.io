@@ -44,43 +44,6 @@ function keyboard(value) {
     
     return key;
 }
-  
-let ctrl = keyboard("Control"),
-    z = keyboard("z");
-ctrl.press = () => {
-    // console.log("ctlr being pressed");
-    z.press = () => {
-        undo();
-    }
-};
-
-let space = keyboard(" ");
-space.press = () => {
-    // console.log("space being pressed");
-    if (playing){
-      pause();
-    }
-    else{
-      play();
-    }
-}
-
-let lKey = keyboard("l");
-lKey.press = () => {
-  console.log("hi");
-  toggleLooping();
-}
-
-let sKey = keyboard("s");
-sKey.press = () => {
-  console.log("his");
-  addKeyframe();
-}
-
-let wKey = keyboard("w");
-wKey.press = () => {
-  deleteCurrentKeyframe();
-}
 
 // let a = keyboard("a");
 // a.press = () => {
