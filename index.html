@@ -44,29 +44,11 @@
   <div id="grid">
     <!-- TOP NAVBAR -->
     <div id="navbar">
-      <a id="home" class="navbar-button" href="home.html"><i class="fas fa-leaf"></i></a>
+      <a id="home" class="navbar-button" href="newhome.html"><i class="fas fa-leaf"></i></a>
       <div class="dropdown">
         <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
           <a href="javascript:location.reload(true)">New File</a>
-          <!-- Trigger/Open The Modal -->
-          <button id="myBtn">Import</button>
-          <!-- The Modal -->
-          <div id="myModal" class="modal">
-          <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">&times;</span>
-              </div>
-              <div class="modal-body">
-                <label for="file-import" class="custom-file-upload">Import</label>
-                <input type="file" id="file-import" multiple>
-              </div>
-              <div class="modal-footer">
-                <!-- <h3>Modal Footer</h3> -->
-              </div>
-            </div>
-          </div> 
           <button onclick="exportE()">Export</button>
         </div>
       </div>
