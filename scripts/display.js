@@ -34,6 +34,8 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   allSprites.push(DisplayedSprite);
 
   DisplayedSprite.directParent = null;
+  DisplayedSprite.IDinParentChildren = null;
+  DisplayedSprite.nullParent = DisplayedSprite.parent;
   if (parent != null) {
       parent.addChild(DisplayedSprite);
       parent.spriteChildren.push(DisplayedSprite);
@@ -43,6 +45,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
       DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
 
+      DisplayedSprite.IDinParentChildren = parent.spriteChildren.length;
       DisplayedSprite.directParent = parent;
   }
 

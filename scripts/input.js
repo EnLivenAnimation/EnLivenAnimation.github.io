@@ -46,10 +46,10 @@ function readParents(atlas){
   }
   var childNum = [];
   for(i = 0 ; i < parents.length;i++){
-    var tempX = parents[i];
+    var tempParent = parents[i];
     var tempnum =  0;
     for(j = 0 ; j < array2.length;j++){
-      if(array2[j].includes(temp)) tempnum++;
+      if(array2[j].includes(tempParent)) tempnum++;
     }
     childNum[i]=tempnum;
   }
@@ -65,10 +65,10 @@ function readParents(atlas){
       var start = array2[j].indexOf(".");
       var middle = array2[j].indexOf("(");
       var childrens = "";
-      if(array2[j].substring(0,start) == temp){
+      if(array2[j].substring(0,start) == tempParent){
         childrens = childrens + array2[j].substring(start+1,middle);
       }
-      map2["parents"+i] = temp;
+      map2["parents"+i] = tempParent;
       map2["children"+i] = childrens;
     }
   }

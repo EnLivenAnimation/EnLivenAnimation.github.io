@@ -10,9 +10,14 @@ function addParent(){
     }
     else{
         chosenChild = selectedSprite;
-        alert("Please select the parent");
-        waitingForParent = true;
-        waitForParent();
+        if (chosenChild.directParent != null){
+            alert("This sprite already has a parent!");
+        }
+        else{
+            alert("Please select the parent");
+            waitingForParent = true;
+            waitForParent();
+        }
     }
 }
 
@@ -38,35 +43,46 @@ function waitForParent(){
 }
 
 function ParentToChild(child,parent){
-    tempX = child.visualX;
-    tempY = child.visualY;
     child.parent = parent;
     child.directParent = parent;
-    child.visualX = tempX;
-    child.visualY = tempY;
+    child.IDinParentChildren = parent.spriteChildren.length;
+    parent.spriteChildren.push(child);
+
     child.x = (child.visualX - parent.visualX)*parent.originalWidth/parent.visualWidth;
-    child.y = (-1*parent.visualY+app.screen.height-child.visualY) * parent.originalHeight / parent.visualHeight;
-    child.width = child.visualWidth*parent.originalWidth/parent.visualWidth;
-    child.height = child.visualHeight*parent.originalHeight/parent.visualHeight;
+    child.y = (parent.visualY - child.visualY) * parent.originalHeight / parent.visualHeight;
+
+    child.width = child.visualWidth * parent.originalWidth / parent.visualWidth;
+    child.height = child.visualHeight * parent.originalHeight / parent.visualHeight;
     resizeButtons(child);
 }
 
-function removeParent(child,parent){
-    if (child.directParent == parent){
-        console.log("SOMETHING");
-        child.x = (child.visualX - parent.visualX)*parent.originalWidth/parent.visualWidth;
-        child.y = (-1*parent.visualY+app.screen.height-child.visualY) * parent.originalHeight / parent.visualHeight;
-        // console.log(child.visualX + "SDJSK");
-        child.width = child.visualWidth*parent.originalWidth/parent.visualWidth;
-        child.height = child.visualHeight*parent.originalHeight/parent.visualHeight;
-        child.parent = null;
-        child.directParent = null;
-        // let newChild = displaySprite(child.Texture,child.visualX,child.visualY,child.width,child.height,null,null);
-        // newChild.alpha = 0;
-        // newChild.interactive = false;
-       
-        // allSprites.splice(0,1);
-        // newChild.alpha = 1;
-        // newChild.interactive = true;
+function removeParentfromChild(child, parent){
+    child.x = parent.visualX + child.x * parent.visualWidth / parent.originalWidth;
+    child.y = app.screen.height - (parent.visualY - child.y * parent.visualHeight / parent.originalHeight);
+    
+    child.width = child.width * parent.visualWidth / parent.originalWidth;
+    child.height = child.height * parent.visualHeight / parent.originalHeight;
+
+    child.parent = child.nullParent;
+    child.directParent = null;
+    parent.spriteChildren.splice(child.IDinParentChildren, 1);
+    child.IDinParentChildren = null;
+    
+    resizeButtons(child);
+}
+
+function removeParent(){
+    if (selectedSprite == null){
+        alert("Please add a sprite");
+    }
+    else{
+        chosenChild = selectedSprite;
+        if (chosenChild.directParent == null){
+            alert("This sprite has no parent.");
+        }
+        else{
+            // alert("Please select the child");
+            removeParentfromChild(chosenChild, chosenChild.directParent);
+        }
     }
 }
