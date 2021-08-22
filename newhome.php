@@ -162,13 +162,13 @@ if($_POST["message"]) {
                             </ul>
                         </div>
                         <div class="col-md-6 item text">
-                            <div class="col item social">
-                                <h3>EnLiven</h3>
+                            <div class="email-form">
+                                <form action="includes/feedback_form.php" method="post">
+                                    <input class="email1" type="text" name="email_address" placeholder="Email Address">
+                                    <textarea placeholder="Your feedback" class ="email2" name="feedback" cols="50" rows="10" ></textarea>
+                                    <input class="email-button" type="submit" name="send">
+                                </form>
                             </div>
-                            <form method="post" action="subscriberform.php">
-                                <textarea class="email" name="message"></textarea>
-                                <input class="email-button" type="submit">
-                            </form>
 
                         </div>
                     </div>

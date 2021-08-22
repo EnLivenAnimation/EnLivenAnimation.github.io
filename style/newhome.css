@@ -230,8 +230,8 @@ hero2.scroll{
 }
 
 .container{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 #intro2{
@@ -307,14 +307,14 @@ hero2.scroll{
 #Oslo {background-color:orange;}
 
 .footer-dark{
-    padding:50px 0;
+    padding:30px 0;
     color:#f0f9ff;
     background-color:#282d32;
 }
 
 .footer-dark h3{
     margin-top:0;
-    margin-bottom:12px;
+    margin-bottom:10px;
     font-weight:bold;
     font-size:16px;
 }
@@ -340,12 +340,12 @@ hero2.scroll{
 @media (max-width:767px){
     .footer-dark .item:not(.social) {
         text-align:center;
-        padding-bottom:20px;
+        padding-bottom:10px;
     }
 }
 
 .footer-dark .item.text{
-    margin-bottom:36px;
+    margin-bottom:24px;
     text-align: left;
 }
 
@@ -384,6 +384,7 @@ hero2.scroll{
     margin:0 8px;
     color:#fff;
     opacity:0.75;
+    position: relative;
 }
 
 .footer-dark .item.social > a:hover{
@@ -392,28 +393,49 @@ hero2.scroll{
 
 .footer-dark .copyright{
     text-align:center;
-    padding-top:24px;
+    padding-top:12px;
     opacity:0.3;
     font-size:13px;
     margin-bottom:0;
 }
 
-.email{
-    background-color: #747474;
-    width: 100%;
-    height:90px;
+.email-form{
+    color: black;
+}
+
+.email1{
+    background-color: #c7c6c6;
+    width: 90%;
+    height:30px;
     border-radius: 10px;
+    border-color: transparent;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+}
+
+.email2{
+    background-color: #c7c6c6;
+    width: 90%;
+    height:80px;
+    border-radius: 10px;
+    border-color: transparent;
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .email-button{
     background-color: #747474;
     color:white;
     font-size: 15px;
-    border-radius: 50px;
+    border-radius: 30px;
     border-color: transparent;
     margin:5px;
     padding: 5px;
-    display: grid;
-    justify-content: left;
-    align-items: center; 
+    position: absolute;
+    top: 0;
+    right: 0;
 }
