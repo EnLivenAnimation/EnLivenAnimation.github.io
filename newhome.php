@@ -164,9 +164,10 @@ if($_POST["message"]) {
                         <div class="col-md-6 item text">
                             <div class="email-form">
                                 <form action="includes/feedback_form.php" method="post">
-                                    <input class="email1" type="text" name="email_address" placeholder="Email Address">
-                                    <textarea placeholder="Your feedback" class ="email2" name="feedback" cols="50" rows="10" ></textarea>
-                                    <input class="email-button" type="submit" name="send">
+                                    <input class="email1" type="text" id="Name" name="Name" placeholder="Name">
+                                    <input class="email1" type="email" id="Email" name="Email" placeholder="Email Address">
+                                    <textarea placeholder="Your feedback" class ="email2" id="Message" name="Message" cols="50" rows="10" ></textarea>
+                                    <input class = "email-button" type="submit" value="&#8594;">
                                 </form>
                             </div>
 
