@@ -42,7 +42,7 @@ function setup() {
   // addSquare();
   // addCircle();
   // moveSpriteVisual(allSprites[1],0,300);
-  // ParentToChild(allSprites[0], allSprites[1]);
+  // setParentToChild(allSprites[0], allSprites[1]);
   addHuman();
   // removeParent(allSprites[0], allSprites[1]);
 

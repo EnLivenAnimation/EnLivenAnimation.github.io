@@ -20,7 +20,7 @@ function resizeButtons(sprite) {
 function resetVisualValues(sprite) {
     if (sprite.directParent == null) {
         sprite.visualX = sprite.x;
-        sprite.visualY = sprite.y;
+        sprite.visualY = app.screen.height - sprite.y;
         sprite.visualWidth = sprite.width;
         sprite.visualHeight = sprite.height;
     }
@@ -45,6 +45,7 @@ function closing(sprite){
         sprite.height = 0.001;
     }
     resizeButtons(sprite);
+    console.log(sprite.visualY);
     setPropertyPanelValues(sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.rotation);
 }
 

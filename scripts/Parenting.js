@@ -34,7 +34,7 @@ function waitForParent(){
             }
             else{
                 // alert("This works");
-                ParentToChild(chosenChild, chosenParent);
+                setParentToChild(chosenChild, chosenParent);
                 chosenChild = null;
                 chosenParent = null;
             }
@@ -42,7 +42,7 @@ function waitForParent(){
     }, 100);
 }
 
-function ParentToChild(child,parent){
+function setParentToChild(child,parent){
     child.parent = parent;
     child.directParent = parent;
     child.IDinParentChildren = parent.spriteChildren.length;

@@ -4,9 +4,9 @@ document.getElementById("width").value = "";
 document.getElementById("height").value = "";
 document.getElementById("rotation").value = "";
 
-function setPropertyPanelValues(x, y, w, h, r){
+function setPropertyPanelValues(x, y, w, h, r){ // takes in visual values
   document.getElementById("xpos").value = Math.round(x);
-  document.getElementById("ypos").value = Math.round(-1*y+app.screen.height);
+  document.getElementById("ypos").value = Math.round(y);
   document.getElementById("width").value = Math.round(w);
   document.getElementById("height").value = Math.round(h);
   document.getElementById("rotation").value = Math.round(r * (180 / Math.PI));
