@@ -48,6 +48,7 @@ nav button{
     font-family: 'Montserrat';
     padding-left:12px;
     padding-right: 12px;
+    cursor: pointer;
 }
 
 nav button:hover {
@@ -221,6 +222,7 @@ hero2.scroll{
     display: grid;  
     justify-content: center;  
     align-items: center;  
+    cursor: pointer;
 }
 
 .intro-button:hover{ 
@@ -410,32 +412,40 @@ hero2.scroll{
     border-radius: 10px;
     border-color: transparent;
     text-align: left;
-    margin: 5px;
+    margin-bottom: 5px;
     padding: 5px;
 }
 
 .email2{
     background-color: #c7c6c6;
     width: 90%;
-    height:80px;
+    height:85px;
     border-radius: 10px;
     border-color: transparent;
     text-align: left;
-    margin: 5px;
+    margin-bottom: 5px;
     padding: 5px;
     position: relative;
     box-sizing: border-box;
 }
 
 .email-button{
-    background-color: #747474;
+    background-color:#7AD17E;
     color:white;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 30px;
     border-color: transparent;
     margin:5px;
-    padding: 5px;
+    padding: 0px;
+    height:30px;
     position: absolute;
-    top: 0;
-    right: 0;
+    text-align: center;
+    top: 115px;
+    right: 70px;
+    text-align:center;
+    cursor: pointer;
+}
+
+.email-button:hover{
+    background-color: #B3E9D5;
 }
