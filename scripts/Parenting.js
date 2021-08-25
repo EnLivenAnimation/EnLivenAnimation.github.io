@@ -44,6 +44,7 @@ function waitForParent(){
 
 function setParentToChild(child,parent){
     child.parent = parent;
+    parent.addChild(child);
     child.directParent = parent;
     child.IDinParentChildren = parent.spriteChildren.length;
     parent.spriteChildren.push(child);
@@ -57,18 +58,27 @@ function setParentToChild(child,parent){
 }
 
 function removeParentfromChild(child, parent){
-    child.x = parent.visualX + child.x * parent.visualWidth / parent.originalWidth;
-    child.y = app.screen.height - (parent.visualY - child.y * parent.visualHeight / parent.originalHeight);
-    
-    child.width = child.width * parent.visualWidth / parent.originalWidth;
-    child.height = child.height * parent.visualHeight / parent.originalHeight;
+
+    resizeButtons(child);
+
+    let unparentedChild = displaySprite(child.texture, child.visualX, child.visualY, child.visualWidth, child.visualHeight, child.tint, null);
+
+    parent.removeChild(child);
 
     child.parent = child.nullParent;
     child.directParent = null;
     parent.spriteChildren.splice(child.IDinParentChildren, 1);
     child.IDinParentChildren = null;
+    console.log(child);
+    deleteSprite(child);
     
-    resizeButtons(child);
+    resizeButtons(unparentedChild);
+}
+
+function duplicateSpritewithNoParent(sprite){
+    let duplicate = displaySprite(sprite.texture, sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.tint, null);
+    duplicate.timeline = sprite.timeline;
+    return duplicate;
 }
 
 function removeParent(){

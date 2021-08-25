@@ -27,7 +27,7 @@ function resetVisualValues(sprite) {
     else{
         let parent = sprite.directParent;
         sprite.visualX = parent.visualX + sprite.x*parent.visualWidth/parent.originalWidth;
-        sprite.visualY = parent.visualY + sprite.y*parent.visualHeight/parent.originalHeight;
+        sprite.visualY = parent.visualY - sprite.y*parent.visualHeight/parent.originalHeight;
         sprite.visualWidth = sprite.width*parent.visualWidth/parent.originalWidth;
         sprite.visualHeight = sprite.height*parent.visualHeight/parent.originalHeight;
     }
@@ -45,7 +45,6 @@ function closing(sprite){
         sprite.height = 0.001;
     }
     resizeButtons(sprite);
-    console.log(sprite.visualY);
     setPropertyPanelValues(sprite.visualX, sprite.visualY, sprite.visualWidth, sprite.visualHeight, sprite.rotation);
 }
 
@@ -60,7 +59,7 @@ function enableButtons(eventData) {
     selectedSprite = this;
 }
 
-function enable(eventData) {
+function enableAllButtons(eventData) {
     for (i in allSprites) {
         sprit = allSprites[i];
         for (j in sprit.buttonArray) {
@@ -73,6 +72,18 @@ function enable(eventData) {
 }
 
 function disableButtons(eventData) {
+    for (i in allSprites) {
+        sprit = allSprites[i];
+        for (j in sprit.buttonArray) {
+            currButton = sprit.buttonArray[j];
+            currButton.alpha = 0;
+            currButton.interactive = false;
+        }
+    }
+    selectedSprite = null;
+}
+
+function disableAllButtons() {
     for (i in allSprites) {
         sprit = allSprites[i];
         for (j in sprit.buttonArray) {

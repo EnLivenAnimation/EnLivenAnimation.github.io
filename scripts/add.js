@@ -7,7 +7,7 @@ function deleteSelectedSprite(){
         selectedSprite.alpha = 0;
         selectedSprite.interactive = false;
         selectedSprite.deleted = true;
-        allSprites.splice(selectedSprite.spriteIndex, 1);
+        allSprites.splice(selectedSprite.indexinAllSprites, 1);
         for (i in allSprites){
             sprite = allSprites[i];
             if (sprite.indexinAllSprites >= spriteIndex){
