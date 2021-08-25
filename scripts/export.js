@@ -41,7 +41,7 @@ function exportE(){
         a = texture.lastIndexOf("/");
         b = texture.lastIndexOf('"');
         console.log(texture.substring(a+1,b));
-        ev[i][j]= "[" + texture.substring(a+1,b);
+        ev[i][j]= JSON.stringify(texture.substring(a+1,b));
       }
       else{
         ev[i][j]= JSON.stringify(allSprites[i].timeline);
@@ -54,7 +54,7 @@ function exportE(){
 }
 
 let fileText = "sad6.8sad35sad";
-
+let c;
 function readFile() {
   let input = document.getElementById("file-import");
 
@@ -69,10 +69,11 @@ function readFile() {
           const file = e.target.result;
           const lines = file.split(/\r\n|\n/);
           fileText = lines.join('\n');
+          console.log(fileText);
           b = parse(fileText);
+          //c = parseText(fileText);
           implementTL(b);
       };
-
       reader.onerror = (e) => alert(e.target.error.name);
       reader.readAsText(file);
 
@@ -92,10 +93,19 @@ function implementTL(arr){
       }
       console.log(sprite.timeline);
   }
-
   loadButtons();
-
 }
+//function to be able to eventually display images of outside sprites.
+function storeName(fileName){
+  PIXI.loader
+    .add(fileName.toString());
+
+    let circletexture = PIXI.Texture.from(fileName.toString());
+    displaySprite(circletexture, 200, 200, 10, 500, 0x117711, null);
+}
+
+
+
 
 function parse(s) {
   const regex = /-?((\d+)((\.\d*)?))/g;
@@ -105,5 +115,15 @@ function parse(s) {
   }
   return tmp;
 } 
+
+
+function parseImg(s) {
+  var regexAll = /[^\\]*\.(\w+)$/;
+  let tmp = s.match(regexAll);
+  var filename = tmp[0];
+ 
+  return filename;
+} 
+
 
 readFile();
