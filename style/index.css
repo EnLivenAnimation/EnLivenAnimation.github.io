@@ -174,13 +174,15 @@ ul {
   margin-right: 0.5em;
   display: grid;
   grid-template-columns: 1fr 6fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 10fr 1fr 1fr;
+  grid-template-rows: 40px 40px 40px 40px 40px auto auto auto;
   gap: 0.5em;
 }
 
 #properties p {
   /* vertical-align: middle; */
   text-align: center;
+  vertical-align: center;
+  top: 50%;
 }
 
 #xpos{
