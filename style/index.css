@@ -113,12 +113,10 @@
 
 .dropdown-content label {
   display: inline-block;
-  background-color: var(--dark-grey);
   color: var(--white);
   padding: 6px 8px;
   cursor: pointer;
-  width: 95%;
-  margin-top: 20px;
+  width: 90%;
 }
 /*
 .dropdown-content label:hover {
