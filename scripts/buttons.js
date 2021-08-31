@@ -20,7 +20,7 @@ function resizeButtons(sprite) {
 function resetVisualValues(sprite) {
     if (sprite.directParent == null) {
         sprite.visualX = sprite.x;
-        sprite.visualY = -1*sprite.y+app.screen.height;
+        sprite.visualY = sprite.y;
         sprite.visualWidth = sprite.width;
         sprite.visualHeight = sprite.height;
     }
@@ -57,6 +57,18 @@ function enableButtons(eventData) {
         currButton.interactive = true;
     }
     selectedSprite = this;
+}
+
+function enable(eventData) {
+    for (i in allSprites) {
+        sprit = allSprites[i];
+        for (j in sprit.buttonArray) {
+            currButton = sprit.buttonArray[j];
+            currButton.alpha = 1;
+            currButton.interactive = true;
+        }
+    }
+    selectedSprite = null;
 }
 
 function disableButtons(eventData) {

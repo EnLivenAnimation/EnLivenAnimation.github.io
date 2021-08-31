@@ -21,8 +21,8 @@ function exportS(){
 function exportTL(){
   stuff = "";
   for (i in allSprites){
-      stuff+= JSON.stringify(allSprites[i].timeline);
-      stuff+= "\n";
+    stuff+= JSON.stringify(allSprites[i].timeline);
+    stuff+= "\n";
   }
   console.log(stuff);
   this.alpha = 1;

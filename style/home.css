@@ -19,7 +19,7 @@ body{
 #page-division1 {
   display: grid;
   height: 100vh;
-  grid-template-rows: 1fr 10fr;
+  grid-template-rows: 1fr;
 }
 #page-division2 {
   display: grid;
@@ -30,8 +30,10 @@ body{
 
 #navbar {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 10fr 2fr;
+  grid-template-columns: 1fr 2fr 2fr 3fr 10fr 3fr 2fr;
   background-color: #5c996a;
+  position: fixed;
+  z-index: 999;
 }
 
 #navbar a {
@@ -52,9 +54,13 @@ body{
 
 #hero{
   background-color: #9BC8A5;
-  background-image: url("../res/img/hero.jpeg");
+  background-image: url("../res/img/nature.jpg");
   object-fit: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
+
 .hero img{
   max-width: 100%;
   height: auto;
@@ -87,7 +93,6 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
-
 }
 
 #introduction{
@@ -275,5 +280,57 @@ body{
   opacity:0.3;
   font-size:13px;
   margin-bottom:0;
+}
+
+#signup-form{
+  color:black;
+  text-align: center;
+}
+
+#login-form{
+  color:black;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#login-page{
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  background-color: rgb(41, 185, 190);
+}
+
+input[type=text] {
+  color:black;
+  width:80%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  color:black;
+  width:80%;
+  padding: 10px 15px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+button{
+  color:black;
+  background-color: #4CAF50;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:80%;
+  font-size: 40px;
 }
 

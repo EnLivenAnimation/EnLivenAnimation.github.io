@@ -25,30 +25,58 @@ loader
   .add("res/img/circle.png")
   .add("res/img/background.jpg")
   .add("res/img/square.jpg")
-  .add("res/img/justin-sheet.png")
+  .add("res/img/spritesheet-human.png")
   .add("res/img/triangle.png")
   .load(setup)
 let background;
 function setup() {
   const bg = PIXI.Texture.from("res/img/background.jpg");
-  background = new PIXI.Sprite(PIXI.loader.resources["res/img/justin-sheet.png"].texture);
+  background = new PIXI.Sprite(PIXI.loader.resources["res/img/spritesheet-human.png"].texture);
   background.width = app.screen.width;
   background.height = app.screen.height;
   background.alpha = 0;
   background.interactive = true;
   background.on('click', disableButtons);
   app.stage.addChild(background);
-  // testingTmp();
-  // testOnion();
+  let ctrl = keyboard("Control"),
+    z = keyboard("z"),
+    deleteKey = keyboard("Backspace"),
+    altKey = keyboard("Alt"),
+    space = keyboard(" ");
+ctrl.press = () => {
+    console.log("ctlr being pressed");
+    z.press = () => {
+        undo();
+    }
+};
+deleteKey.press = () =>{
+    deleteSelectedSprite();
+}
+space.press = () => {
+    if (playing){
+      pause();
+    }
+    else{
+      play();
+    }
+}
+ctrl.press = () => {
+  space.press = () => {
+    playFromStart();
+  }
+};
+   altKey.press = () => {
+       addKeyframe();
+   };
 }
 let mouseX = 0;
 let mouseY = 0;
-let actualMouseY = 0;
+let visualMouseY = 0; // mouseX=mouseY=0 at the top left of the canvas
 const itr = app.renderer.plugins.interaction;
   itr.on('mousemove', ()=>{
      mouseX = itr.mouse.global.x;
-     mouseY = app.screen.height - itr.mouse.global.y;
-     actualMouseY = itr.mouse.global.y;
+     mouseY = itr.mouse.global.y;
+     visualMouseY = app.screen.height - mouseY;
   })
 const atlas = loadFile("./res/atlas/atlas.txt");
 const elements = readElements(atlas);
