@@ -53,6 +53,8 @@ function testingTmp(){
 function addCircle(){
     let circletexture = PIXI.Texture.from("res/img/circle.png");
     var tempSprite = displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
+
+    addToTree("Circle");
     
     undoStack.push([0, [tempSprite]]);
 }
@@ -61,12 +63,16 @@ function addSquare(){
     let squaretexture = PIXI.Texture.from("res/img/square.jpg");
     var tempSprite = displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
     
+    addToTree("Square");
+
     undoStack.push([0, [tempSprite]]);
 }
 
 function addTriangle(){
     let triangletexture = PIXI.Texture.from("res/img/triangle.png");
     var tempSprite = displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
+    
+    addToTree("Triangle");
 
     undoStack.push([0, [tempSprite]]);
 }

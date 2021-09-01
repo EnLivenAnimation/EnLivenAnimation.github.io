@@ -39,13 +39,6 @@ function setup() {
   background.on('click', disableButtons);
   app.stage.addChild(background);
 
-  // addSquare();
-  // addCircle();
-  // moveSpriteVisual(allSprites[1],0,300);
-  // setParentToChild(allSprites[0], allSprites[1]);
-  addHuman();
-  // removeParent(allSprites[0], allSprites[1]);
-
   let ctrl = keyboard("Control"),
     z = keyboard("z"),
     deleteKey = keyboard("Backspace"),

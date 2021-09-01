@@ -94,8 +94,8 @@ function readParents(atlas){
       var line = document.createElement("div");
       element.appendChild(elements);
       line.setAttribute("class", "timeline-dashed-horizontal");
-      document.getElementById("relations-list").appendChild(element);
-      document.getElementById("relations-list").appendChild(line);
+      // document.getElementById("relations-list").appendChild(element);
+      // document.getElementById("relations-list").appendChild(line);
     }
   }
   dropDown();
@@ -105,11 +105,6 @@ function readParents(atlas){
   // console.log(childNum);
   // console.log(array1);
   // console.log(array2);
-}
-function myFunction() {
-  var btn = document.createElement("BUTTON");
-  btn.innerHTML = "CLICK ME";
-  document.getElementById("relations").appendChild(btn);
 }
 
 function countDistinct(arr, n) {
