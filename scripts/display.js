@@ -124,19 +124,15 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   return DisplayedSprite;
 }
 
-function addASprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent) {
-    PIXI.loader(texture);
-    
-    var sprite = addCircle();
-    sprite.tint = 0xffffff;
+function displayImageAsSprite(texture, visualX, visualY, visualWidth, visualHeight) {
 
     DisplayedSprite = new Sprite(texture);
     DisplayedSprite.x = visualX;
     DisplayedSprite.y = -1*visualY+app.screen.height;
     DisplayedSprite.visualX = visualX;
     DisplayedSprite.visualY = visualY;
-    DisplayedSprite.originalWidth = DisplayedSprite.width;
-    DisplayedSprite.originalHeight = DisplayedSprite.height;
+    DisplayedSprite.originalWidth = visualWidth;
+    DisplayedSprite.originalHeight = visualHeight;
     DisplayedSprite.width = visualWidth;
     DisplayedSprite.height = visualHeight;
     DisplayedSprite.visualWidth = visualWidth;
@@ -146,9 +142,7 @@ function addASprite(texture, visualX, visualY, visualWidth, visualHeight, tint, 
     DisplayedSprite.interactive = true;
     DisplayedSprite.buttonMode = true;
     DisplayedSprite.anchor.set(0.5);
-    if (tint != null){
-        DisplayedSprite.tint = tint;
-    }
+    
     DisplayedSprite.timeline = [];
     DisplayedSprite.deletedTimeline = [];
     DisplayedSprite
@@ -165,17 +159,6 @@ function addASprite(texture, visualX, visualY, visualWidth, visualHeight, tint, 
     allSprites.push(DisplayedSprite);
   
     DisplayedSprite.directParent = null;
-    if (parent != null) {
-        parent.addChild(DisplayedSprite);
-        parent.spriteChildren.push(DisplayedSprite);
-  
-        DisplayedSprite.x = (visualX - parent.visualX)*parent.originalWidth/parent.visualWidth;
-        DisplayedSprite.y = (parent.visualY-visualY) * parent.originalHeight / parent.visualHeight;
-        DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
-        DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
-  
-        DisplayedSprite.directParent = parent;
-    }
   
     if (timelineLength > 0){
         for (i = 0; i < timelineLength; i++){
