@@ -16,13 +16,22 @@
             PIXI.loader
               .add(event.target.result);
             image.src = event.target.result;
-            imgWidth = image.width;
-            imgHeight = image.height;
+            // imgWidth = image.width;
+            // imgHeight = image.height;
             console.log(imgWidth);
             console.log(imgHeight);
             // let circletexture = PIXI.Texture.from(event.target.result);
-            let a = displaySprite(PIXI.Texture.from(event.target.result), 100, 100, 1000, 500);
+            // let a = displaySprite(PIXI.Texture.from(event.target.result), 100, 100, 100, 50);
            
+            // for (x in a.buttonArray){
+            //   let button = a.buttonArray[x];
+            //   button.alpha = 1;
+            //   console.log(button.height);
+            //   console.log(button.width);
+            // }
+
+            var btexture = PIXI.Texture.from(event.target.result);
+            displaySprite(btexture, 200, 200, 200, 100, null, null);
           });
           reader.readAsDataURL(file);
         }); 

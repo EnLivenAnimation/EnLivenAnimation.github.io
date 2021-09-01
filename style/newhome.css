@@ -272,6 +272,18 @@ hero2.scroll{
     background-size: cover;
 }
 
+.introduction-img-ed{
+    width:3000px;
+    height:5000px;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+    zoom:10%;
+}
+
 .introduction-text{
     text-align: left;
     font-size: 25px;
