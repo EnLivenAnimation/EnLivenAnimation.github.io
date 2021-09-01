@@ -111,10 +111,8 @@ function myFunction() {
   btn.innerHTML = "CLICK ME";
   document.getElementById("relations").appendChild(btn);
 }
-
 function countDistinct(arr, n) {
   let res = 1;
-
   for (let i = 1; i < n; i++) {
       let j = 0;
       for (j = 0; j < i; j++)
