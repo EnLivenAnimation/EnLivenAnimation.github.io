@@ -36,6 +36,8 @@
           reader.readAsDataURL(file);
         }); 
       }
+
+
       if (window.FileList && window.File && window.FileReader) {
         document.getElementById('file-BackgroundImg-selector').addEventListener('change', event => {
           const file = event.target.files[0];
@@ -50,7 +52,7 @@
             PIXI.loader
               .add(event.target.result);
             let bgTexture = PIXI.Texture.from(event.target.result);
-           addBackground(background,bgTexture);
+            addBackground(background,bgTexture);
             // add this to the timeline
             //output.src = event.target.result;
           });
