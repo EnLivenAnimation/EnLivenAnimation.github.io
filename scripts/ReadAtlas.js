@@ -75,8 +75,8 @@
 //   //document.getElementById("p1").innerHTML = parents[0];
 //   for(i = 0 ; i < parents.length;i++){
 //     if(i!=1){
-      var element = document.createElement("li");
-      var elements = document.createElement("span");
+//       var element = document.createElement("li");
+//       var elements = document.createElement("span");
 //       elements.setAttribute("class","caret");
 //       elements.innerHTML = parents[i];
 //       var childrens = document.createElement("ul");
@@ -94,8 +94,8 @@
 //       var line = document.createElement("div");
 //       element.appendChild(elements);
 //       line.setAttribute("class", "timeline-dashed-horizontal");
-      document.getElementById("relations-list").appendChild(element);
-      document.getElementById("relations-list").appendChild(line);
+//       document.getElementById("relations-list").appendChild(element);
+//       document.getElementById("relations-list").appendChild(line);
 //     }
 //   }
 //   dropDown();
@@ -109,25 +109,25 @@
 //reads the files and stuff, useless
 
 function myFunction() {
-  var btn = document.createElement("BUTTON");
-  btn.innerHTML = "CLICK ME";
-  document.getElementById("relations").appendChild("hello");
-}
-function countDistinct(arr, n) {
-  let res = 1;
-  for (let i = 1; i < n; i++) {
-      let j = 0;
-      for (j = 0; j < i; j++)
-          if (arr[i] === arr[j])
-              break;
-      if (i === j)
-          res++;
+    var btn = document.createElement("BUTTON");
+    btn.innerHTML = "CLICK ME";
+    document.getElementById("relations").appendChild("hello");
   }
-  return res;
-}
-
-
-// function readCoordinates(atlas) {
-//   const regex = /\d+,\d+,\d+,\d+/g;
-//   return atlas.match(regex);
-// }
+  function countDistinct(arr, n) {
+    let res = 1;
+    for (let i = 1; i < n; i++) {
+        let j = 0;
+        for (j = 0; j < i; j++)
+            if (arr[i] === arr[j])
+                break;
+        if (i === j)
+            res++;
+    }
+    return res;
+  }
+  
+  
+  // function readCoordinates(atlas) {
+  //   const regex = /\d+,\d+,\d+,\d+/g;
+  //   return atlas.match(regex);
+  // }

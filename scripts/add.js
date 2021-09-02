@@ -48,13 +48,26 @@ function testingTmp(){
     displaySprite(circletexture, 300, 300, 500, 10, 0xeeee55, null);
 }
 
+function addBlankSprite(){
+    var sprite = addCircle();
+    sprite.tint = 0xffffff;
+    
+    return sprite;
+}
 
+function addSprite(texture){
+    var sprite = displaySprite(texture, 200, 200, texture.width, texture.height, null, null);
+    
+    return sprite;
+}
 
 function addCircle(){
     let circletexture = PIXI.Texture.from("res/img/circle.png");
     var tempSprite = displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
     
     undoStack.push([0, [tempSprite]]);
+
+    return tempSprite;
 }
 
 function addSquare(){
@@ -72,7 +85,7 @@ function addTriangle(){
 }
 
 function addHuman(){
-    let spritesheet = PIXI.utils.TextureCache["res/img/justin-sheet.png"];
+    let spritesheet = PIXI.utils.TextureCache["res/img/spritesheet-human.png"];
     let textureHead = new PIXI.Texture(spritesheet);
     let textureTorso = new PIXI.Texture(spritesheet);
     let textureLeftArm = new PIXI.Texture(spritesheet);
