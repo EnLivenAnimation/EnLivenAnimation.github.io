@@ -13,28 +13,32 @@ class TreeNode {
 
 function startTree(){
     let root = TreeNode("Stage");
+    return root;
 }
 
-function addNode(sprite){
+let treeRoot = startTree();
+
+function addSpriteToTree(sprite){
 
 }
 
 function addSpriteToStage(sprite){
-
+    treeRoot.children.push(sprite);
+    addToTreeview(sprite.nodeName);
 }
 
 function generateNameFromTexture(texture){
-    switch (texture) {
-        case circletexture:
+    switch (texture.baseTexture.uid) {
+        case circletexture.baseTexture.uid:
             circleCount++;
             return "Circle " + circleCount;
-        case squaretexture:
+        case squaretexture.baseTexture.uid:
             squareCount++;
             return "Square " + squareCount;
-        case triangletexture:
+        case triangletexture.baseTexture.uid:
             triangleCount++;
             return "Triangle " + triangleCount;
-        case textureTorso:
+        case textureTorso.baseTexture.uid:
             humanCount++;
             return "Torso " + humanCount;
         case textureHead:
@@ -48,11 +52,12 @@ function generateNameFromTexture(texture){
         case textureRightLeg:
             return "Head " + humanCount;
         default:
+            imageCount++;
             return "Image " + imageCount;    
     }
 }
 
-function addToTree(string){
+function addToTreeview(string){
     // document.getElementById("relations-list").appendChild(string);
 
     var li = document.createElement('li');
