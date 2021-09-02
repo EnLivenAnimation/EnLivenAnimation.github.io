@@ -38,23 +38,13 @@ function deleteSprite(sprite){
     selectedSprite = holdingSelectedSprite;
 }
 
-function testingTmp(){
-    let circletexture = PIXI.Texture.from("res/img/circle.png");
-    let triangletexture = PIXI.Texture.from("res/img/triangle.png");
-    displaySprite(circletexture, 200, 200, 10, 500, 0x117711, null);
-    displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
-    displaySprite(circletexture, 200, 200, 10, 250, 0x117711, null);
-    displaySprite(circletexture, 200, 200, 250, 10, 0x117711, null);
-    displaySprite(circletexture, 300, 300, 500, 10, 0xeeee55, null);
-}
-
-
 
 function addCircle(){
     let circletexture = PIXI.Texture.from("res/img/circle.png");
     var tempSprite = displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
 
-    addToTree("Circle");
+    addToTree("Circle " + circleCount);
+    circleCount++;
     
     undoStack.push([0, [tempSprite]]);
 }
@@ -63,7 +53,8 @@ function addSquare(){
     let squaretexture = PIXI.Texture.from("res/img/square.jpg");
     var tempSprite = displaySprite(squaretexture, 200, 200, 120, 120, 0xcccc00, null);
     
-    addToTree("Square");
+    addToTree("Square " + squareCount);
+    squareCount++;
 
     undoStack.push([0, [tempSprite]]);
 }
@@ -72,7 +63,8 @@ function addTriangle(){
     let triangletexture = PIXI.Texture.from("res/img/triangle.png");
     var tempSprite = displaySprite(triangletexture, 200, 200, 120, 120, 0xcc0000, null);
     
-    addToTree("Triangle");
+    addToTree("Triangle " + triangleCount);
+    triangleCount++;
 
     undoStack.push([0, [tempSprite]]);
 }
@@ -110,6 +102,14 @@ function addHuman(){
     
     textureRightLeg.frame = rightlegrectangle;
     displaySprite(textureRightLeg, 225, 75, 50, 129, null, torsoSprite);
+
+    addToTree("Torso " + humanCount);
+    addToTree("Head " + humanCount);
+    addToTree("Left Arm " + humanCount);
+    addToTree("Right Arm " + humanCount);
+    addToTree("Left Leg " + humanCount);
+    addToTree("Right Leg " + humanCount);
+    humanCount++;
 
     undoStack.push([0, [torsoSprite]]);
 }

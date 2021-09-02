@@ -1,5 +1,7 @@
 function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tint, parent) {
+
   DisplayedSprite = new Sprite(texture);
+
   DisplayedSprite.x = visualX;
   DisplayedSprite.y = -1*visualY+app.screen.height;
   DisplayedSprite.visualX = visualX;
@@ -10,7 +12,9 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.height = visualHeight;
   DisplayedSprite.visualWidth = visualWidth;
   DisplayedSprite.visualHeight = visualHeight;
+
   DisplayedSprite.indexinAllSprites = allSprites.length;
+
   DisplayedSprite.d = [0, 0, 0, 0, 0];
   DisplayedSprite.interactive = true;
   DisplayedSprite.buttonMode = true;
@@ -20,12 +24,16 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   }
   DisplayedSprite.timeline = [];
   DisplayedSprite.deletedTimeline = [];
+
+  DisplayedSprite.nodeName = generateNameFromTexture(texture);
+
   DisplayedSprite
     .on('pointerdown', onDragStartSprite)
     .on('pointerup', onDragEndSprite)
     .on('pointerupoutside', onDragEndSprite)
     .on('pointermove', onDragMoveSprite)
     .on('click', enableButtons);
+
   DisplayedSprite.spriteChildren = [];
 
   DisplayedSprite.deleted = false;

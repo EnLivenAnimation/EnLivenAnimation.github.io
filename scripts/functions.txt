@@ -4,8 +4,6 @@ deleteSelectedSprite()
 
 addCircle()
 
-testingTmp()
-
 addSquare()
 
 addTriangle()
