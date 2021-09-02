@@ -14,3 +14,11 @@ function addDefault(){
 function addYourName(){
   addBackground(background,gg)
 }
+let ColorSprite = null;
+function changeColor(){
+  let newColor = document.getElementById("colorpicker").value;
+  
+  if (newColor != null){
+      ColorSprite.tint = "0x" + newColor.substring(1);
+  }
+}
