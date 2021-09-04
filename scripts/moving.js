@@ -81,7 +81,7 @@ function onDragMoveSprite() {
             if (visualMouseY > app.screen.height){
                 this.y = 0;
             }
-            if (visualMouseY < 0){
+             if (visualMouseY - this.visualHeight/2  <= 0){
                 this.y = app.screen.height;
             }
         }
