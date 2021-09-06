@@ -26,6 +26,8 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.deletedTimeline = [];
 
   DisplayedSprite.nodeName = generateNameFromTexture(texture);
+  DisplayedSprite.node = createNodeForSprite(DisplayedSprite);
+  addNodeToTree(DisplayedSprite);
 
   DisplayedSprite
     .on('pointerdown', onDragStartSprite)

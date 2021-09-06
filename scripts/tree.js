@@ -5,26 +5,40 @@ let humanCount = 0;
 let imageCount = 0;
 
 class TreeNode {
-    constructor(value) {
-      this.value = value;
-      this.children = [];
+    constructor(sprite) {
+        this.sprite = sprite;
+        this.name = sprite.nodeName;
+        this.children = [];
+        return this;
     }
 }
 
-function startTree(){
-    let root = TreeNode("Stage");
-    return root;
+class TreeRootNode {
+    constructor() {
+        this.name = "Stage";
+        this.children = [];
+        return this;
+    }
 }
 
-let treeRoot = startTree();
+var treeRoot = new TreeRootNode();
 
-function addSpriteToTree(sprite){
+console.log(treeRoot);
 
+function createNodeForSprite(sprite){
+    let node = new TreeNode(sprite);
+    return node;
 }
 
-function addSpriteToStage(sprite){
-    treeRoot.children.push(sprite);
-    addToTreeview(sprite.nodeName);
+function addNodeToTree(sprite){
+    if (sprite.directParent == null){
+        console.log("bruh");
+        treeRoot.children.push(sprite.node);
+    }
+    else{
+        sprite.directParent.node.children.push(sprite.node);
+    }
+    addToTreeview(sprite);
 }
 
 function generateNameFromTexture(texture){
@@ -38,32 +52,35 @@ function generateNameFromTexture(texture){
         case triangletexture.baseTexture.uid:
             triangleCount++;
             return "Triangle " + triangleCount;
-        case textureTorso.baseTexture.uid:
+        case torsoTexture.baseTexture.uid:
             humanCount++;
             return "Torso " + humanCount;
-        case textureHead:
+        case headTexture.baseTexture.uid:
             return "Head " + humanCount;
-        case textureLeftArm:
-            return "Head " + humanCount;
-        case textureRightArm:
-            return "Head " + humanCount;
-        case textureLeftLeg:
-            return "Head " + humanCount;
-        case textureRightLeg:
-            return "Head " + humanCount;
+        case leftArmTexture.baseTexture.uid:
+            return "Left Arm " + humanCount;
+        case rightArmTexture.baseTexture.uid:
+            return "Right Arm " + humanCount;
+        case leftLegTexture.baseTexture.uid:
+            return "Left Leg " + humanCount;
+        case rightLegTexture.baseTexture.uid:
+            return "Right Leg " + humanCount;
         default:
             imageCount++;
             return "Image " + imageCount;    
     }
 }
 
-function addToTreeview(string){
+function addToTreeview(sprite){
     // document.getElementById("relations-list").appendChild(string);
+
+    let string = sprite.nodeName;
 
     var li = document.createElement('li');
 
     document.getElementById('relations-list').appendChild(li);
 
+    console.log("hi");
     li.innerHTML += string;
     // items.forEach(function (item) {
     //     let li = document.createElement('li');
