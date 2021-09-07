@@ -25,6 +25,7 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.timeline = [];
   DisplayedSprite.deletedTimeline = [];
 
+  console.log(texture);
   DisplayedSprite.nodeName = generateNameFromTexture(texture);
   DisplayedSprite.node = createNodeForSprite(DisplayedSprite);
   addNodeToTree(DisplayedSprite);

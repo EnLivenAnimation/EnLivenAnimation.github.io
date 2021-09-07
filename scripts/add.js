@@ -60,7 +60,7 @@ function addTriangle(){
 // function addHuman(){
 //     let spritesheet = PIXI.utils.TextureCache["res/img/spritesheet-human.png"];
 //     let textureHead = new PIXI.Texture(spritesheet);
-//     let textureTorso = new PIXI.Texture(spritesheet);
+//     let torsoTexture = new PIXI.Texture(spritesheet);
 //     let textureLeftArm = new PIXI.Texture(spritesheet);
 //     let textureRightArm = new PIXI.Texture(spritesheet);
 //     let textureLeftLeg = new PIXI.Texture(spritesheet);
@@ -73,8 +73,8 @@ function addTriangle(){
 //     let rightlegrectangle = new Rectangle(373,313,100,258);
 //     let leftlegrectangle = new Rectangle(212,320,83,266);
 
-//     textureTorso.frame = torsorectangle;
-//     let torsoSprite = displaySprite(textureTorso, 200, 203, 78, 149, null, null);
+//     torsoTexture.frame = torsorectangle;
+//     let torsoSprite = displaySprite(torsoTexture, 200, 203, 78, 149, null, null);
 
 //     textureHead.frame = headrectangle;
 //     displaySprite(textureHead, 200, 313, 88, 88, null, torsoSprite);
@@ -103,9 +103,13 @@ function addTriangle(){
 // }
 
 function addHuman(){
+    humanCount++;
+    
+    addArrayToNodeNameQueue(["Torso " + humanCount, "Head " + humanCount, "Left Arm " + humanCount, "Right Arm " + humanCount, "Left Leg " + humanCount, "Right Leg " + humanCount]);
+    
     let spritesheet = PIXI.utils.TextureCache["res/img/spritesheet-human.png"];
     let textureHead = new PIXI.Texture(spritesheet);
-    let textureTorso = new PIXI.Texture(spritesheet);
+    let torsoTexture = new PIXI.Texture(spritesheet);
     let textureLeftArm = new PIXI.Texture(spritesheet);
     let textureRightArm = new PIXI.Texture(spritesheet);
     let textureLeftLeg = new PIXI.Texture(spritesheet);
@@ -118,8 +122,8 @@ function addHuman(){
     let rightlegrectangle = new Rectangle(373,313,100,258);
     let leftlegrectangle = new Rectangle(212,320,83,266);
 
-    textureTorso.frame = torsorectangle;
-    let torsoSprite = displaySprite(textureTorso, 200, 203, 78, 149, null, null);
+    torsoTexture.frame = torsorectangle;
+    let torsoSprite = displaySprite(torsoTexture, 200, 203, 78, 149, null, null);
 
     textureHead.frame = headrectangle;
     displaySprite(textureHead, 200, 313, 88, 88, null, torsoSprite);

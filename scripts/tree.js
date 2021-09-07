@@ -4,23 +4,6 @@ let triangleCount = 0;
 let humanCount = 0;
 let imageCount = 0;
 
-class TreeNode {
-    constructor(sprite) {
-        this.sprite = sprite;
-        this.name = sprite.nodeName;
-        this.children = [];
-        return this;
-    }
-}
-
-class TreeRootNode {
-    constructor() {
-        this.name = "Stage";
-        this.children = [];
-        return this;
-    }
-}
-
 var treeRoot = new TreeRootNode();
 
 console.log(treeRoot);
@@ -55,19 +38,26 @@ function generateNameFromTexture(texture){
         case torsoTexture.baseTexture.uid:
             humanCount++;
             return "Torso " + humanCount;
-        case headTexture.baseTexture.uid:
-            return "Head " + humanCount;
-        case leftArmTexture.baseTexture.uid:
-            return "Left Arm " + humanCount;
-        case rightArmTexture.baseTexture.uid:
-            return "Right Arm " + humanCount;
-        case leftLegTexture.baseTexture.uid:
-            return "Left Leg " + humanCount;
-        case rightLegTexture.baseTexture.uid:
-            return "Right Leg " + humanCount;
         default:
-            imageCount++;
-            return "Image " + imageCount;    
+            console.log(nodeNameQueue);
+            if (nodeNameQueue.length() > 0){
+                return nodeNameQueue.dequeue();
+            }
+            else{
+                return "Image " + imageCount;
+            }
+    }
+}
+
+let nodeNameQueue = new Queue();
+
+function addStringToNodeNameQueue(string){
+    nodeNameQueue.enqueue(string);
+}
+
+function addArrayToNodeNameQueue(array){
+    for (x in array){
+        addStringToNodeNameQueue(array[x]);
     }
 }
 
