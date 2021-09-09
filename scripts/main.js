@@ -39,7 +39,12 @@ function setup() {
   background.on('click', disableButtons);
   app.stage.addChild(background);
 
-  let ctrl = keyboard("Control"),
+  addHuman();
+
+};
+
+
+let ctrl = keyboard("Control"),
     z = keyboard("z"),
     deleteKey = keyboard("Backspace"),
     altKey = keyboard("Alt"),
@@ -49,7 +54,6 @@ ctrl.press = () => {
     z.press = () => {
         undo();
     }
-};
 deleteKey.press = () =>{
     deleteSelectedSprite();
 }

@@ -16,7 +16,7 @@
 
 #grid {
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 2fr 5fr 1fr;
   grid-template-rows: auto 10fr 2fr;
   grid-gap: 0.5em;
 
@@ -139,6 +139,20 @@ ul {
   list-style-type: circle;
   margin-left: 1em;
 }
+
+/* .tier1 {
+  list-style-type: circle;
+  margin-left: 1em;
+}
+
+.tier2 {
+  list-style-type: circle;
+  margin-left: 1em;
+}
+
+.tier3 {
+  margin-left: 5em;
+} */
 
 .caret {
   cursor: pointer;

@@ -25,11 +25,6 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   DisplayedSprite.timeline = [];
   DisplayedSprite.deletedTimeline = [];
 
-  console.log(texture);
-  DisplayedSprite.nodeName = generateNameFromTexture(texture);
-  DisplayedSprite.node = createNodeForSprite(DisplayedSprite);
-  addNodeToTree(DisplayedSprite);
-
   DisplayedSprite
     .on('pointerdown', onDragStartSprite)
     .on('pointerup', onDragEndSprite)
@@ -59,6 +54,13 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
       DisplayedSprite.IDinParentChildren = parent.spriteChildren.length;
       DisplayedSprite.directParent = parent;
   }
+
+  //   console.log(texture);
+  DisplayedSprite.nodeFrontEnd = null;
+  DisplayedSprite.innerListFrontEnd = null;
+  DisplayedSprite.nodeName = generateNameFromTexture(texture);
+  DisplayedSprite.node = createNodeForSprite(DisplayedSprite);
+  addNodeToTree(DisplayedSprite);
 
   if (timelineLength > 0){
       for (i = 0; i < timelineLength; i++){
