@@ -49,12 +49,19 @@ function testingTmp(){
 }
 
 
+function addSprite(texture){
+    var sprite = displaySprite(texture, 200, 200, texture.width, texture.height, null, null);
+    
+    return sprite;
+}
 
 function addCircle(){
     let circletexture = PIXI.Texture.from("res/img/circle.png");
     var tempSprite = displaySprite(circletexture, 200, 200, 120, 120, 0xcc00cc, null);
     
     undoStack.push([0, [tempSprite]]);
+
+    return tempSprite;
 }
 
 function addSquare(){
@@ -94,7 +101,7 @@ function addHuman(){
     displaySprite(textureHead, 200, 313, 88, 88, null, torsoSprite);
 
     textureLeftArm.frame = leftarmrectangle;
-    displaySprite(textureLeftArm, 142, 200, 52, 130, null, torsoSprite);
+    (textureLeftArm, 142, 200, 52, 130, null, torsoSprite);
 
     textureRightArm.frame = rightarmrectangle;
     displaySprite(textureRightArm, 253, 200, 43, 133, null, torsoSprite);

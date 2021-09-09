@@ -15,10 +15,9 @@
   <script src="scripts/pixi/pixi.min.js"></script>
   <!-- FRONTEND SCRIPTS -->
   <script src="scripts/navbar.js" async></script>
-  <script src="scripts/home-navbar.js" async></script>
   <script src="scripts/properties.js" async></script>
   <script src="scripts/treeview.js" async></script>
-  <script src="scripts/import.js" async></script>
+  <script src="scripts/importImg.js" async></script>
   <!-- BACKEND SCRIPTS -->
   <script src="scripts/display.js" async></script>
   <script src="scripts/buttons.js" async></script>
@@ -41,8 +40,14 @@
   <script src="scripts/main.js" async></script>
 </head>
 
+<!-- <input type="file" id="file-selector">
+    <p id="status"></p>
+    <div>
+      <img id="output">
+    </div> -->
 <body>
   <div id="grid">
+ 
     <!-- TOP NAVBAR -->
     <div id="navbar">
       <a id="home" class="navbar-button" href="newhome.html"><i class="fas fa-leaf"></i></a>
@@ -50,6 +55,8 @@
         <button onclick="displayDropdown('file-dropdown')" class="navbar-button">File</button>
         <div id="file-dropdown" class="dropdown-content">
           <a href="javascript:location.reload(true)">New File</a>
+          <label for="file-import" class="custom-file-upload">Import
+          <input type="file" id="file-import" multiple></label>
           <button onclick="exportE()">Export</button>
         </div>
       </div>
@@ -79,6 +86,8 @@
           <button onclick="addSquare();">Square</button>
           <button onclick="addTriangle();">Triangle</button>
           <button onclick="addHuman();">Human</button>
+          <label for="file-Img-selector" class="custom-file-upload">AddSprite</label>
+          <input type="file" id="file-Img-selector">
         </div>
       </div>
 
@@ -90,6 +99,8 @@
         <button onclick="addDefault();">Default</button>
         <button onclick="addBlackBackground();">BlackBackground</button>
         <button onclick="addYourName();">YourNameBackground</button>
+        <label for="file-BackgroundImg-selector" class="custom-file-upload">AddBg</label>
+          <input type="file" id="file-BackgroundImg-selector">
       </div>
 
     </div>

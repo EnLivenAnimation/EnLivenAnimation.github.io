@@ -40,15 +40,9 @@ function onDragEndSprite() {
     while (currSprite.directParent != null) {
         currSprite.directParent.interactive = true;
         currSprite = currSprite.directParent;
-    }
-
-    // console.log("bruh");
-
-    // console.log(xi + " " + yi);
-    
+    }  
     setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
 }
-
 
 function onDragMoveSprite() {
     if (this.dragging) {
@@ -87,8 +81,6 @@ function onDragMoveSprite() {
         }
     }
 }
-
-
 function moveSpriteVisual(sprite, vx, vy){ // takes in visual values
     sprite.x += visualXtoX(sprite, vx);
     sprite.y -= visualYtoY(sprite, vy);

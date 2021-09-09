@@ -31,7 +31,7 @@ function resetVisualValues(sprite) {
         sprite.visualWidth = sprite.width*parent.visualWidth/parent.originalWidth;
         sprite.visualHeight = sprite.height*parent.visualHeight/parent.originalHeight;
     }
-}
+  }
 }
 
 

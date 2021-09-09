@@ -68,6 +68,10 @@
   background-color: #4a4a4a;
 }
 
+label:hover{
+  background-color: var(--light-green);
+}
+
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
@@ -113,12 +117,10 @@
 
 .dropdown-content label {
   display: inline-block;
-  background-color: var(--dark-grey);
   color: var(--white);
   padding: 6px 8px;
   cursor: pointer;
-  width: 95%;
-  margin-top: 20px;
+  width: 90%;
 }
 /*
 .dropdown-content label:hover {
