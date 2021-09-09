@@ -40,15 +40,9 @@ function onDragEndSprite() {
     while (currSprite.directParent != null) {
         currSprite.directParent.interactive = true;
         currSprite = currSprite.directParent;
-    }
-
-    // console.log("bruh");
-
-    // console.log(xi + " " + yi);
-    
+    }  
     setPropertyPanelValues(this.visualX, this.visualY, this.visualWidth, this.visualHeight, this.rotation);
 }
-
 
 function onDragMoveSprite() {
     if (this.dragging) {
@@ -81,14 +75,12 @@ function onDragMoveSprite() {
             if (visualMouseY > app.screen.height){
                 this.y = 0;
             }
-            if (visualMouseY - this.visualHeight/2 + this.visualY < 0){
+            if (visualMouseY - this.visualHeight/2  <= 0){
                 this.y = app.screen.height;
             }
         }
     }
 }
-
-
 function moveSpriteVisual(sprite, vx, vy){ // takes in visual values
     sprite.x += visualXtoX(sprite, vx);
     sprite.y -= visualYtoY(sprite, vy);

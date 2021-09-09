@@ -48,12 +48,6 @@ function testingTmp(){
     displaySprite(circletexture, 300, 300, 500, 10, 0xeeee55, null);
 }
 
-function addBlankSprite(){
-    var sprite = addCircle();
-    sprite.tint = 0xffffff;
-    
-    return sprite;
-}
 
 function addSprite(texture){
     var sprite = displaySprite(texture, 200, 200, texture.width, texture.height, null, null);
@@ -107,7 +101,7 @@ function addHuman(){
     displaySprite(textureHead, 200, 313, 88, 88, null, torsoSprite);
 
     textureLeftArm.frame = leftarmrectangle;
-    displaySprite(textureLeftArm, 142, 200, 52, 130, null, torsoSprite);
+    (textureLeftArm, 142, 200, 52, 130, null, torsoSprite);
 
     textureRightArm.frame = rightarmrectangle;
     displaySprite(textureRightArm, 253, 200, 43, 133, null, torsoSprite);

@@ -49,7 +49,7 @@ const itr = app.renderer.plugins.interaction;
      mouseY = itr.mouse.global.y;
      visualMouseY = app.screen.height - mouseY;
   })
-const atlas = loadFile("./res/atlas/atlas.txt");
-const elements = readElements(atlas);
-const coordinates = readCoordinates(atlas);
-const parents = readParents(atlas);
+// const atlas = loadFile("./res/atlas/atlas.txt");
+// const elements = readElements(atlas);
+// const coordinates = readCoordinates(atlas);
+// const parents = readParents(atlas);
