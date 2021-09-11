@@ -45,14 +45,13 @@ function displaySprite(texture, visualX, visualY, visualWidth, visualHeight, tin
   if (parent != null) {
       parent.addChild(DisplayedSprite);
       parent.spriteChildren.push(DisplayedSprite);
-
-      DisplayedSprite.x = (visualX - parent.visualX)*parent.originalWidth/parent.visualWidth;
-      DisplayedSprite.y = (parent.visualY-visualY) * parent.originalHeight / parent.visualHeight;
-      DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
-      DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
-
       DisplayedSprite.IDinParentChildren = parent.spriteChildren.length;
       DisplayedSprite.directParent = parent;
+
+      DisplayedSprite.x = visualXtoX(DisplayedSprite, visualX);
+      DisplayedSprite.y = visualYtoY(DisplayedSprite, visualY);
+      DisplayedSprite.width = visualWidth*parent.originalWidth/parent.visualWidth;
+      DisplayedSprite.height = visualHeight*parent.originalHeight/parent.visualHeight;
   }
 
   //   console.log(texture);

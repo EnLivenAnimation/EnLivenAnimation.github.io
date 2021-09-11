@@ -91,7 +91,7 @@ function onDragMoveSprite() {
 
 
 function moveSpriteVisual(sprite, vx, vy){ // takes in visual values
-    sprite.x += visualXtoX(sprite, vx);
+    sprite.x += visualDXtoDX(sprite, vx);
     sprite.y -= visualYtoY(sprite, vy);
     closing(sprite);
 }

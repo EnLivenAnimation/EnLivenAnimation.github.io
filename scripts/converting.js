@@ -4,7 +4,17 @@ function visualXtoX(sprite, visualX){
     }
     else{
         let parent = sprite.directParent;
-        return visualX * parent.originalWidth / parent.visualWidth;
+        return (visualX - parent.visualX) * parent.originalWidth / parent.visualWidth;
+    }
+}
+
+function visualDXtoDX(sprite, visualDX){
+    if (sprite.directParent == null){
+        return visualDX;
+    }
+    else{
+        let parent = sprite.directParent;
+        return visualDX * parent.originalWidth / parent.visualWidth;
     }
 }
 
@@ -24,7 +34,17 @@ function visualYtoY(sprite, visualY){
     }
     else{
         let parent = sprite.directParent;
-        return (app.screen.height - visualY) * parent.originalHeight / parent.visualHeight;
+        return (parent.visualY - visualY) * parent.originalHeight / parent.visualHeight;
+    }
+}
+
+function visualDYtoDY(sprite, visualDY){
+    if (sprite.directParent == null){
+        return app.screen.height - visualDY;
+    }
+    else{
+        let parent = sprite.directParent;
+        return (app.screen.height - visualDY) * parent.originalHeight / parent.visualHeight;
     }
 }
 
